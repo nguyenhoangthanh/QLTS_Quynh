@@ -69,6 +69,7 @@ namespace QLTS.BLL
             _TENCOSO = TENCOSO;
             _DIACHI = DIACHI;
             _SUBID = SUBID;
+            _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;
             _NGAYSUADOI = NGAYSUADOI;
         }

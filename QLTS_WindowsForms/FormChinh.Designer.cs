@@ -43,6 +43,8 @@
             // 
             // buttonCOSO
             // 
+            this.buttonCOSO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCOSO.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonCOSO.Location = new System.Drawing.Point(108, 83);
             this.buttonCOSO.Name = "buttonCOSO";
             this.buttonCOSO.Size = new System.Drawing.Size(171, 81);
@@ -53,6 +55,8 @@
             // 
             // buttonKHU
             // 
+            this.buttonKHU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKHU.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonKHU.Location = new System.Drawing.Point(285, 83);
             this.buttonKHU.Name = "buttonKHU";
             this.buttonKHU.Size = new System.Drawing.Size(171, 81);
@@ -63,6 +67,7 @@
             // buttonTANG
             // 
             this.buttonTANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTANG.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonTANG.Location = new System.Drawing.Point(462, 83);
             this.buttonTANG.Name = "buttonTANG";
             this.buttonTANG.Size = new System.Drawing.Size(171, 81);
@@ -72,6 +77,8 @@
             // 
             // buttonPHONG
             // 
+            this.buttonPHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPHONG.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonPHONG.Location = new System.Drawing.Point(108, 170);
             this.buttonPHONG.Name = "buttonPHONG";
             this.buttonPHONG.Size = new System.Drawing.Size(171, 81);
@@ -81,6 +88,8 @@
             // 
             // buttonTAISANPHONG
             // 
+            this.buttonTAISANPHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTAISANPHONG.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonTAISANPHONG.Location = new System.Drawing.Point(285, 170);
             this.buttonTAISANPHONG.Name = "buttonTAISANPHONG";
             this.buttonTAISANPHONG.Size = new System.Drawing.Size(171, 81);
@@ -90,6 +99,8 @@
             // 
             // buttonTAISAN
             // 
+            this.buttonTAISAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTAISAN.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonTAISAN.Location = new System.Drawing.Point(462, 170);
             this.buttonTAISAN.Name = "buttonTAISAN";
             this.buttonTAISAN.Size = new System.Drawing.Size(171, 81);
@@ -99,15 +110,19 @@
             // 
             // buttonLOAITAISAN
             // 
+            this.buttonLOAITAISAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLOAITAISAN.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonLOAITAISAN.Location = new System.Drawing.Point(108, 259);
             this.buttonLOAITAISAN.Name = "buttonLOAITAISAN";
             this.buttonLOAITAISAN.Size = new System.Drawing.Size(171, 81);
             this.buttonLOAITAISAN.TabIndex = 0;
-            this.buttonLOAITAISAN.Text = "Quản lý loại tài sản";
+            this.buttonLOAITAISAN.Text = "Thống kê báo cáo";
             this.buttonLOAITAISAN.UseVisualStyleBackColor = true;
             // 
             // buttonPHANQUYEN
             // 
+            this.buttonPHANQUYEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPHANQUYEN.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonPHANQUYEN.Location = new System.Drawing.Point(285, 259);
             this.buttonPHANQUYEN.Name = "buttonPHANQUYEN";
             this.buttonPHANQUYEN.Size = new System.Drawing.Size(171, 81);
@@ -117,6 +132,8 @@
             // 
             // buttonLOGHETHONG
             // 
+            this.buttonLOGHETHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLOGHETHONG.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonLOGHETHONG.Location = new System.Drawing.Point(462, 259);
             this.buttonLOGHETHONG.Name = "buttonLOGHETHONG";
             this.buttonLOGHETHONG.Size = new System.Drawing.Size(171, 81);

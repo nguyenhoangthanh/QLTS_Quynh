@@ -28,9 +28,13 @@ namespace QLTS.DAL
 
                 while (rdr.Read())
                 {
-                    bizCOSO s = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+                    bizCOSO s = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["MOTA"].ToString(), rdr["SUBID"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
                     result.Add(s);
                 }
+            }
+            catch
+            {
+                return null;
             }
             finally
             {
@@ -64,7 +68,11 @@ namespace QLTS.DAL
                 // get query results
                 rdr = cmd.ExecuteReader();
                 rdr.Read();
-                result = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+                result = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["MOTA"].ToString(), rdr["SUBID"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+            }
+            catch
+            {
+                return null;
             }
             finally
             {
@@ -95,9 +103,8 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                //MessageBox.Show(e.ToString());
                 return false;
             }
             finally
@@ -108,7 +115,6 @@ namespace QLTS.DAL
                     conn.Close();
                 }
             }
-
             return true;
         }
 
@@ -126,9 +132,8 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                //MessageBox.Show(e.ToString());
                 return false;
             }
             finally
@@ -156,7 +161,7 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }

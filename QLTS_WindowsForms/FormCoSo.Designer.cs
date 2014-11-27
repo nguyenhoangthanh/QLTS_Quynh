@@ -44,13 +44,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.MACOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYSUADOI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MACOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +61,13 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MACOSO,
             this.SUBID,
             this.TENCOSO,
             this.DIACHI,
             this.MOTA,
             this.NGAYTAO,
-            this.NGAYSUADOI,
-            this.MACOSO});
+            this.NGAYSUADOI});
             this.dataGridView.Location = new System.Drawing.Point(12, 35);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -229,6 +229,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã cơ sở";
             // 
+            // MACOSO
+            // 
+            this.MACOSO.DataPropertyName = "MACOSO";
+            this.MACOSO.HeaderText = "ID";
+            this.MACOSO.Name = "MACOSO";
+            this.MACOSO.ReadOnly = true;
+            this.MACOSO.Visible = false;
+            // 
             // SUBID
             // 
             this.SUBID.DataPropertyName = "SUBID";
@@ -271,14 +279,6 @@
             this.NGAYSUADOI.Name = "NGAYSUADOI";
             this.NGAYSUADOI.ReadOnly = true;
             // 
-            // MACOSO
-            // 
-            this.MACOSO.DataPropertyName = "MACOSO";
-            this.MACOSO.HeaderText = "ID";
-            this.MACOSO.Name = "MACOSO";
-            this.MACOSO.ReadOnly = true;
-            this.MACOSO.Visible = false;
-            // 
             // FormCoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,12 +319,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonHuyBo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MACOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENCOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIACHI;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYTAO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYSUADOI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MACOSO;
     }
 }

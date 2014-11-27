@@ -50,6 +50,8 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                panel.Visible = false;
+                buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     COSO = dalCOSO.getbyid(IDCOSO);
@@ -57,7 +59,10 @@ namespace QLTS_WindowsForms
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                        if (dataGridView.RowCount > 0)
+                        {
+                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                        }
                     }
                     else
                     {
