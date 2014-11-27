@@ -4,4 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     Nguyễn Thị Quỳnh
+    <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="MACOSO" HeaderText="ID" Visible="False" />
+            <asp:BoundField DataField="SUBID" HeaderText="Mã cơ sở" />
+            <asp:BoundField DataField="TENCOSO" HeaderText="Tên cơ sở" />
+            <asp:BoundField DataField="DIACHI" HeaderText="Địa chỉ" />
+        </Columns>
+    </asp:GridView>
+&nbsp;
 </asp:Content>
