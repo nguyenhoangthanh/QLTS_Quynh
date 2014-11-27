@@ -21,5 +21,11 @@ namespace QLTS_WindowsForms
             FormCoSo frm = new FormCoSo();
             frm.Show();            
         }
+
+        private void buttonKHU_Click(object sender, EventArgs e)
+        {
+            FormKhu frm = new FormKhu();
+            frm.Show();
+        }
     }
 }

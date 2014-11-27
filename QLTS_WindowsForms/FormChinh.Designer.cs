@@ -63,6 +63,7 @@
             this.buttonKHU.TabIndex = 0;
             this.buttonKHU.Text = "Quản lý khu";
             this.buttonKHU.UseVisualStyleBackColor = true;
+            this.buttonKHU.Click += new System.EventHandler(this.buttonKHU_Click);
             // 
             // buttonTANG
             // 

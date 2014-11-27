@@ -13,10 +13,11 @@ namespace QLTS_WindowsForms
 {
     public partial class FormKhu : Form
     {
-        public bizCOSO COSO = new bizCOSO();
-        public List<bizCOSO> listCOSO = new List<bizCOSO>();
+        bizKHU KHU = new bizKHU();
+        List<bizKHU> ListKHU = new List<bizKHU>();
+        List<bizCOSO> ListCOSO = new List<bizCOSO>();
         public string TinhTrang = "";
-        public int IDCOSO = 0;
+        public int IDKHU = 0;
         public FormKhu()
         {
             InitializeComponent();
@@ -27,9 +28,20 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                listCOSO = dalCOSO.getall();
+                ListKHU = dalKHU.getall();
+                var ListKHUCustom = ListKHU.Select(item => new
+                {
+                    ID = item.ID,
+                    SUBID = item.SUBID,
+                    TEN = item.TEN,
+                    TENCOSO = item.COSO.TENCOSO,
+                    MOTA = item.MOTA,
+                    NGAYTAO = item.NGAYTAO,
+                    NGAYSUA = item.NGAYSUA
+                }).ToList();
+
                 dataGridView.AutoGenerateColumns = false;
-                dataGridView.DataSource = listCOSO;
+                dataGridView.DataSource = ListKHUCustom;
             }
             catch { }
         }
@@ -42,6 +54,10 @@ namespace QLTS_WindowsForms
                 panel.Visible = true;
                 TinhTrang = "THEM";
                 buttonThem.Enabled = false;
+                ListCOSO = dalCOSO.getall();
+                comboBox.DataSource = ListCOSO;
+                comboBox.DisplayMember = "TENCOSO";
+                comboBox.ValueMember = "MACOSO";
             }
             catch { }
         }
@@ -50,14 +66,16 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                panel.Visible = false;
+                buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    COSO = dalCOSO.getbyid(IDCOSO);
-                    if (dalCOSO.xoa(COSO))
+                    KHU = dalKHU.getbyid(IDKHU);
+                    if (dalKHU.xoa(KHU))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                        IDKHU = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                     }
                     else
                     {
@@ -67,7 +85,7 @@ namespace QLTS_WindowsForms
             }
             catch
             {
-                MessageBox.Show("Chọn cơ sở để xoá!");
+                MessageBox.Show("Chọn khu để xoá!");
             }
         }
 
@@ -80,11 +98,15 @@ namespace QLTS_WindowsForms
                 TinhTrang = "SUA";
                 buttonSua.Enabled = false;
 
-                COSO = dalCOSO.getbyid(IDCOSO);
-                textBoxMa.Text = COSO.SUBID;
-                textBoxTen.Text = COSO.TENCOSO;
-                //textBoxDiaChi.Text = COSO.DIACHI;
-                textBoxMoTa.Text = COSO.MOTA;
+                KHU = dalKHU.getbyid(IDKHU);
+                textBoxMa.Text = KHU.SUBID;
+                textBoxTen.Text = KHU.TEN;
+                ListCOSO = dalCOSO.getall();
+                comboBox.DataSource = ListCOSO;
+                comboBox.DisplayMember = "TENCOSO";
+                comboBox.ValueMember = "MACOSO";
+                comboBox.SelectedValue = KHU.COSO.MACOSO;
+                textBoxMoTa.Text = KHU.MOTA;
             }
             catch { }
         }
@@ -97,15 +119,17 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        COSO = new bizCOSO();
-                        COSO.TENCOSO = textBoxTen.Text;
-                        COSO.SUBID = textBoxMa.Text;
-                        //COSO.DIACHI = textBoxDiaChi.Text;
-                        COSO.MOTA = textBoxMoTa.Text;
-                        if (dalCOSO.them(COSO))
+                        KHU = new bizKHU();
+                        KHU.TEN = textBoxTen.Text;
+                        KHU.SUBID = textBoxMa.Text;
+                        int IDCOSO = Convert.ToInt32(comboBox.SelectedValue.ToString());
+                        KHU.COSO = dalCOSO.getbyid(IDCOSO);
+                        KHU.MOTA = textBoxMoTa.Text;
+                        if (dalKHU.them(KHU))
                         {
                             MessageBox.Show("Thêm thành công");
-                            //textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                            comboBox.SelectedIndex = 0;
                             LoadData();
                         }
                         else
@@ -122,17 +146,18 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        COSO = dalCOSO.getbyid(IDCOSO);
-                        COSO.TENCOSO = textBoxTen.Text;
-                        COSO.SUBID = textBoxMa.Text;
-                        //COSO.DIACHI = textBoxDiaChi.Text;
-                        COSO.MOTA = textBoxMoTa.Text;
-                        if (dalCOSO.sua(COSO))
+                        KHU = dalKHU.getbyid(IDKHU);
+                        KHU.TEN = textBoxTen.Text;
+                        KHU.SUBID = textBoxMa.Text;
+                        KHU.COSO.MACOSO = Convert.ToInt32(comboBox.SelectedValue);
+                        KHU.MOTA = textBoxMoTa.Text;
+                        if (dalKHU.sua(KHU))
                         {
                             MessageBox.Show("Cập nhật thành công");
-                           // textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                            comboBox.SelectedIndex = 0;
                             LoadData();
-                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                            IDKHU = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                         }
                         else
                         {
@@ -153,7 +178,8 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                //textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                comboBox.SelectedIndex = 0;
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;
@@ -171,7 +197,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                IDCOSO = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["MACOSO"].Value.ToString());
+                IDKHU = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
             }

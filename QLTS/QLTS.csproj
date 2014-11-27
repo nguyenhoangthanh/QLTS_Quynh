@@ -58,6 +58,7 @@
     <Compile Include="BLL\bizTAISAN.cs" />
     <Compile Include="BLL\bizTANG.cs" />
     <Compile Include="DAL\dalCOSO.cs" />
+    <Compile Include="DAL\dalKHU.cs" />
     <Compile Include="DAL\dalQUANTRIVIEN.cs" />
     <Compile Include="dbconnect.cs" />
     <Compile Include="Program.cs" />

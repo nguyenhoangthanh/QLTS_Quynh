@@ -34,6 +34,7 @@
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.comboBox = new System.Windows.Forms.ComboBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonHuyBo = new System.Windows.Forms.Button();
             this.textBoxMoTa = new System.Windows.Forms.TextBox();
@@ -43,14 +44,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYSUADOI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKHU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +61,13 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.SUBID,
             this.TEN,
             this.TENCOSO,
             this.MOTA,
             this.NGAYTAO,
-            this.NGAYSUADOI,
-            this.MAKHU});
+            this.NGAYSUADOI});
             this.dataGridView.Location = new System.Drawing.Point(12, 35);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -136,6 +136,14 @@
             this.panel.Size = new System.Drawing.Size(301, 237);
             this.panel.TabIndex = 3;
             this.panel.Visible = false;
+            // 
+            // comboBox
+            // 
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(81, 79);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(217, 21);
+            this.comboBox.TabIndex = 9;
             // 
             // buttonOK
             // 
@@ -220,6 +228,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã khu";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
             // SUBID
             // 
             this.SUBID.DataPropertyName = "SUBID";
@@ -262,22 +278,6 @@
             this.NGAYSUADOI.Name = "NGAYSUADOI";
             this.NGAYSUADOI.ReadOnly = true;
             // 
-            // MAKHU
-            // 
-            this.MAKHU.DataPropertyName = "MAKHU";
-            this.MAKHU.HeaderText = "ID";
-            this.MAKHU.Name = "MAKHU";
-            this.MAKHU.ReadOnly = true;
-            this.MAKHU.Visible = false;
-            // 
-            // comboBox
-            // 
-            this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(81, 79);
-            this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(217, 21);
-            this.comboBox.TabIndex = 9;
-            // 
             // FormKhu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,7 +291,7 @@
             this.Controls.Add(this.dataGridView);
             this.Name = "FormKhu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý cơ sở";
+            this.Text = "Quản lý khu";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
@@ -317,13 +317,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonHuyBo;
+        private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TEN;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENCOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYTAO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYSUADOI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAKHU;
-        private System.Windows.Forms.ComboBox comboBox;
     }
 }
