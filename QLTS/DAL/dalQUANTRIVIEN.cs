@@ -32,6 +32,10 @@ namespace QLTS.DAL
                     result.Add(s);
                 }
             }
+            catch
+            {
+                return null;
+            }
             finally
             {
                 if (rdr != null)
@@ -66,6 +70,10 @@ namespace QLTS.DAL
                 rdr.Read();
                 result = new bizQUANTRIVIEN(Int32.Parse(rdr["MAQTVIEN"].ToString()), rdr["TENQTVIEN"].ToString(), rdr["EMAIL"].ToString(), rdr["USENAME"].ToString(), rdr["PASSWORD"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
             }
+            catch
+            {
+                return null;
+            }
             finally
             {
                 if (rdr != null)
@@ -93,12 +101,16 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                SqlCommand cmd = new SqlCommand(string.Format("select * from QUANTRIVIEN where USENAME=N'{0}'", username), conn);
+                SqlCommand cmd = new SqlCommand(string.Format("select * from QUANTRIVIEN where USENAME='{0}'", username), conn);
 
                 // get query results
                 rdr = cmd.ExecuteReader();
                 rdr.Read();
-                result = new bizQUANTRIVIEN(Int32.Parse(rdr["MAQTVIEN"].ToString()), rdr["TENQTVIEN"].ToString(), rdr["EMAIL"].ToString(), rdr["USENAME"].ToString(), rdr["PASSWORD"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+                result = new bizQUANTRIVIEN(Int32.Parse(rdr["MAQTVIEN"].ToString()), rdr["TENQTVIEN"].ToString(), rdr["EMAIL"].ToString(), rdr["USENAME"].ToString(), rdr["PASSWORD"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+            }
+            catch
+            {
+                return null;
             }
             finally
             {
@@ -129,9 +141,8 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                //MessageBox.Show(e.ToString());
                 return false;
             }
             finally
@@ -160,9 +171,8 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                //MessageBox.Show(e.ToString());
                 return false;
             }
             finally
@@ -190,7 +200,7 @@ namespace QLTS.DAL
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -202,7 +212,6 @@ namespace QLTS.DAL
                     conn.Close();
                 }
             }
-
             return true;
         }
     }

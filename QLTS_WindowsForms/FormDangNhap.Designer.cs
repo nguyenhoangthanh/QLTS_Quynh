@@ -59,6 +59,7 @@
             this.textBoxTaiKhoan.Name = "textBoxTaiKhoan";
             this.textBoxTaiKhoan.Size = new System.Drawing.Size(162, 20);
             this.textBoxTaiKhoan.TabIndex = 2;
+            this.textBoxTaiKhoan.Text = "tieulongnu";
             // 
             // textBoxMatKhau
             // 
@@ -66,6 +67,8 @@
             this.textBoxMatKhau.Name = "textBoxMatKhau";
             this.textBoxMatKhau.Size = new System.Drawing.Size(162, 20);
             this.textBoxMatKhau.TabIndex = 3;
+            this.textBoxMatKhau.Text = "tieulongnu";
+            this.textBoxMatKhau.UseSystemPasswordChar = true;
             // 
             // buttonDangNhap
             // 

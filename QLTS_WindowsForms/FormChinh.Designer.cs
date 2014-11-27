@@ -62,6 +62,7 @@
             // 
             // buttonTANG
             // 
+            this.buttonTANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTANG.Location = new System.Drawing.Point(462, 83);
             this.buttonTANG.Name = "buttonTANG";
             this.buttonTANG.Size = new System.Drawing.Size(171, 81);

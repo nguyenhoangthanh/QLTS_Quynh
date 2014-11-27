@@ -15,15 +15,7 @@ namespace QLTS_WindowsForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FormDangNhap frm = new FormDangNhap();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new FormChinh());
-            }
-            else
-            {
-                Application.Exit();
-            }            
+            Application.Run(new FormDangNhap());
         }
     }
 }

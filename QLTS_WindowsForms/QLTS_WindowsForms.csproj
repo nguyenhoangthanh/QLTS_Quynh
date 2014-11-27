@@ -50,6 +50,12 @@
     <Compile Include="FormChinh.Designer.cs">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKhu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhu.Designer.cs">
+      <DependentUpon>FormKhu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCoSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhu.resx">
+      <DependentUpon>FormKhu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCoSo.resx">
       <DependentUpon>FormCoSo.cs</DependentUpon>

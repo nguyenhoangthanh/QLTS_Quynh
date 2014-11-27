@@ -84,7 +84,7 @@ namespace QLTS.BLL
             _EMAIL = EMAIL;
             _USENAME = USENAME;
             _PASSWORD = PASSWORD;
-            _MOTA = _MOTA;
+            _MOTA = MOTA;
             _SUBID = SUBID;
             _NGAYTAO = NGAYTAO;
             _NGAYSUADOI = NGAYSUADOI;

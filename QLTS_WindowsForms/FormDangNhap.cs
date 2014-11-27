@@ -43,7 +43,10 @@ namespace QLTS_WindowsForms
                     }
                     else
                     {
-                        buttonDangNhap.DialogResult = DialogResult.OK;
+                        FormChinh frm = new FormChinh();                        
+                        this.Hide();
+                        frm.ShowDialog();
+                        this.Close();
                     }
                 }
             }
