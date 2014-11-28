@@ -75,7 +75,7 @@ namespace QLTS.BLL
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizTAISAN(int ID, string TENTAISAN, DateTime NGAYMUA, bizLOAITAISAN LOAITAISAN, string SUBID, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizTAISAN(int ID, string TENTAISAN, DateTime NGAYMUA, bizLOAITAISAN LOAITAISAN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _TENTAISAN = TENTAISAN;

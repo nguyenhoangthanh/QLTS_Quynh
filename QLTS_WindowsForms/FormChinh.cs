@@ -27,5 +27,23 @@ namespace QLTS_WindowsForms
             FormKhu frm = new FormKhu();
             frm.Show();
         }
+
+        private void buttonLOAITAISAN_Click(object sender, EventArgs e)
+        {
+            FormLoaiTaiSan frm = new FormLoaiTaiSan();
+            frm.Show();
+        }
+
+        private void buttonTinhTrang_Click(object sender, EventArgs e)
+        {
+            FormTinhTrang frm = new FormTinhTrang();
+            frm.Show();
+        }
+
+        private void buttonTAISAN_Click(object sender, EventArgs e)
+        {
+            FormTaiSan frm = new FormTaiSan();
+            frm.Show();
+        }
     }
 }

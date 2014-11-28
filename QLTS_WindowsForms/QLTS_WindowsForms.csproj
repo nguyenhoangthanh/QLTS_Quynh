@@ -50,6 +50,18 @@
     <Compile Include="FormChinh.Designer.cs">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTinhTrang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTinhTrang.Designer.cs">
+      <DependentUpon>FormTinhTrang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoaiTaiSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoaiTaiSan.Designer.cs">
+      <DependentUpon>FormLoaiTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaiSan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTinhTrang.resx">
+      <DependentUpon>FormTinhTrang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoaiTaiSan.resx">
+      <DependentUpon>FormLoaiTaiSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTaiSan.resx">
       <DependentUpon>FormTaiSan.cs</DependentUpon>

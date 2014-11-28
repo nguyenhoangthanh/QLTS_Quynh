@@ -42,6 +42,11 @@ namespace QLTS_WindowsForms
 
                 dataGridView.AutoGenerateColumns = false;
                 dataGridView.DataSource = ListKHUCustom;
+                if (ListKHUCustom.Count() < 1)
+                {
+                    buttonXoa.Enabled = false;
+                    buttonSua.Enabled = false;
+                }
             }
             catch { }
         }
@@ -93,6 +98,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                buttonThem.Enabled = true;
                 buttonOK.Text = "Cập nhật";
                 panel.Visible = true;
                 TinhTrang = "SUA";

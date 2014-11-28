@@ -11,14 +11,13 @@ using System.Windows.Forms;
 
 namespace QLTS_WindowsForms
 {
-    public partial class FormTaiSan : Form
+    public partial class FormLoaiTaiSan : Form
     {
-        public bizTAISAN TAISAN = new bizTAISAN();
-        public List<bizTAISAN> listTAISAN = new List<bizTAISAN>();
+        public bizLOAITAISAN LOAITAISAN = new bizLOAITAISAN();
         public List<bizLOAITAISAN> listLOAITAISAN = new List<bizLOAITAISAN>();
         public string TinhTrang = "";
-        public int IDTAISAN = 0;
-        public FormTaiSan()
+        public int IDLOAITAISAN = 0;
+        public FormLoaiTaiSan()
         {
             InitializeComponent();
             LoadData();
@@ -28,22 +27,10 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                listTAISAN = dalTAISAN.getall();
-                var ListTAISANCustom = listTAISAN.Select(item => new
-                {
-                    ID = item.ID,
-                    SUBID = item.SUBID,
-                    TENTAISAN = item.TENTAISAN,
-                    NGAYMUA = item.NGAYMUA,
-                    TENLOAI = item.LOAITAISAN.TENLOAI,
-                    MOTA = item.MOTA,
-                    NGAYTAO = item.NGAYTAO,
-                    NGAYSUA = item.NGAYSUA
-                }).ToList();
+                listLOAITAISAN = dalLOAITAISAN.getall();
                 dataGridView.AutoGenerateColumns = false;
-                dataGridView.DataSource = ListTAISANCustom;
-
-                if (listTAISAN.Count() < 1)
+                dataGridView.DataSource = listLOAITAISAN;
+                if (listLOAITAISAN.Count() < 1)
                 {
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
@@ -59,10 +46,6 @@ namespace QLTS_WindowsForms
                 buttonOK.Text = "Thêm";
                 panel.Visible = true;
                 TinhTrang = "THEM";
-                listLOAITAISAN = dalLOAITAISAN.getall();
-                comboBox.DataSource = listLOAITAISAN;
-                comboBox.DisplayMember = "TENLOAI";
-                comboBox.ValueMember = "ID";
                 buttonThem.Enabled = false;
             }
             catch { }
@@ -76,14 +59,14 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    TAISAN = dalTAISAN.getbyid(IDTAISAN);
-                    if (dalTAISAN.xoa(TAISAN))
+                    LOAITAISAN = dalLOAITAISAN.getbyid(IDLOAITAISAN);
+                    if (dalLOAITAISAN.xoa(LOAITAISAN))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
                         if (dataGridView.RowCount > 0)
                         {
-                            IDTAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                            IDLOAITAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                         }
                     }
                     else
@@ -94,7 +77,7 @@ namespace QLTS_WindowsForms
             }
             catch
             {
-                MessageBox.Show("Chọn tài sản để xoá!");
+                MessageBox.Show("Chọn loại để xoá!");
             }
         }
 
@@ -108,16 +91,10 @@ namespace QLTS_WindowsForms
                 TinhTrang = "SUA";
                 buttonSua.Enabled = false;
 
-                TAISAN = dalTAISAN.getbyid(IDTAISAN);
-                textBoxMa.Text = TAISAN.SUBID;
-                textBoxTen.Text = TAISAN.TENTAISAN;
-                dateTimePicker.Value = (DateTime)TAISAN.NGAYMUA;
-                listLOAITAISAN = dalLOAITAISAN.getall();
-                comboBox.DataSource = listLOAITAISAN;
-                comboBox.DisplayMember = "TENLOAI";
-                comboBox.ValueMember = "ID";
-                comboBox.SelectedValue = TAISAN.LOAITAISAN.ID;
-                textBoxMoTa.Text = TAISAN.MOTA;
+                LOAITAISAN = dalLOAITAISAN.getbyid(IDLOAITAISAN);
+                textBoxMa.Text = LOAITAISAN.SUBID;
+                textBoxTen.Text = LOAITAISAN.TENLOAI;
+                textBoxMoTa.Text = LOAITAISAN.MOTA;
             }
             catch { }
         }
@@ -130,30 +107,19 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        try
+                        LOAITAISAN = new bizLOAITAISAN();
+                        LOAITAISAN.TENLOAI = textBoxTen.Text;
+                        LOAITAISAN.SUBID = textBoxMa.Text;
+                        LOAITAISAN.MOTA = textBoxMoTa.Text;
+                        if (dalLOAITAISAN.them(LOAITAISAN))
                         {
-                            TAISAN = new bizTAISAN();
-                            TAISAN.TENTAISAN = textBoxTen.Text;
-                            TAISAN.SUBID = textBoxMa.Text;
-                            TAISAN.NGAYMUA = dateTimePicker.Value;
-                            bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Convert.ToInt32(comboBox.SelectedValue.ToString()));
-                            TAISAN.LOAITAISAN = LOAITAISAN;
-                            TAISAN.MOTA = textBoxMoTa.Text;
-                            if (dalTAISAN.them(TAISAN))
-                            {
-                                MessageBox.Show("Thêm thành công");
-                                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                                dateTimePicker.ResetText();                                
-                                LoadData();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Thêm lỗi rồi!");
-                            }
+                            MessageBox.Show("Thêm thành công");
+                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                            LoadData();
                         }
-                        catch
+                        else
                         {
-                            MessageBox.Show("Có lỗi trong khi thêm.");
+                            MessageBox.Show("Thêm lỗi rồi!");
                         }
                     }
                     else
@@ -165,20 +131,16 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        TAISAN = dalTAISAN.getbyid(IDTAISAN);
-                        TAISAN.TENTAISAN = textBoxTen.Text;
-                        TAISAN.SUBID = textBoxMa.Text;
-                        TAISAN.NGAYMUA = dateTimePicker.Value;
-                        bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Convert.ToInt32(comboBox.SelectedValue.ToString()));
-                        TAISAN.LOAITAISAN = LOAITAISAN;
-                        TAISAN.MOTA = textBoxMoTa.Text;
-                        if (dalTAISAN.sua(TAISAN))
+                        LOAITAISAN = dalLOAITAISAN.getbyid(IDLOAITAISAN);
+                        LOAITAISAN.TENLOAI = textBoxTen.Text;
+                        LOAITAISAN.SUBID = textBoxMa.Text;
+                        LOAITAISAN.MOTA = textBoxMoTa.Text;
+                        if (dalLOAITAISAN.sua(LOAITAISAN))
                         {
                             MessageBox.Show("Cập nhật thành công");
                             textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                            dateTimePicker.ResetText();                            
                             LoadData();
-                            IDTAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                            IDLOAITAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                         }
                         else
                         {
@@ -200,7 +162,6 @@ namespace QLTS_WindowsForms
             {
                 panel.Visible = false;
                 textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                dateTimePicker.ResetText();                
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;
@@ -218,7 +179,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                IDTAISAN = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                IDLOAITAISAN = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
             }

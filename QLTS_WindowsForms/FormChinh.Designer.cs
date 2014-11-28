@@ -39,6 +39,8 @@
             this.buttonLOGHETHONG = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonThongKeBaoCao = new System.Windows.Forms.Button();
+            this.buttonTinhTrang = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCOSO
@@ -108,6 +110,7 @@
             this.buttonTAISAN.TabIndex = 0;
             this.buttonTAISAN.Text = "Quản lý tài sản";
             this.buttonTAISAN.UseVisualStyleBackColor = true;
+            this.buttonTAISAN.Click += new System.EventHandler(this.buttonTAISAN_Click);
             // 
             // buttonLOAITAISAN
             // 
@@ -117,8 +120,9 @@
             this.buttonLOAITAISAN.Name = "buttonLOAITAISAN";
             this.buttonLOAITAISAN.Size = new System.Drawing.Size(171, 81);
             this.buttonLOAITAISAN.TabIndex = 0;
-            this.buttonLOAITAISAN.Text = "Thống kê báo cáo";
+            this.buttonLOAITAISAN.Text = "Quản lý loại tài sản";
             this.buttonLOAITAISAN.UseVisualStyleBackColor = true;
+            this.buttonLOAITAISAN.Click += new System.EventHandler(this.buttonLOAITAISAN_Click);
             // 
             // buttonPHANQUYEN
             // 
@@ -164,13 +168,38 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Giáo viên hướng dẫn: Thầy Cao Thái Phương Thanh";
             // 
+            // buttonThongKeBaoCao
+            // 
+            this.buttonThongKeBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonThongKeBaoCao.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonThongKeBaoCao.Location = new System.Drawing.Point(108, 346);
+            this.buttonThongKeBaoCao.Name = "buttonThongKeBaoCao";
+            this.buttonThongKeBaoCao.Size = new System.Drawing.Size(171, 81);
+            this.buttonThongKeBaoCao.TabIndex = 0;
+            this.buttonThongKeBaoCao.Text = "Thống kê báo cáo";
+            this.buttonThongKeBaoCao.UseVisualStyleBackColor = true;
+            // 
+            // buttonTinhTrang
+            // 
+            this.buttonTinhTrang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTinhTrang.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonTinhTrang.Location = new System.Drawing.Point(285, 346);
+            this.buttonTinhTrang.Name = "buttonTinhTrang";
+            this.buttonTinhTrang.Size = new System.Drawing.Size(171, 81);
+            this.buttonTinhTrang.TabIndex = 0;
+            this.buttonTinhTrang.Text = "Quản lý tình trạng";
+            this.buttonTinhTrang.UseVisualStyleBackColor = true;
+            this.buttonTinhTrang.Click += new System.EventHandler(this.buttonTinhTrang_Click);
+            // 
             // FormChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 373);
+            this.ClientSize = new System.Drawing.Size(750, 471);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonTinhTrang);
+            this.Controls.Add(this.buttonThongKeBaoCao);
             this.Controls.Add(this.buttonLOGHETHONG);
             this.Controls.Add(this.buttonPHANQUYEN);
             this.Controls.Add(this.buttonLOAITAISAN);
@@ -201,5 +230,7 @@
         private System.Windows.Forms.Button buttonLOGHETHONG;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonThongKeBaoCao;
+        private System.Windows.Forms.Button buttonTinhTrang;
     }
 }

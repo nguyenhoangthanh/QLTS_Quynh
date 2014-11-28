@@ -167,7 +167,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update QUANTRIVIEN set TENQTVIEN=N'{0}', EMAIL=N'{1}',PASSWORD=N'{2}', SUBID=N'{3}', MOTA=N'{4}', NGAYSUA='{5}' where ID={6}", quantrivien.TENQTVIEN, quantrivien.EMAIL, quantrivien.PASSWORD, quantrivien.SUBID, quantrivien.MOTA, ((DateTime)quantrivien.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"), quantrivien.ID);
+                String s = String.Format("update QUANTRIVIEN set TENQTVIEN=N'{0}', EMAIL=N'{1}',PASSWORD=N'{2}', SUBID=N'{3}', MOTA=N'{4}', NGAYSUA='{5}' where ID={6}", quantrivien.TENQTVIEN, quantrivien.EMAIL, quantrivien.PASSWORD, quantrivien.SUBID, quantrivien.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), quantrivien.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

@@ -50,7 +50,7 @@
             this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYSUADOI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYSUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.TENCOSO,
             this.MOTA,
             this.NGAYTAO,
-            this.NGAYSUADOI});
+            this.NGAYSUA});
             this.dataGridView.Location = new System.Drawing.Point(12, 35);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -271,12 +271,12 @@
             this.NGAYTAO.Name = "NGAYTAO";
             this.NGAYTAO.ReadOnly = true;
             // 
-            // NGAYSUADOI
+            // NGAYSUA
             // 
-            this.NGAYSUADOI.DataPropertyName = "NGAYSUA";
-            this.NGAYSUADOI.HeaderText = "Ngày sửa đổi";
-            this.NGAYSUADOI.Name = "NGAYSUADOI";
-            this.NGAYSUADOI.ReadOnly = true;
+            this.NGAYSUA.DataPropertyName = "NGAYSUA";
+            this.NGAYSUA.HeaderText = "Ngày sửa";
+            this.NGAYSUA.Name = "NGAYSUA";
+            this.NGAYSUA.ReadOnly = true;
             // 
             // FormKhu
             // 
@@ -324,6 +324,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TENCOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYTAO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYSUADOI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYSUA;
     }
 }

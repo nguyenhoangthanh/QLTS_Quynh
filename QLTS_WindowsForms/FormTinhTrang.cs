@@ -1,4 +1,5 @@
-﻿using QLTS.BLL;
+﻿using QLTS;
+using QLTS.BLL;
 using QLTS.DAL;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ using System.Windows.Forms;
 
 namespace QLTS_WindowsForms
 {
-    public partial class FormCoSo : Form
+    public partial class FormTinhTrang : Form
     {
-        public bizCOSO COSO = new bizCOSO();
-        public List<bizCOSO> listCOSO = new List<bizCOSO>();
+        public bizTINHTRANG TINHTRANG = new bizTINHTRANG();
+        public List<bizTINHTRANG> listTINHTRANG = new List<bizTINHTRANG>();
         public string TinhTrang = "";
-        public int IDCOSO = 0;
-        public FormCoSo()
+        public int IDTINHTRANG = 0;
+        public FormTinhTrang()
         {
             InitializeComponent();
             LoadData();
@@ -27,10 +28,10 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                listCOSO = dalCOSO.getall();
+                listTINHTRANG = dalTINHTRANG.getall();
                 dataGridView.AutoGenerateColumns = false;
-                dataGridView.DataSource = listCOSO;
-                if (listCOSO.Count() < 1)
+                dataGridView.DataSource = listTINHTRANG;
+                if (listTINHTRANG.Count() < 1)
                 {
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
@@ -59,14 +60,14 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    COSO = dalCOSO.getbyid(IDCOSO);
-                    if (dalCOSO.xoa(COSO))
+                    TINHTRANG = dalTINHTRANG.getbyid(IDTINHTRANG);
+                    if (dalTINHTRANG.xoa(TINHTRANG))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
                         if (dataGridView.RowCount > 0)
                         {
-                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                            IDTINHTRANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                         }
                     }
                     else
@@ -77,7 +78,7 @@ namespace QLTS_WindowsForms
             }
             catch
             {
-                MessageBox.Show("Chọn cơ sở để xoá!");
+                MessageBox.Show("Chọn tình trạng để xoá!");
             }
         }
 
@@ -90,12 +91,9 @@ namespace QLTS_WindowsForms
                 panel.Visible = true;
                 TinhTrang = "SUA";
                 buttonSua.Enabled = false;
-
-                COSO = dalCOSO.getbyid(IDCOSO);
-                textBoxMa.Text = COSO.SUBID;
-                textBoxTen.Text = COSO.TENCOSO;
-                textBoxDiaChi.Text = COSO.DIACHI;
-                textBoxMoTa.Text = COSO.MOTA;
+                TINHTRANG = dalTINHTRANG.getbyid(IDTINHTRANG);
+                textBoxTen.Text = TINHTRANG.VALUE;
+                textBoxMoTa.Text = TINHTRANG.MOTA;
             }
             catch { }
         }
@@ -108,15 +106,20 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        COSO = new bizCOSO();
-                        COSO.TENCOSO = textBoxTen.Text;
-                        COSO.SUBID = textBoxMa.Text;
-                        COSO.DIACHI = textBoxDiaChi.Text;
-                        COSO.MOTA = textBoxMoTa.Text;
-                        if (dalCOSO.them(COSO))
+                        bizTINHTRANG biz = dalTINHTRANG.getbyvalue(textBoxTen.Text.Trim());
+                        if (biz != null)
+                        {
+                            MessageBox.Show("Trạng thái đã tồn tại");
+                            return;
+                        }
+                        TINHTRANG = new bizTINHTRANG();
+                        TINHTRANG.VALUE = textBoxTen.Text;
+                        TINHTRANG.KEY = helpper.KEY(TINHTRANG.VALUE);
+                        TINHTRANG.MOTA = textBoxMoTa.Text;
+                        if (dalTINHTRANG.them(TINHTRANG))
                         {
                             MessageBox.Show("Thêm thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                            textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
                         }
                         else
@@ -133,17 +136,15 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        COSO = dalCOSO.getbyid(IDCOSO);
-                        COSO.TENCOSO = textBoxTen.Text;
-                        COSO.SUBID = textBoxMa.Text;
-                        COSO.DIACHI = textBoxDiaChi.Text;
-                        COSO.MOTA = textBoxMoTa.Text;
-                        if (dalCOSO.sua(COSO))
+                        TINHTRANG = dalTINHTRANG.getbyid(IDTINHTRANG);
+                        TINHTRANG.VALUE = textBoxTen.Text;
+                        TINHTRANG.MOTA = textBoxMoTa.Text;
+                        if (dalTINHTRANG.sua(TINHTRANG))
                         {
                             MessageBox.Show("Cập nhật thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                            textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
-                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                            IDTINHTRANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                         }
                         else
                         {
@@ -164,7 +165,7 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                textBoxTen.Text = textBoxMoTa.Text = "";
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;
@@ -182,7 +183,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                IDCOSO = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["MACOSO"].Value.ToString());
+                IDTINHTRANG = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
             }

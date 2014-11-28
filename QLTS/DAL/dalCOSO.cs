@@ -128,7 +128,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where MACOSO={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, ((DateTime)coso.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"), coso.ID);
+                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where MACOSO={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), coso.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
