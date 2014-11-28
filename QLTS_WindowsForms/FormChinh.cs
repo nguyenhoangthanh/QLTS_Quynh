@@ -45,5 +45,11 @@ namespace QLTS_WindowsForms
             FormTaiSan frm = new FormTaiSan();
             frm.Show();
         }
+
+        private void buttonNhanVien_Click(object sender, EventArgs e)
+        {
+            FormNhanVien frm = new FormNhanVien();
+            frm.Show();
+        }
     }
 }

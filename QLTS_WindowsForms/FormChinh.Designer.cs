@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonThongKeBaoCao = new System.Windows.Forms.Button();
             this.buttonTinhTrang = new System.Windows.Forms.Button();
+            this.buttonNhanVien = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCOSO
@@ -191,6 +192,18 @@
             this.buttonTinhTrang.UseVisualStyleBackColor = true;
             this.buttonTinhTrang.Click += new System.EventHandler(this.buttonTinhTrang_Click);
             // 
+            // buttonNhanVien
+            // 
+            this.buttonNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNhanVien.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonNhanVien.Location = new System.Drawing.Point(462, 346);
+            this.buttonNhanVien.Name = "buttonNhanVien";
+            this.buttonNhanVien.Size = new System.Drawing.Size(171, 81);
+            this.buttonNhanVien.TabIndex = 0;
+            this.buttonNhanVien.Text = "Quản lý nhân viên";
+            this.buttonNhanVien.UseVisualStyleBackColor = true;
+            this.buttonNhanVien.Click += new System.EventHandler(this.buttonNhanVien_Click);
+            // 
             // FormChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +211,7 @@
             this.ClientSize = new System.Drawing.Size(750, 471);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonNhanVien);
             this.Controls.Add(this.buttonTinhTrang);
             this.Controls.Add(this.buttonThongKeBaoCao);
             this.Controls.Add(this.buttonLOGHETHONG);
@@ -232,5 +246,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonThongKeBaoCao;
         private System.Windows.Forms.Button buttonTinhTrang;
+        private System.Windows.Forms.Button buttonNhanVien;
     }
 }
