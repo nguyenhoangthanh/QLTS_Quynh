@@ -7,11 +7,11 @@ namespace QLTS.BLL
 {
     public class bizQUANTRIVIEN
     {
-        private int _MAQTVIEN;
-        public int MAQTVIEN
+        private int _ID;
+        public int ID
         {
-            get { return _MAQTVIEN; }
-            set { _MAQTVIEN = value; }
+            get { return _ID; }
+            set { _ID = value; }
         }
 
         private string _TENQTVIEN;
@@ -42,18 +42,18 @@ namespace QLTS.BLL
             set { _PASSWORD = value; }
         }
 
-        private string _MOTA;
-        public string MOTA
-        {
-            get { return _MOTA; }
-            set { _MOTA = value; }
-        }
-
         private string _SUBID;
         public string SUBID
         {
             get { return _SUBID; }
             set { _SUBID = value; }
+        }
+
+        private string _MOTA;
+        public string MOTA
+        {
+            get { return _MOTA; }
+            set { _MOTA = value; }
         }
 
         private DateTime _NGAYTAO;
@@ -63,23 +63,21 @@ namespace QLTS.BLL
             set { _NGAYTAO = value; }
         }
 
-        private DateTime _NGAYSUADOI;
-        public DateTime NGAYSUADOI
+        private DateTime _NGAYSUA;
+        public DateTime NGAYSUA
         {
-            get { return _NGAYSUADOI; }
-            set { _NGAYSUADOI = value; }
+            get { return _NGAYSUA; }
+            set { _NGAYSUA = value; }
         }
 
         public bizQUANTRIVIEN()
         {
-            _MAQTVIEN = 0;
-            _SUBID = _TENQTVIEN = _EMAIL = _USENAME =_PASSWORD =_MOTA = "";
-            _NGAYTAO = _NGAYSUADOI = DateTime.Now;
+            
         }
 
-        public bizQUANTRIVIEN(int MAQTVIEN, string TENQTVIEN, string EMAIL, string USENAME, string PASSWORD, string MOTA, string SUBID, DateTime NGAYTAO, DateTime NGAYSUADOI)
+        public bizQUANTRIVIEN(int ID, string TENQTVIEN, string EMAIL, string USENAME, string PASSWORD, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
-            _MAQTVIEN = MAQTVIEN;
+            _ID = ID;
             _TENQTVIEN = TENQTVIEN;
             _EMAIL = EMAIL;
             _USENAME = USENAME;
@@ -87,7 +85,7 @@ namespace QLTS.BLL
             _MOTA = MOTA;
             _SUBID = SUBID;
             _NGAYTAO = NGAYTAO;
-            _NGAYSUADOI = NGAYSUADOI;
+            _NGAYSUA = NGAYSUA;
         }
     }
 }

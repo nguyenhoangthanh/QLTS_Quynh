@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLTS.BLL
 {
-    public class bizPHONG
+    public class bizDIADIEM
     {
         private int _ID;
         public int ID
@@ -14,18 +14,25 @@ namespace QLTS.BLL
             set { _ID = value; }
         }
 
-        private string _TENPHONG;
-        public string TENPHONG
+        private bizCOSO _COSO;
+        public bizCOSO COSO
         {
-            get { return _TENPHONG; }
-            set { _TENPHONG = value; }
+            get { return _COSO; }
+            set { _COSO = value; }
         }
 
-        private bizDIADIEM _DIADIEM;
-        public bizDIADIEM DIADIEM
+        private bizKHU _KHU;
+        public bizKHU KHU
         {
-            get { return _DIADIEM; }
-            set { _DIADIEM = value; }
+            get { return _KHU; }
+            set { _KHU = value; }
+        }
+
+        private bizTANG _TANG;
+        public bizTANG TANG
+        {
+            get { return _TANG; }
+            set { _TANG = value; }
         }
 
         private string _SUBID;
@@ -56,22 +63,24 @@ namespace QLTS.BLL
             set { _NGAYSUA = value; }
         }
 
-        public bizPHONG()
+        public bizDIADIEM()
         {
             _ID = 0;
-            _TENPHONG = "";
-            _DIADIEM = null;
+            _COSO = null;
+            _KHU = null;
+            _TANG = null;
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizPHONG(int ID, string TENPHONG, bizDIADIEM DIADIEM, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizDIADIEM(int ID, bizCOSO COSO,bizKHU KHU, bizTANG TANG, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
-            _TENPHONG = TENPHONG;
-            _DIADIEM = DIADIEM;
+            _COSO = COSO;
+            _KHU = KHU;
+            _TANG = TANG;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

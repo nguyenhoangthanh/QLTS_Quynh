@@ -7,11 +7,11 @@ namespace QLTS.BLL
 {
     public class bizCOSO
     {
-        private int _MACOSO;
-        public int MACOSO
+        private int _ID;
+        public int ID
         {
-            get { return _MACOSO; }
-            set { _MACOSO = value; }
+            get { return _ID; }
+            set { _ID = value; }
         }
 
         private string _TENCOSO;
@@ -28,18 +28,18 @@ namespace QLTS.BLL
             set { _DIACHI = value; }
         }
 
-        private string _MOTA;
-        public string MOTA
-        {
-            get { return _MOTA; }
-            set { _MOTA = value; }
-        }
-
         private string _SUBID;
         public string SUBID
         {
             get { return _SUBID; }
             set { _SUBID = value; }
+        }
+
+        private string _MOTA;
+        public string MOTA
+        {
+            get { return _MOTA; }
+            set { _MOTA = value; }
         }
 
         private DateTime _NGAYTAO;
@@ -49,29 +49,33 @@ namespace QLTS.BLL
             set { _NGAYTAO = value; }
         }
 
-        private DateTime _NGAYSUADOI;
-        public DateTime NGAYSUADOI
+        private DateTime _NGAYSUA;
+        public DateTime NGAYSUA
         {
-            get { return _NGAYSUADOI; }
-            set { _NGAYSUADOI = value; }
+            get { return _NGAYSUA; }
+            set { _NGAYSUA = value; }
         }
 
         public bizCOSO()
         {
-            _MACOSO = 0;
-            _SUBID = _TENCOSO = _DIACHI = _MOTA = "";
-            _NGAYTAO = _NGAYSUADOI = DateTime.Now;
+            _ID = 0;
+            _TENCOSO = "";
+            _DIACHI = "";
+            _SUBID = "";
+            _MOTA = "";
+            _NGAYTAO = DateTime.Now;
+            _NGAYSUA = DateTime.Now;
         }
 
-        public bizCOSO(int MACOSO, string TENCOSO, string DIACHI, string MOTA, string SUBID, DateTime NGAYTAO, DateTime NGAYSUADOI)
+        public bizCOSO(int ID, string TENCOSO, string DIACHI, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
-            _MACOSO = MACOSO;
+            _ID = ID;
             _TENCOSO = TENCOSO;
             _DIACHI = DIACHI;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;
-            _NGAYSUADOI = NGAYSUADOI;
+            _NGAYSUA = NGAYSUA;
         }
     }
 }

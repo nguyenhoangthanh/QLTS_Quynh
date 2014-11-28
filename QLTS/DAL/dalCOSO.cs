@@ -28,7 +28,7 @@ namespace QLTS.DAL
 
                 while (rdr.Read())
                 {
-                    bizCOSO s = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["MOTA"].ToString(), rdr["SUBID"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+                    bizCOSO s = new bizCOSO(Int32.Parse(rdr["ID"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
                     result.Add(s);
                 }
             }
@@ -68,7 +68,7 @@ namespace QLTS.DAL
                 // get query results
                 rdr = cmd.ExecuteReader();
                 rdr.Read();
-                result = new bizCOSO(Int32.Parse(rdr["MACOSO"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["MOTA"].ToString(), rdr["SUBID"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUADOI"].ToString()));
+                result = new bizCOSO(Int32.Parse(rdr["ID"].ToString()), rdr["TENCOSO"].ToString(), rdr["DIACHI"].ToString(), rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
             }
             catch
             {
@@ -99,7 +99,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into COSO(TENCOSO,DIACHI,SUBID,MOTA,NGAYTAO,NGAYSUADOI) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}')", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, ((DateTime)coso.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)coso.NGAYSUADOI).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into COSO(TENCOSO,DIACHI,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}')", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, ((DateTime)coso.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)coso.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -128,7 +128,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUADOI='{4}' where MACOSO={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, ((DateTime)coso.NGAYSUADOI).ToString("M/d/yyyy HH:mm:ss"), coso.MACOSO);
+                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where MACOSO={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, ((DateTime)coso.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"), coso.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -157,7 +157,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("delete COSO where MACOSO='{0}'", coso.MACOSO);
+                String s = String.Format("delete COSO where MACOSO='{0}'", coso.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

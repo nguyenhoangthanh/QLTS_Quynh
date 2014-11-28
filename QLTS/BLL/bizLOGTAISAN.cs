@@ -5,20 +5,13 @@ using System.Text;
 
 namespace QLTS.BLL
 {
-    public class bizCTTAISAN
+    public class bizLOGTAISAN
     {
         private int _ID;
         public int ID
         {
             get { return _ID; }
             set { _ID = value; }
-        }
-
-        private DateTime _NGAY;
-        public DateTime NGAY
-        {
-            get { return _NGAY; }
-            set { _NGAY = value; }
         }
 
         private int _SOLUONG;
@@ -49,6 +42,13 @@ namespace QLTS.BLL
             set { _TINHTRANG = value; }
         }
 
+        private bizQUANTRIVIEN _QUANTRIVIEN;
+        public bizQUANTRIVIEN QUANTRIVIEN
+        {
+            get { return _QUANTRIVIEN; }
+            set { _QUANTRIVIEN = value; }
+        }
+
         private string _SUBID;
         public string SUBID
         {
@@ -77,28 +77,28 @@ namespace QLTS.BLL
             set { _NGAYSUA = value; }
         }
 
-        public bizCTTAISAN()
+        public bizLOGTAISAN()
         {
             _ID = 0;
-            _NGAY = DateTime.Now;
             _SOLUONG = 0;
             _PHONG = null;
             _TAISAN = null;
             _TINHTRANG = null;
+            _QUANTRIVIEN = null;
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizCTTAISAN(int ID, DateTime NGAY, int SOLUONG, bizPHONG PHONG, bizTAISAN TAISAN, bizTINHTRANG TINHTRANG, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizLOGTAISAN(int ID, int SOLUONG, bizPHONG PHONG, bizTAISAN TAISAN, bizTINHTRANG TINHTRANG, bizQUANTRIVIEN QUANTRIVIEN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
-            _NGAY = NGAY;
             _SOLUONG = SOLUONG;
             _PHONG = PHONG;
             _TAISAN = TAISAN;
             _TINHTRANG = TINHTRANG;
+            _QUANTRIVIEN = QUANTRIVIEN;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

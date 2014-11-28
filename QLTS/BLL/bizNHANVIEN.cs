@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLTS.BLL
 {
-    public class bizPHONG
+    public class bizNHANVIEN
     {
         private int _ID;
         public int ID
@@ -14,18 +14,25 @@ namespace QLTS.BLL
             set { _ID = value; }
         }
 
-        private string _TENPHONG;
-        public string TENPHONG
+        private string _HOTEN;
+        public string HOTEN
         {
-            get { return _TENPHONG; }
-            set { _TENPHONG = value; }
+            get { return _HOTEN; }
+            set { _HOTEN = value; }
         }
 
-        private bizDIADIEM _DIADIEM;
-        public bizDIADIEM DIADIEM
+        private string _SODIENTHOAI;
+        public string SODIENTHOAI
         {
-            get { return _DIADIEM; }
-            set { _DIADIEM = value; }
+            get { return _SODIENTHOAI; }
+            set { _SODIENTHOAI = value; }
+        }
+
+        private string _GIOITINH;
+        public string GIOITINH
+        {
+            get { return _GIOITINH; }
+            set { _GIOITINH = value; }
         }
 
         private string _SUBID;
@@ -56,22 +63,24 @@ namespace QLTS.BLL
             set { _NGAYSUA = value; }
         }
 
-        public bizPHONG()
+        public bizNHANVIEN()
         {
             _ID = 0;
-            _TENPHONG = "";
-            _DIADIEM = null;
+            _HOTEN = "";
+            _SODIENTHOAI = "";
+            _GIOITINH = "";
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizPHONG(int ID, string TENPHONG, bizDIADIEM DIADIEM, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizNHANVIEN(int ID, string HOTEN, string SODIENTHOAI, string GIOITINH, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
-            _TENPHONG = TENPHONG;
-            _DIADIEM = DIADIEM;
+            _HOTEN = HOTEN;
+            _SODIENTHOAI = SODIENTHOAI;
+            _GIOITINH = GIOITINH;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

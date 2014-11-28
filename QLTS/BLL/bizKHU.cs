@@ -58,10 +58,13 @@ namespace QLTS.BLL
 
         public bizKHU()
         {
-            _COSO = null;
             _ID = 0;
-            _SUBID = _TEN = _MOTA = "";
-            _NGAYTAO = _NGAYSUA = DateTime.Now;
+            _TEN = "";
+            _COSO = null;
+            _SUBID = "";
+            _MOTA = "";
+            _NGAYTAO = DateTime.Now;
+            _NGAYSUA = DateTime.Now;
         }
 
         public bizKHU(int ID, string TEN, bizCOSO COSO, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)

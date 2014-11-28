@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLTS.BLL
 {
-    public class bizPHONG
+    public class bizLOAITAISAN
     {
         private int _ID;
         public int ID
@@ -14,18 +14,11 @@ namespace QLTS.BLL
             set { _ID = value; }
         }
 
-        private string _TENPHONG;
-        public string TENPHONG
+        private string _TENLOAI;
+        public string TENLOAI
         {
-            get { return _TENPHONG; }
-            set { _TENPHONG = value; }
-        }
-
-        private bizDIADIEM _DIADIEM;
-        public bizDIADIEM DIADIEM
-        {
-            get { return _DIADIEM; }
-            set { _DIADIEM = value; }
+            get { return _TENLOAI; }
+            set { _TENLOAI = value; }
         }
 
         private string _SUBID;
@@ -56,22 +49,20 @@ namespace QLTS.BLL
             set { _NGAYSUA = value; }
         }
 
-        public bizPHONG()
+        public bizLOAITAISAN()
         {
             _ID = 0;
-            _TENPHONG = "";
-            _DIADIEM = null;
+            _TENLOAI = "";
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizPHONG(int ID, string TENPHONG, bizDIADIEM DIADIEM, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizLOAITAISAN(int ID, string TENLOAI, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
-            _TENPHONG = TENPHONG;
-            _DIADIEM = DIADIEM;
+            _TENLOAI = TENLOAI;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;
