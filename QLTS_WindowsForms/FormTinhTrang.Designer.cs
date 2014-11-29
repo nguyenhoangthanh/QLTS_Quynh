@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALUE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYSUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonThem = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
@@ -40,12 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALUE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYSUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -65,9 +65,53 @@
             this.dataGridView.Location = new System.Drawing.Point(12, 35);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(395, 266);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // VALUE
+            // 
+            this.VALUE.DataPropertyName = "VALUE";
+            this.VALUE.HeaderText = "Tên tình trạng";
+            this.VALUE.Name = "VALUE";
+            this.VALUE.ReadOnly = true;
+            // 
+            // KEY
+            // 
+            this.KEY.DataPropertyName = "KEY";
+            this.KEY.HeaderText = "Khoá";
+            this.KEY.Name = "KEY";
+            this.KEY.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "Mô tả";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
+            // 
+            // NGAYTAO
+            // 
+            this.NGAYTAO.DataPropertyName = "NGAYTAO";
+            this.NGAYTAO.HeaderText = "Ngày tạo";
+            this.NGAYTAO.Name = "NGAYTAO";
+            this.NGAYTAO.ReadOnly = true;
+            // 
+            // NGAYSUA
+            // 
+            this.NGAYSUA.DataPropertyName = "NGAYSUA";
+            this.NGAYSUA.HeaderText = "Ngày sửa";
+            this.NGAYSUA.Name = "NGAYSUA";
+            this.NGAYSUA.ReadOnly = true;
             // 
             // label1
             // 
@@ -184,49 +228,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên tình trạng";
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // VALUE
-            // 
-            this.VALUE.DataPropertyName = "VALUE";
-            this.VALUE.HeaderText = "Tên tình trạng";
-            this.VALUE.Name = "VALUE";
-            this.VALUE.ReadOnly = true;
-            // 
-            // KEY
-            // 
-            this.KEY.DataPropertyName = "KEY";
-            this.KEY.HeaderText = "Khoá";
-            this.KEY.Name = "KEY";
-            this.KEY.ReadOnly = true;
-            // 
-            // MOTA
-            // 
-            this.MOTA.DataPropertyName = "MOTA";
-            this.MOTA.HeaderText = "Mô tả";
-            this.MOTA.Name = "MOTA";
-            this.MOTA.ReadOnly = true;
-            // 
-            // NGAYTAO
-            // 
-            this.NGAYTAO.DataPropertyName = "NGAYTAO";
-            this.NGAYTAO.HeaderText = "Ngày tạo";
-            this.NGAYTAO.Name = "NGAYTAO";
-            this.NGAYTAO.ReadOnly = true;
-            // 
-            // NGAYSUA
-            // 
-            this.NGAYSUA.DataPropertyName = "NGAYSUA";
-            this.NGAYSUA.HeaderText = "Ngày sửa";
-            this.NGAYSUA.Name = "NGAYSUA";
-            this.NGAYSUA.ReadOnly = true;
-            // 
             // FormTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +241,7 @@
             this.Controls.Add(this.dataGridView);
             this.Name = "FormTinhTrang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý cơ sở";
+            this.Text = "Quản lý tình trạng";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();

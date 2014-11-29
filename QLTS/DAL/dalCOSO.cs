@@ -51,7 +51,79 @@ namespace QLTS.DAL
             return result;
         }
 
-        public static bizCOSO getbyid(int macoso)
+        public static int KHUTrongCOSO(int ID)
+        {
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand(string.Format("select count(*) from KHU where COSO_ID={0}", ID), conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+                rdr.Read();
+                return Convert.ToInt32(rdr[0].ToString());
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public static int PHONGTrongCOSO(int ID)
+        {
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand(string.Format("select count(*) from DIADIEM where DIADIEM.COSO_ID={0} and DIADIEM.KHU_ID IS NULL and DIADIEM.TANG_ID IS NULL", ID), conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+                rdr.Read();
+                return Convert.ToInt32(rdr[0].ToString());
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public static bizCOSO getbyid(int ID)
         {
             bizCOSO result = new bizCOSO();
             SqlConnection conn = new SqlConnection(dbconnect.cnstring);
@@ -63,7 +135,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                SqlCommand cmd = new SqlCommand(string.Format("select * from COSO where MACOSO={0}", macoso), conn);
+                SqlCommand cmd = new SqlCommand(string.Format("select * from COSO where ID={0}", ID), conn);
 
                 // get query results
                 rdr = cmd.ExecuteReader();
@@ -128,7 +200,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where MACOSO={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), coso.ID);
+                String s = String.Format("update COSO set TENCOSO=N'{0}', DIACHI=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where ID={5}", coso.TENCOSO, coso.DIACHI, coso.SUBID, coso.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), coso.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -157,7 +229,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("delete COSO where MACOSO='{0}'", coso.ID);
+                String s = String.Format("delete COSO where ID='{0}'", coso.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

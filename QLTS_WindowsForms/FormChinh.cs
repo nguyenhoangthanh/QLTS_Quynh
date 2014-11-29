@@ -51,5 +51,11 @@ namespace QLTS_WindowsForms
             FormNhanVien frm = new FormNhanVien();
             frm.Show();
         }
+
+        private void buttonTANG_Click(object sender, EventArgs e)
+        {
+            FormTang frm = new FormTang();
+            frm.Show();
+        }
     }
 }

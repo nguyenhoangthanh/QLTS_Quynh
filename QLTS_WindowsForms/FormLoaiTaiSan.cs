@@ -35,6 +35,12 @@ namespace QLTS_WindowsForms
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
                 }
+                else
+                {
+                    IDLOAITAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    buttonXoa.Enabled = true;
+                    buttonSua.Enabled = true;
+                }
             }
             catch { }
         }
@@ -59,15 +65,16 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    if (dalLOAITAISAN.TAISANTrongLOAITAISAN(IDLOAITAISAN) > 0)
+                    {
+                        MessageBox.Show("Loại này đang có tài sản.");
+                        return;
+                    }
                     LOAITAISAN = dalLOAITAISAN.getbyid(IDLOAITAISAN);
                     if (dalLOAITAISAN.xoa(LOAITAISAN))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        if (dataGridView.RowCount > 0)
-                        {
-                            IDLOAITAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
-                        }
                     }
                     else
                     {
@@ -116,6 +123,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Thêm thành công");
                             textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {
@@ -140,7 +148,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Cập nhật thành công");
                             textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
-                            IDLOAITAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {

@@ -35,6 +35,12 @@ namespace QLTS_WindowsForms
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
                 }
+                else
+                {
+                    IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    buttonXoa.Enabled = true;
+                    buttonSua.Enabled = true;
+                }
             }
             catch { }
         }
@@ -59,15 +65,21 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    if (dalCOSO.KHUTrongCOSO(IDCOSO) > 0)
+                    {
+                        MessageBox.Show("Có khu trong cơ sở. Xoá khu trước.");
+                        return;
+                    }
+                    if (dalCOSO.PHONGTrongCOSO(IDCOSO) > 0)
+                    {
+                        MessageBox.Show("Có phòng trong cơ sở. Xoá phòng trước.");
+                        return;
+                    }
                     COSO = dalCOSO.getbyid(IDCOSO);
                     if (dalCOSO.xoa(COSO))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        if (dataGridView.RowCount > 0)
-                        {
-                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
-                        }
                     }
                     else
                     {
@@ -118,6 +130,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Thêm thành công");
                             textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
                             LoadData();
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {
@@ -143,7 +156,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Cập nhật thành công");
                             textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
                             LoadData();
-                            IDCOSO = Int32.Parse(dataGridView.Rows[0].Cells["MACOSO"].Value.ToString());
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {
@@ -182,7 +195,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                IDCOSO = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["MACOSO"].Value.ToString());
+                IDCOSO = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
             }

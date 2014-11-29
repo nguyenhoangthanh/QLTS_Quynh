@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYSUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonThem = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
@@ -44,13 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.MACOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYSUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MACOSO,
+            this.ID,
             this.SUBID,
             this.TENCOSO,
             this.DIACHI,
@@ -71,9 +71,60 @@
             this.dataGridView.Location = new System.Drawing.Point(12, 35);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(395, 266);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // SUBID
+            // 
+            this.SUBID.DataPropertyName = "SUBID";
+            this.SUBID.HeaderText = "Mã cơ sở";
+            this.SUBID.Name = "SUBID";
+            this.SUBID.ReadOnly = true;
+            // 
+            // TENCOSO
+            // 
+            this.TENCOSO.DataPropertyName = "TENCOSO";
+            this.TENCOSO.HeaderText = "Tên cơ sở";
+            this.TENCOSO.Name = "TENCOSO";
+            this.TENCOSO.ReadOnly = true;
+            // 
+            // DIACHI
+            // 
+            this.DIACHI.DataPropertyName = "DIACHI";
+            this.DIACHI.HeaderText = "Địa chỉ";
+            this.DIACHI.Name = "DIACHI";
+            this.DIACHI.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "Mô tả";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
+            // 
+            // NGAYTAO
+            // 
+            this.NGAYTAO.DataPropertyName = "NGAYTAO";
+            this.NGAYTAO.HeaderText = "Ngày tạo";
+            this.NGAYTAO.Name = "NGAYTAO";
+            this.NGAYTAO.ReadOnly = true;
+            // 
+            // NGAYSUA
+            // 
+            this.NGAYSUA.DataPropertyName = "NGAYSUA";
+            this.NGAYSUA.HeaderText = "Ngày sửa";
+            this.NGAYSUA.Name = "NGAYSUA";
+            this.NGAYSUA.ReadOnly = true;
             // 
             // label1
             // 
@@ -229,56 +280,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã cơ sở";
             // 
-            // MACOSO
-            // 
-            this.MACOSO.DataPropertyName = "MACOSO";
-            this.MACOSO.HeaderText = "ID";
-            this.MACOSO.Name = "MACOSO";
-            this.MACOSO.ReadOnly = true;
-            this.MACOSO.Visible = false;
-            // 
-            // SUBID
-            // 
-            this.SUBID.DataPropertyName = "SUBID";
-            this.SUBID.HeaderText = "Mã cơ sở";
-            this.SUBID.Name = "SUBID";
-            this.SUBID.ReadOnly = true;
-            // 
-            // TENCOSO
-            // 
-            this.TENCOSO.DataPropertyName = "TENCOSO";
-            this.TENCOSO.HeaderText = "Tên cơ sở";
-            this.TENCOSO.Name = "TENCOSO";
-            this.TENCOSO.ReadOnly = true;
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.DataPropertyName = "DIACHI";
-            this.DIACHI.HeaderText = "Địa chỉ";
-            this.DIACHI.Name = "DIACHI";
-            this.DIACHI.ReadOnly = true;
-            // 
-            // MOTA
-            // 
-            this.MOTA.DataPropertyName = "MOTA";
-            this.MOTA.HeaderText = "Mô tả";
-            this.MOTA.Name = "MOTA";
-            this.MOTA.ReadOnly = true;
-            // 
-            // NGAYTAO
-            // 
-            this.NGAYTAO.DataPropertyName = "NGAYTAO";
-            this.NGAYTAO.HeaderText = "Ngày tạo";
-            this.NGAYTAO.Name = "NGAYTAO";
-            this.NGAYTAO.ReadOnly = true;
-            // 
-            // NGAYSUA
-            // 
-            this.NGAYSUA.DataPropertyName = "NGAYSUA";
-            this.NGAYSUA.HeaderText = "Ngày sửa";
-            this.NGAYSUA.Name = "NGAYSUA";
-            this.NGAYSUA.ReadOnly = true;
-            // 
             // FormCoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,7 +320,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonHuyBo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MACOSO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENCOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIACHI;

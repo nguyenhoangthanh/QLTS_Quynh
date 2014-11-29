@@ -78,6 +78,7 @@
             this.buttonTANG.TabIndex = 0;
             this.buttonTANG.Text = "Quản lý tầng";
             this.buttonTANG.UseVisualStyleBackColor = true;
+            this.buttonTANG.Click += new System.EventHandler(this.buttonTANG_Click);
             // 
             // buttonPHONG
             // 

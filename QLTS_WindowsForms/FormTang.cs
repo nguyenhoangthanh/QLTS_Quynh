@@ -11,13 +11,15 @@ using System.Windows.Forms;
 
 namespace QLTS_WindowsForms
 {
-    public partial class FormNhanVien : Form
+    public partial class FormTang : Form
     {
-        public bizNHANVIEN NHANVIEN = new bizNHANVIEN();
-        public List<bizNHANVIEN> listNHANVIEN = new List<bizNHANVIEN>();
+        bizTANG TANG = new bizTANG();
+        List<bizTANG> ListTANG = new List<bizTANG>();
+        List<bizKHU> ListKHU = new List<bizKHU>();
+        List<bizCOSO> ListCOSO = new List<bizCOSO>();
         public string TinhTrang = "";
-        public int IDNHANVIEN = 0;
-        public FormNhanVien()
+        public int IDTANG = 0;
+        public FormTang()
         {
             InitializeComponent();
             LoadData();
@@ -27,17 +29,29 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                listNHANVIEN = dalNHANVIEN.getall();
+                ListTANG = dalTANG.getall();
+                var ListTANGCustom = ListTANG.Select(item => new
+                {
+                    ID = item.ID,
+                    SUBID = item.SUBID,
+                    TENTANG = item.TENTANG,
+                    TENKHU = item.KHU.TEN,
+                    TENCOSO = item.KHU.COSO.TENCOSO,
+                    MOTA = item.MOTA,
+                    NGAYTAO = item.NGAYTAO,
+                    NGAYSUA = item.NGAYSUA
+                }).ToList();
+
                 dataGridView.AutoGenerateColumns = false;
-                dataGridView.DataSource = listNHANVIEN;
-                if (listNHANVIEN.Count() < 1)
+                dataGridView.DataSource = ListTANGCustom;
+                if (ListTANGCustom.Count() < 1)
                 {
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
                 }
                 else
                 {
-                    IDNHANVIEN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    IDTANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                     buttonXoa.Enabled = true;
                     buttonSua.Enabled = true;
                 }
@@ -52,14 +66,15 @@ namespace QLTS_WindowsForms
                 buttonOK.Text = "Thêm";
                 panel.Visible = true;
                 TinhTrang = "THEM";
-                comboBox.DisplayMember = "Text";
-                comboBox.ValueMember = "Value";
-                var items = new[] { 
-                    new { Text = "Nam", Value = "Nam" }, 
-                    new { Text = "Nữ", Value = "Nữ" }
-                };
-                comboBox.DataSource = items;
                 buttonThem.Enabled = false;
+                ListCOSO = dalCOSO.getall();
+                comboBoxCoSo.DataSource = ListCOSO;
+                comboBoxCoSo.DisplayMember = "TENCOSO";
+                comboBoxCoSo.ValueMember = "ID";
+                int IDCOSO = Convert.ToInt32(comboBoxCoSo.SelectedValue.ToString());
+                comboBoxKhu.DataSource = dalKHU.getall().Where(c=>c.COSO.ID==IDCOSO).ToList();
+                comboBoxKhu.DisplayMember = "TEN";
+                comboBoxKhu.ValueMember = "ID";
             }
             catch { }
         }
@@ -72,13 +87,13 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (dalNHANVIEN.NHANVIENDangQuanLyPHONG(IDNHANVIEN) > 0)
+                    if (dalTANG.PHONGTrongTANG(IDTANG) > 0)
                     {
-                        MessageBox.Show("Nhân viên này đang quản lý phòng.");
+                        MessageBox.Show("Có phòng trong tầng. Xoá phòng trước.");
                         return;
                     }
-                    NHANVIEN = dalNHANVIEN.getbyid(IDNHANVIEN);
-                    if (dalNHANVIEN.xoa(NHANVIEN))
+                    TANG = dalTANG.getbyid(IDTANG);
+                    if (dalTANG.xoa(TANG))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
@@ -91,7 +106,7 @@ namespace QLTS_WindowsForms
             }
             catch
             {
-                MessageBox.Show("Chọn nhân viên để xoá!");
+                MessageBox.Show("Chọn tầng để xoá!");
             }
         }
 
@@ -104,19 +119,21 @@ namespace QLTS_WindowsForms
                 panel.Visible = true;
                 TinhTrang = "SUA";
                 buttonSua.Enabled = false;
-                NHANVIEN = dalNHANVIEN.getbyid(IDNHANVIEN);
-                textBoxMa.Text = NHANVIEN.SUBID;
-                textBoxTen.Text = NHANVIEN.HOTEN;
-                textBoxSoDienThoai.Text = NHANVIEN.SODIENTHOAI;
-                comboBox.DisplayMember = "Text";
-                comboBox.ValueMember = "Value";
-                var items = new[] { 
-                    new { Text = "Nam", Value = "Nam" }, 
-                    new { Text = "Nữ", Value = "Nữ" }
-                };
-                comboBox.DataSource = items;
-                comboBox.SelectedValue = NHANVIEN.GIOITINH;
-                textBoxMoTa.Text = NHANVIEN.MOTA;
+
+                TANG = dalTANG.getbyid(IDTANG);
+                textBoxMa.Text = TANG.SUBID;
+                textBoxTen.Text = TANG.TENTANG;
+                ListCOSO = dalCOSO.getall();
+                comboBoxCoSo.DataSource = ListCOSO;
+                comboBoxCoSo.DisplayMember = "TENCOSO";
+                comboBoxCoSo.ValueMember = "ID";
+                comboBoxCoSo.SelectedValue = TANG.KHU.COSO.ID;
+                int IDCOSO = Convert.ToInt32(comboBoxCoSo.SelectedValue.ToString());
+                comboBoxKhu.DataSource = dalKHU.getall().Where(c => c.COSO.ID == IDCOSO).ToList();
+                comboBoxKhu.DisplayMember = "TEN";
+                comboBoxKhu.ValueMember = "ID";
+                comboBoxKhu.SelectedValue = TANG.KHU.ID;
+                textBoxMoTa.Text = TANG.MOTA;
             }
             catch { }
         }
@@ -129,16 +146,17 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        NHANVIEN = new bizNHANVIEN();
-                        NHANVIEN.HOTEN = textBoxTen.Text;
-                        NHANVIEN.SUBID = textBoxMa.Text;
-                        NHANVIEN.SODIENTHOAI = textBoxSoDienThoai.Text;
-                        NHANVIEN.GIOITINH = comboBox.SelectedValue.ToString();
-                        NHANVIEN.MOTA = textBoxMoTa.Text;
-                        if (dalNHANVIEN.them(NHANVIEN))
+                        TANG = new bizTANG();
+                        TANG.TENTANG = textBoxTen.Text;
+                        TANG.SUBID = textBoxMa.Text;
+                        int IDKHU = Convert.ToInt32(comboBoxKhu.SelectedValue.ToString());
+                        TANG.KHU = dalKHU.getbyid(IDKHU);
+                        TANG.MOTA = textBoxMoTa.Text;
+                        if (dalTANG.them(TANG))
                         {
                             MessageBox.Show("Thêm thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxSoDienThoai.Text = textBoxMoTa.Text = "";
+                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                            comboBoxCoSo.SelectedIndex = 0;
                             LoadData();
                             buttonHuyBo.PerformClick();
                         }
@@ -156,17 +174,17 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        NHANVIEN = dalNHANVIEN.getbyid(IDNHANVIEN);
-                        NHANVIEN.HOTEN = textBoxTen.Text;
-                        NHANVIEN.SUBID = textBoxMa.Text;
-                        NHANVIEN.SODIENTHOAI = textBoxSoDienThoai.Text;
-                        NHANVIEN.GIOITINH = comboBox.SelectedValue.ToString();
-                        NHANVIEN.MOTA = textBoxMoTa.Text;
-                        if (dalNHANVIEN.sua(NHANVIEN))
+                        TANG = dalTANG.getbyid(IDTANG);
+                        TANG.TENTANG = textBoxTen.Text;
+                        TANG.SUBID = textBoxMa.Text;
+                        TANG.KHU.ID = Convert.ToInt32(comboBoxKhu.SelectedValue);
+                        TANG.MOTA = textBoxMoTa.Text;
+                        if (dalTANG.sua(TANG))
                         {
                             MessageBox.Show("Cập nhật thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxSoDienThoai.Text = textBoxMoTa.Text = "";
-                            LoadData();							
+                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                            comboBoxCoSo.SelectedIndex = 0;
+                            LoadData();
                             buttonHuyBo.PerformClick();
                         }
                         else
@@ -188,7 +206,8 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                textBoxMa.Text = textBoxTen.Text = textBoxSoDienThoai.Text = textBoxMoTa.Text = "";
+                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+                comboBoxCoSo.SelectedIndex = 0;
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;
@@ -206,9 +225,25 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                IDNHANVIEN = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                IDTANG = Int32.Parse(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
+            }
+            catch { }
+        }
+
+        private void comboBoxCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxCoSo.SelectedValue != null)
+                {
+                    int IDCOSO = Convert.ToInt32(comboBoxCoSo.SelectedValue.ToString());
+                    ListKHU = dalKHU.getall().Where(c => c.COSO.ID == IDCOSO).ToList();
+                    comboBoxKhu.DataSource = ListKHU;
+                    comboBoxKhu.DisplayMember = "TEN";
+                    comboBoxKhu.ValueMember = "ID";
+                }
             }
             catch { }
         }

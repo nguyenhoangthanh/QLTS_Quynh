@@ -36,6 +36,12 @@ namespace QLTS_WindowsForms
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
                 }
+                else
+                {
+                    IDTINHTRANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    buttonXoa.Enabled = true;
+                    buttonSua.Enabled = true;
+                }
             }
             catch { }
         }
@@ -60,15 +66,16 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    if (dalTINHTRANG.TINHTRANGDangSuDungChoTAISAN(IDTINHTRANG) > 0)
+                    {
+                        MessageBox.Show("Tình trạng này đang được sử dụng.");
+                        return;
+                    }
                     TINHTRANG = dalTINHTRANG.getbyid(IDTINHTRANG);
                     if (dalTINHTRANG.xoa(TINHTRANG))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        if (dataGridView.RowCount > 0)
-                        {
-                            IDTINHTRANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
-                        }
                     }
                     else
                     {
@@ -121,6 +128,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Thêm thành công");
                             textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {
@@ -144,7 +152,7 @@ namespace QLTS_WindowsForms
                             MessageBox.Show("Cập nhật thành công");
                             textBoxTen.Text = textBoxMoTa.Text = "";
                             LoadData();
-                            IDTINHTRANG = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {

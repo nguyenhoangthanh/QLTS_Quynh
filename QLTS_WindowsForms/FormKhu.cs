@@ -47,6 +47,12 @@ namespace QLTS_WindowsForms
                     buttonXoa.Enabled = false;
                     buttonSua.Enabled = false;
                 }
+                else
+                {
+                    IDKHU = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    buttonXoa.Enabled = true;
+                    buttonSua.Enabled = true;
+                }
             }
             catch { }
         }
@@ -75,12 +81,16 @@ namespace QLTS_WindowsForms
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    if (dalKHU.TANGTrongKHU(IDKHU) > 0)
+                    {
+                        MessageBox.Show("Có tầng trong khu. Xoá tầng trước.");
+                        return;
+                    }
                     KHU = dalKHU.getbyid(IDKHU);
                     if (dalKHU.xoa(KHU))
                     {
                         MessageBox.Show("Xoá thành công");
                         LoadData();
-                        IDKHU = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
                     }
                     else
                     {
@@ -137,6 +147,7 @@ namespace QLTS_WindowsForms
                             textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
                             comboBox.SelectedIndex = 0;
                             LoadData();
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {
@@ -163,7 +174,7 @@ namespace QLTS_WindowsForms
                             textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
                             comboBox.SelectedIndex = 0;
                             LoadData();
-                            IDKHU = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                            buttonHuyBo.PerformClick();
                         }
                         else
                         {

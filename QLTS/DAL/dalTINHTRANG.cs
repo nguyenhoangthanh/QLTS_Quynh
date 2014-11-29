@@ -51,6 +51,42 @@ namespace QLTS.DAL
             return result;
         }
 
+        public static int TINHTRANGDangSuDungChoTAISAN(int ID)
+        {
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand(string.Format("select count(*) from CTTAISAN where TINHTRANG_ID={0}", ID), conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+                rdr.Read();
+                return Convert.ToInt32(rdr[0].ToString());
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         public static bizTINHTRANG getbyid(int ID)
         {
             bizTINHTRANG result = new bizTINHTRANG();
