@@ -80,11 +80,11 @@
     <Compile Include="FormTaiSanThuocPhong.Designer.cs">
       <DependentUpon>FormTaiSanThuocPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormThemTaiSan.cs">
+    <Compile Include="FormQuanLyTaiSanThuocPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormThemTaiSan.Designer.cs">
-      <DependentUpon>FormThemTaiSan.cs</DependentUpon>
+    <Compile Include="FormQuanLyTaiSanThuocPhong.Designer.cs">
+      <DependentUpon>FormQuanLyTaiSanThuocPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThongKe.cs">
       <SubType>Form</SubType>
@@ -166,8 +166,8 @@
     <EmbeddedResource Include="FormTaiSanThuocPhong.resx">
       <DependentUpon>FormTaiSanThuocPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormThemTaiSan.resx">
-      <DependentUpon>FormThemTaiSan.cs</DependentUpon>
+    <EmbeddedResource Include="FormQuanLyTaiSanThuocPhong.resx">
+      <DependentUpon>FormQuanLyTaiSanThuocPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThongKe.resx">
       <DependentUpon>FormThongKe.cs</DependentUpon>

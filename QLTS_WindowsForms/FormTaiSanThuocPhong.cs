@@ -98,12 +98,44 @@ namespace QLTS_WindowsForms
 
         public void EnableButton(bool Allow = true)
         {
-            buttonChuyenTaiSan.Enabled = buttonChuyenTinhTrang.Enabled = buttonLoaiBoTaiSan.Enabled = buttonThanhLy.Enabled = Allow;
+            buttonChuyenTaiSan.Enabled = buttonChuyenTinhTrang.Enabled = buttonSua.Enabled = buttonXoa.Enabled = buttonThanhLy.Enabled = Allow;
+        }
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            FormQuanLyTaiSanThuocPhong frm = new FormQuanLyTaiSanThuocPhong(dalPHONG.getbyid(IDPHONG), null, "THEM");
+            frm.ShowDialog();
+            DanhSachPhong();
         }
 
-        private void buttonThemTaiSan_Click(object sender, EventArgs e)
+        private void buttonSua_Click(object sender, EventArgs e)
         {
+            FormQuanLyTaiSanThuocPhong frm = new FormQuanLyTaiSanThuocPhong(null, dalCTTAISAN.getbyid(IDCTTAISAN), "SUA");
+            frm.ShowDialog();
+            DanhSachPhong();
+        }
 
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bizCTTAISAN CTTAISAN = dalCTTAISAN.getbyid(IDCTTAISAN);
+                    if (dalCTTAISAN.xoa(CTTAISAN))
+                    {
+                        MessageBox.Show("Xoá thành công");
+                        DanhSachPhong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá lỗi rồi!");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Chọn tài sản để xoá!");
+            }
         }
     }
 }

@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.panel = new System.Windows.Forms.Panel();
-            this.buttonChuyenTaiSan = new System.Windows.Forms.Button();
-            this.listBoxPhong = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonChuyenTinhTrang = new System.Windows.Forms.Button();
+            this.panel = new System.Windows.Forms.Panel();
+            this.buttonSua = new System.Windows.Forms.Button();
+            this.buttonThem = new System.Windows.Forms.Button();
             this.buttonThanhLy = new System.Windows.Forms.Button();
-            this.buttonThemTaiSan = new System.Windows.Forms.Button();
-            this.buttonLoaiBoTaiSan = new System.Windows.Forms.Button();
+            this.buttonChuyenTinhTrang = new System.Windows.Forms.Button();
+            this.buttonChuyenTaiSan = new System.Windows.Forms.Button();
+            this.listBoxPhong = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonXoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -67,54 +68,6 @@
             this.dataGridView.Size = new System.Drawing.Size(758, 485);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            // 
-            // panel
-            // 
-            this.panel.Controls.Add(this.buttonLoaiBoTaiSan);
-            this.panel.Controls.Add(this.buttonThemTaiSan);
-            this.panel.Controls.Add(this.buttonThanhLy);
-            this.panel.Controls.Add(this.buttonChuyenTinhTrang);
-            this.panel.Controls.Add(this.buttonChuyenTaiSan);
-            this.panel.Location = new System.Drawing.Point(12, 7);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(984, 35);
-            this.panel.TabIndex = 3;
-            // 
-            // buttonChuyenTaiSan
-            // 
-            this.buttonChuyenTaiSan.Location = new System.Drawing.Point(4, 5);
-            this.buttonChuyenTaiSan.Name = "buttonChuyenTaiSan";
-            this.buttonChuyenTaiSan.Size = new System.Drawing.Size(91, 23);
-            this.buttonChuyenTaiSan.TabIndex = 3;
-            this.buttonChuyenTaiSan.Text = "Chuyển tài sản";
-            this.buttonChuyenTaiSan.UseVisualStyleBackColor = true;
-            // 
-            // listBoxPhong
-            // 
-            this.listBoxPhong.FormattingEnabled = true;
-            this.listBoxPhong.Location = new System.Drawing.Point(12, 64);
-            this.listBoxPhong.Name = "listBoxPhong";
-            this.listBoxPhong.Size = new System.Drawing.Size(220, 485);
-            this.listBoxPhong.TabIndex = 4;
-            this.listBoxPhong.Click += new System.EventHandler(this.listBoxPhong_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Danh sách phòng";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(235, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Danh sách tài sản";
             // 
             // ID
             // 
@@ -158,42 +111,102 @@
             this.MOTA.Name = "MOTA";
             this.MOTA.ReadOnly = true;
             // 
-            // buttonChuyenTinhTrang
+            // panel
             // 
-            this.buttonChuyenTinhTrang.Location = new System.Drawing.Point(101, 5);
-            this.buttonChuyenTinhTrang.Name = "buttonChuyenTinhTrang";
-            this.buttonChuyenTinhTrang.Size = new System.Drawing.Size(115, 23);
-            this.buttonChuyenTinhTrang.TabIndex = 3;
-            this.buttonChuyenTinhTrang.Text = "Chuyển tình trạng";
-            this.buttonChuyenTinhTrang.UseVisualStyleBackColor = true;
+            this.panel.Controls.Add(this.buttonXoa);
+            this.panel.Controls.Add(this.buttonSua);
+            this.panel.Controls.Add(this.buttonThem);
+            this.panel.Controls.Add(this.buttonThanhLy);
+            this.panel.Controls.Add(this.buttonChuyenTinhTrang);
+            this.panel.Controls.Add(this.buttonChuyenTaiSan);
+            this.panel.Location = new System.Drawing.Point(12, 7);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(984, 35);
+            this.panel.TabIndex = 3;
+            // 
+            // buttonSua
+            // 
+            this.buttonSua.Location = new System.Drawing.Point(564, 5);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.Size = new System.Drawing.Size(93, 23);
+            this.buttonSua.TabIndex = 3;
+            this.buttonSua.Text = "Cập nhật tài sản";
+            this.buttonSua.UseVisualStyleBackColor = true;
+            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.Location = new System.Drawing.Point(407, 5);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(151, 23);
+            this.buttonThem.TabIndex = 3;
+            this.buttonThem.Text = "Chuyển tài sản vào phòng";
+            this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
             // 
             // buttonThanhLy
             // 
-            this.buttonThanhLy.Location = new System.Drawing.Point(222, 5);
+            this.buttonThanhLy.Location = new System.Drawing.Point(320, 5);
             this.buttonThanhLy.Name = "buttonThanhLy";
             this.buttonThanhLy.Size = new System.Drawing.Size(81, 23);
             this.buttonThanhLy.TabIndex = 3;
             this.buttonThanhLy.Text = "Thanh lý";
             this.buttonThanhLy.UseVisualStyleBackColor = true;
             // 
-            // buttonThemTaiSan
+            // buttonChuyenTinhTrang
             // 
-            this.buttonThemTaiSan.Location = new System.Drawing.Point(309, 5);
-            this.buttonThemTaiSan.Name = "buttonThemTaiSan";
-            this.buttonThemTaiSan.Size = new System.Drawing.Size(81, 23);
-            this.buttonThemTaiSan.TabIndex = 3;
-            this.buttonThemTaiSan.Text = "Thêm tài sản";
-            this.buttonThemTaiSan.UseVisualStyleBackColor = true;
-            this.buttonThemTaiSan.Click += new System.EventHandler(this.buttonThemTaiSan_Click);
+            this.buttonChuyenTinhTrang.Location = new System.Drawing.Point(179, 5);
+            this.buttonChuyenTinhTrang.Name = "buttonChuyenTinhTrang";
+            this.buttonChuyenTinhTrang.Size = new System.Drawing.Size(135, 23);
+            this.buttonChuyenTinhTrang.TabIndex = 3;
+            this.buttonChuyenTinhTrang.Text = "Chuyển tình trạng tài sản";
+            this.buttonChuyenTinhTrang.UseVisualStyleBackColor = true;
             // 
-            // buttonLoaiBoTaiSan
+            // buttonChuyenTaiSan
             // 
-            this.buttonLoaiBoTaiSan.Location = new System.Drawing.Point(396, 5);
-            this.buttonLoaiBoTaiSan.Name = "buttonLoaiBoTaiSan";
-            this.buttonLoaiBoTaiSan.Size = new System.Drawing.Size(93, 23);
-            this.buttonLoaiBoTaiSan.TabIndex = 3;
-            this.buttonLoaiBoTaiSan.Text = "Loại bỏ tài sản";
-            this.buttonLoaiBoTaiSan.UseVisualStyleBackColor = true;
+            this.buttonChuyenTaiSan.Location = new System.Drawing.Point(4, 5);
+            this.buttonChuyenTaiSan.Name = "buttonChuyenTaiSan";
+            this.buttonChuyenTaiSan.Size = new System.Drawing.Size(169, 23);
+            this.buttonChuyenTaiSan.TabIndex = 3;
+            this.buttonChuyenTaiSan.Text = "Chuyển tài sản giữa các phòng";
+            this.buttonChuyenTaiSan.UseVisualStyleBackColor = true;
+            // 
+            // listBoxPhong
+            // 
+            this.listBoxPhong.FormattingEnabled = true;
+            this.listBoxPhong.Location = new System.Drawing.Point(12, 64);
+            this.listBoxPhong.Name = "listBoxPhong";
+            this.listBoxPhong.Size = new System.Drawing.Size(220, 485);
+            this.listBoxPhong.TabIndex = 4;
+            this.listBoxPhong.Click += new System.EventHandler(this.listBoxPhong_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Danh sách phòng";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(235, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Danh sách tài sản";
+            // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Location = new System.Drawing.Point(663, 5);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.Size = new System.Drawing.Size(93, 23);
+            this.buttonXoa.TabIndex = 3;
+            this.buttonXoa.Text = "Loại bỏ tài sản";
+            this.buttonXoa.UseVisualStyleBackColor = true;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // FormTaiSanThuocPhong
             // 
@@ -234,7 +247,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.Button buttonThanhLy;
         private System.Windows.Forms.Button buttonChuyenTinhTrang;
-        private System.Windows.Forms.Button buttonThemTaiSan;
-        private System.Windows.Forms.Button buttonLoaiBoTaiSan;
+        private System.Windows.Forms.Button buttonThem;
+        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.Button buttonXoa;
     }
 }
