@@ -35,14 +35,14 @@
             this.buttonTAISANPHONG = new System.Windows.Forms.Button();
             this.buttonTAISAN = new System.Windows.Forms.Button();
             this.buttonLOAITAISAN = new System.Windows.Forms.Button();
-            this.buttonQuanTriVien = new System.Windows.Forms.Button();
-            this.buttonLOGHETHONG = new System.Windows.Forms.Button();
+            this.buttonQUANTRIVIEN = new System.Windows.Forms.Button();
+            this.buttonLOGTAISAN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonThongKeBaoCao = new System.Windows.Forms.Button();
-            this.buttonTinhTrang = new System.Windows.Forms.Button();
-            this.buttonNhanVien = new System.Windows.Forms.Button();
-            this.buttonQuanLyDangKySuDungPhong = new System.Windows.Forms.Button();
-            this.buttonGiangVien = new System.Windows.Forms.Button();
+            this.buttonTHONGKE = new System.Windows.Forms.Button();
+            this.buttonTINHTRANG = new System.Windows.Forms.Button();
+            this.buttonNHANVIEN = new System.Windows.Forms.Button();
+            this.buttonQUANLYDANGKYSUDUNGPHONG = new System.Windows.Forms.Button();
+            this.buttonGIANGVIEN = new System.Windows.Forms.Button();
             this.labelQuanTriVien = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -161,36 +161,36 @@
             this.buttonLOAITAISAN.UseVisualStyleBackColor = false;
             this.buttonLOAITAISAN.Click += new System.EventHandler(this.buttonLOAITAISAN_Click);
             // 
-            // buttonQuanTriVien
+            // buttonQUANTRIVIEN
             // 
-            this.buttonQuanTriVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(82)))), ((int)(((byte)(43)))));
-            this.buttonQuanTriVien.FlatAppearance.BorderSize = 0;
-            this.buttonQuanTriVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonQuanTriVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonQuanTriVien.ForeColor = System.Drawing.Color.White;
-            this.buttonQuanTriVien.Location = new System.Drawing.Point(717, 217);
-            this.buttonQuanTriVien.Name = "buttonQuanTriVien";
-            this.buttonQuanTriVien.Size = new System.Drawing.Size(122, 125);
-            this.buttonQuanTriVien.TabIndex = 45;
-            this.buttonQuanTriVien.Text = "Quản trị viên";
-            this.buttonQuanTriVien.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonQuanTriVien.UseVisualStyleBackColor = false;
-            this.buttonQuanTriVien.Click += new System.EventHandler(this.buttonQuanTriVien_Click);
+            this.buttonQUANTRIVIEN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(82)))), ((int)(((byte)(43)))));
+            this.buttonQUANTRIVIEN.FlatAppearance.BorderSize = 0;
+            this.buttonQUANTRIVIEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQUANTRIVIEN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonQUANTRIVIEN.ForeColor = System.Drawing.Color.White;
+            this.buttonQUANTRIVIEN.Location = new System.Drawing.Point(717, 217);
+            this.buttonQUANTRIVIEN.Name = "buttonQUANTRIVIEN";
+            this.buttonQUANTRIVIEN.Size = new System.Drawing.Size(122, 125);
+            this.buttonQUANTRIVIEN.TabIndex = 45;
+            this.buttonQUANTRIVIEN.Text = "Quản trị viên";
+            this.buttonQUANTRIVIEN.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonQUANTRIVIEN.UseVisualStyleBackColor = false;
+            this.buttonQUANTRIVIEN.Click += new System.EventHandler(this.buttonQuanTriVien_Click);
             // 
-            // buttonLOGHETHONG
+            // buttonLOGTAISAN
             // 
-            this.buttonLOGHETHONG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(61)))), ((int)(((byte)(189)))));
-            this.buttonLOGHETHONG.FlatAppearance.BorderSize = 0;
-            this.buttonLOGHETHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLOGHETHONG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonLOGHETHONG.ForeColor = System.Drawing.Color.White;
-            this.buttonLOGHETHONG.Location = new System.Drawing.Point(717, 348);
-            this.buttonLOGHETHONG.Name = "buttonLOGHETHONG";
-            this.buttonLOGHETHONG.Size = new System.Drawing.Size(122, 125);
-            this.buttonLOGHETHONG.TabIndex = 60;
-            this.buttonLOGHETHONG.Text = "Log hệ thống";
-            this.buttonLOGHETHONG.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonLOGHETHONG.UseVisualStyleBackColor = false;
+            this.buttonLOGTAISAN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(61)))), ((int)(((byte)(189)))));
+            this.buttonLOGTAISAN.FlatAppearance.BorderSize = 0;
+            this.buttonLOGTAISAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLOGTAISAN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonLOGTAISAN.ForeColor = System.Drawing.Color.White;
+            this.buttonLOGTAISAN.Location = new System.Drawing.Point(717, 348);
+            this.buttonLOGTAISAN.Name = "buttonLOGTAISAN";
+            this.buttonLOGTAISAN.Size = new System.Drawing.Size(122, 125);
+            this.buttonLOGTAISAN.TabIndex = 60;
+            this.buttonLOGTAISAN.Text = "Log tài sản";
+            this.buttonLOGTAISAN.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonLOGTAISAN.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -203,85 +203,85 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Start";
             // 
-            // buttonThongKeBaoCao
+            // buttonTHONGKE
             // 
-            this.buttonThongKeBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(87)))), ((int)(((byte)(191)))));
-            this.buttonThongKeBaoCao.FlatAppearance.BorderSize = 0;
-            this.buttonThongKeBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonThongKeBaoCao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonThongKeBaoCao.ForeColor = System.Drawing.Color.White;
-            this.buttonThongKeBaoCao.Location = new System.Drawing.Point(333, 348);
-            this.buttonThongKeBaoCao.Name = "buttonThongKeBaoCao";
-            this.buttonThongKeBaoCao.Size = new System.Drawing.Size(122, 125);
-            this.buttonThongKeBaoCao.TabIndex = 50;
-            this.buttonThongKeBaoCao.Text = "Thống kê";
-            this.buttonThongKeBaoCao.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonThongKeBaoCao.UseVisualStyleBackColor = false;
-            this.buttonThongKeBaoCao.Click += new System.EventHandler(this.buttonThongKeBaoCao_Click);
+            this.buttonTHONGKE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(87)))), ((int)(((byte)(191)))));
+            this.buttonTHONGKE.FlatAppearance.BorderSize = 0;
+            this.buttonTHONGKE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTHONGKE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonTHONGKE.ForeColor = System.Drawing.Color.White;
+            this.buttonTHONGKE.Location = new System.Drawing.Point(333, 348);
+            this.buttonTHONGKE.Name = "buttonTHONGKE";
+            this.buttonTHONGKE.Size = new System.Drawing.Size(122, 125);
+            this.buttonTHONGKE.TabIndex = 50;
+            this.buttonTHONGKE.Text = "Thống kê";
+            this.buttonTHONGKE.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonTHONGKE.UseVisualStyleBackColor = false;
+            this.buttonTHONGKE.Click += new System.EventHandler(this.buttonThongKeBaoCao_Click);
             // 
-            // buttonTinhTrang
+            // buttonTINHTRANG
             // 
-            this.buttonTinhTrang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(120)))), ((int)(((byte)(236)))));
-            this.buttonTinhTrang.FlatAppearance.BorderSize = 0;
-            this.buttonTinhTrang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTinhTrang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonTinhTrang.ForeColor = System.Drawing.Color.White;
-            this.buttonTinhTrang.Location = new System.Drawing.Point(461, 348);
-            this.buttonTinhTrang.Name = "buttonTinhTrang";
-            this.buttonTinhTrang.Size = new System.Drawing.Size(122, 125);
-            this.buttonTinhTrang.TabIndex = 55;
-            this.buttonTinhTrang.Text = "Tình trạng";
-            this.buttonTinhTrang.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonTinhTrang.UseVisualStyleBackColor = false;
-            this.buttonTinhTrang.Click += new System.EventHandler(this.buttonTinhTrang_Click);
+            this.buttonTINHTRANG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(120)))), ((int)(((byte)(236)))));
+            this.buttonTINHTRANG.FlatAppearance.BorderSize = 0;
+            this.buttonTINHTRANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTINHTRANG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonTINHTRANG.ForeColor = System.Drawing.Color.White;
+            this.buttonTINHTRANG.Location = new System.Drawing.Point(461, 348);
+            this.buttonTINHTRANG.Name = "buttonTINHTRANG";
+            this.buttonTINHTRANG.Size = new System.Drawing.Size(122, 125);
+            this.buttonTINHTRANG.TabIndex = 55;
+            this.buttonTINHTRANG.Text = "Tình trạng";
+            this.buttonTINHTRANG.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonTINHTRANG.UseVisualStyleBackColor = false;
+            this.buttonTINHTRANG.Click += new System.EventHandler(this.buttonTinhTrang_Click);
             // 
-            // buttonNhanVien
+            // buttonNHANVIEN
             // 
-            this.buttonNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(241)))));
-            this.buttonNhanVien.FlatAppearance.BorderSize = 0;
-            this.buttonNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNhanVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonNhanVien.Location = new System.Drawing.Point(589, 217);
-            this.buttonNhanVien.Name = "buttonNhanVien";
-            this.buttonNhanVien.Size = new System.Drawing.Size(122, 125);
-            this.buttonNhanVien.TabIndex = 40;
-            this.buttonNhanVien.Text = "Nhân viên";
-            this.buttonNhanVien.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonNhanVien.UseVisualStyleBackColor = false;
-            this.buttonNhanVien.Click += new System.EventHandler(this.buttonNhanVien_Click);
+            this.buttonNHANVIEN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(241)))));
+            this.buttonNHANVIEN.FlatAppearance.BorderSize = 0;
+            this.buttonNHANVIEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNHANVIEN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonNHANVIEN.ForeColor = System.Drawing.Color.White;
+            this.buttonNHANVIEN.Location = new System.Drawing.Point(589, 217);
+            this.buttonNHANVIEN.Name = "buttonNHANVIEN";
+            this.buttonNHANVIEN.Size = new System.Drawing.Size(122, 125);
+            this.buttonNHANVIEN.TabIndex = 40;
+            this.buttonNHANVIEN.Text = "Nhân viên";
+            this.buttonNHANVIEN.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonNHANVIEN.UseVisualStyleBackColor = false;
+            this.buttonNHANVIEN.Click += new System.EventHandler(this.buttonNhanVien_Click);
             // 
-            // buttonQuanLyDangKySuDungPhong
+            // buttonQUANLYDANGKYSUDUNGPHONG
             // 
-            this.buttonQuanLyDangKySuDungPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(0)))));
-            this.buttonQuanLyDangKySuDungPhong.FlatAppearance.BorderSize = 0;
-            this.buttonQuanLyDangKySuDungPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonQuanLyDangKySuDungPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonQuanLyDangKySuDungPhong.ForeColor = System.Drawing.Color.White;
-            this.buttonQuanLyDangKySuDungPhong.Location = new System.Drawing.Point(76, 348);
-            this.buttonQuanLyDangKySuDungPhong.Name = "buttonQuanLyDangKySuDungPhong";
-            this.buttonQuanLyDangKySuDungPhong.Size = new System.Drawing.Size(250, 125);
-            this.buttonQuanLyDangKySuDungPhong.TabIndex = 65;
-            this.buttonQuanLyDangKySuDungPhong.Text = "Đăng ký sử dụng phòng";
-            this.buttonQuanLyDangKySuDungPhong.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonQuanLyDangKySuDungPhong.UseVisualStyleBackColor = false;
-            this.buttonQuanLyDangKySuDungPhong.Click += new System.EventHandler(this.buttonQuanLyDangKySuDungPhong_Click);
+            this.buttonQUANLYDANGKYSUDUNGPHONG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(0)))));
+            this.buttonQUANLYDANGKYSUDUNGPHONG.FlatAppearance.BorderSize = 0;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonQUANLYDANGKYSUDUNGPHONG.ForeColor = System.Drawing.Color.White;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Location = new System.Drawing.Point(76, 348);
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Name = "buttonQUANLYDANGKYSUDUNGPHONG";
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Size = new System.Drawing.Size(250, 125);
+            this.buttonQUANLYDANGKYSUDUNGPHONG.TabIndex = 65;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Text = "Đăng ký sử dụng phòng";
+            this.buttonQUANLYDANGKYSUDUNGPHONG.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.UseVisualStyleBackColor = false;
+            this.buttonQUANLYDANGKYSUDUNGPHONG.Click += new System.EventHandler(this.buttonQuanLyDangKySuDungPhong_Click);
             // 
-            // buttonGiangVien
+            // buttonGIANGVIEN
             // 
-            this.buttonGiangVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
-            this.buttonGiangVien.FlatAppearance.BorderSize = 0;
-            this.buttonGiangVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGiangVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonGiangVien.ForeColor = System.Drawing.Color.White;
-            this.buttonGiangVien.Location = new System.Drawing.Point(589, 348);
-            this.buttonGiangVien.Name = "buttonGiangVien";
-            this.buttonGiangVien.Size = new System.Drawing.Size(122, 125);
-            this.buttonGiangVien.TabIndex = 70;
-            this.buttonGiangVien.Text = "Giảng viên";
-            this.buttonGiangVien.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonGiangVien.UseVisualStyleBackColor = false;
-            this.buttonGiangVien.Click += new System.EventHandler(this.buttonGiangVien_Click);
+            this.buttonGIANGVIEN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
+            this.buttonGIANGVIEN.FlatAppearance.BorderSize = 0;
+            this.buttonGIANGVIEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGIANGVIEN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonGIANGVIEN.ForeColor = System.Drawing.Color.White;
+            this.buttonGIANGVIEN.Location = new System.Drawing.Point(589, 348);
+            this.buttonGIANGVIEN.Name = "buttonGIANGVIEN";
+            this.buttonGIANGVIEN.Size = new System.Drawing.Size(122, 125);
+            this.buttonGIANGVIEN.TabIndex = 70;
+            this.buttonGIANGVIEN.Text = "Giảng viên";
+            this.buttonGIANGVIEN.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonGIANGVIEN.UseVisualStyleBackColor = false;
+            this.buttonGIANGVIEN.Click += new System.EventHandler(this.buttonGiangVien_Click);
             // 
             // labelQuanTriVien
             // 
@@ -326,13 +326,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelQuanTriVien);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonNhanVien);
-            this.Controls.Add(this.buttonQuanLyDangKySuDungPhong);
-            this.Controls.Add(this.buttonTinhTrang);
-            this.Controls.Add(this.buttonThongKeBaoCao);
-            this.Controls.Add(this.buttonLOGHETHONG);
-            this.Controls.Add(this.buttonGiangVien);
-            this.Controls.Add(this.buttonQuanTriVien);
+            this.Controls.Add(this.buttonNHANVIEN);
+            this.Controls.Add(this.buttonQUANLYDANGKYSUDUNGPHONG);
+            this.Controls.Add(this.buttonTINHTRANG);
+            this.Controls.Add(this.buttonTHONGKE);
+            this.Controls.Add(this.buttonLOGTAISAN);
+            this.Controls.Add(this.buttonGIANGVIEN);
+            this.Controls.Add(this.buttonQUANTRIVIEN);
             this.Controls.Add(this.buttonLOAITAISAN);
             this.Controls.Add(this.buttonTAISAN);
             this.Controls.Add(this.buttonTAISANPHONG);
@@ -360,14 +360,14 @@
         private System.Windows.Forms.Button buttonTAISANPHONG;
         private System.Windows.Forms.Button buttonTAISAN;
         private System.Windows.Forms.Button buttonLOAITAISAN;
-        private System.Windows.Forms.Button buttonQuanTriVien;
-        private System.Windows.Forms.Button buttonLOGHETHONG;
+        private System.Windows.Forms.Button buttonQUANTRIVIEN;
+        private System.Windows.Forms.Button buttonLOGTAISAN;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonThongKeBaoCao;
-        private System.Windows.Forms.Button buttonTinhTrang;
-        private System.Windows.Forms.Button buttonNhanVien;
-        private System.Windows.Forms.Button buttonQuanLyDangKySuDungPhong;
-        private System.Windows.Forms.Button buttonGiangVien;
+        private System.Windows.Forms.Button buttonTHONGKE;
+        private System.Windows.Forms.Button buttonTINHTRANG;
+        private System.Windows.Forms.Button buttonNHANVIEN;
+        private System.Windows.Forms.Button buttonQUANLYDANGKYSUDUNGPHONG;
+        private System.Windows.Forms.Button buttonGIANGVIEN;
         private System.Windows.Forms.Label labelQuanTriVien;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
