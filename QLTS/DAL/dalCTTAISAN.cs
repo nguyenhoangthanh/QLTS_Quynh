@@ -21,7 +21,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                SqlCommand cmd = new SqlCommand(string.Format("SELECT * FROM CTTAISAN WHERE PHONG_ID='{0}' AND NGAY BETWEEN CONVERT(datetime,'{1}') AND CONVERT(datetime,'{2}')", PHONG.ID, tungay, denngay), conn);
+                SqlCommand cmd = new SqlCommand(string.Format("SELECT * FROM CTTAISAN WHERE PHONG_ID='{0}' AND NGAY BETWEEN CONVERT(datetime,'{1}') AND CONVERT(datetime,'{2}')", PHONG.ID, ((DateTime)tungay).ToString("M/d/yyyy H:mm:ss"), ((DateTime)denngay).ToString("M/d/yyyy H:mm:ss")), conn);
 
                 // get query results
                 rdr = cmd.ExecuteReader();

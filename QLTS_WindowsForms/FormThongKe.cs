@@ -51,9 +51,16 @@ namespace QLTS_WindowsForms
                         TENPHONG = item.PHONG.TENPHONG,
                         MOTA = item.MOTA
                     }).ToList();
-
-                    dataGridView.AutoGenerateColumns = false;
-                    dataGridView.DataSource = ListTaiSan;
+                    if (ListTaiSan != null && ListTaiSan.Count > 0)
+                    {
+                        dataGridView.AutoGenerateColumns = false;
+                        dataGridView.DataSource = ListTaiSan;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có dữ liệu nào đúng theo điều kiện. Vui lòng thử lại");
+                    }
+                    
                 }
                 catch
                 {
