@@ -173,7 +173,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into TINHTRANG([KEY],VALUE,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}')", TINHTRANG.KEY, TINHTRANG.VALUE, TINHTRANG.SUBID, TINHTRANG.MOTA, ((DateTime)TINHTRANG.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)TINHTRANG.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into TINHTRANG([KEY],VALUE,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}')", TINHTRANG.KEY, TINHTRANG.VALUE, TINHTRANG.SUBID, TINHTRANG.MOTA, ((DateTime)TINHTRANG.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)TINHTRANG.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -202,7 +202,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update TINHTRANG set [KEY]=N'{0}', VALUE=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where ID={5}", TINHTRANG.KEY, TINHTRANG.VALUE, TINHTRANG.SUBID, TINHTRANG.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), TINHTRANG.ID);
+                String s = String.Format("update TINHTRANG set [KEY]=N'{0}', VALUE=N'{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where ID={5}", TINHTRANG.KEY, TINHTRANG.VALUE, TINHTRANG.SUBID, TINHTRANG.MOTA, DateTime.Now.ToString("M/d/yyyy H:mm:ss"), TINHTRANG.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

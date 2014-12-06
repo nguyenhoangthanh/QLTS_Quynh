@@ -28,6 +28,13 @@ namespace QLTS.BLL
             set { _DIADIEM = value; }
         }
 
+        private bizNHANVIEN _NHANVIEN;
+        public bizNHANVIEN NHANVIEN
+        {
+            get { return _NHANVIEN; }
+            set { _NHANVIEN = value; }
+        }
+
         private string _SUBID;
         public string SUBID
         {
@@ -61,17 +68,19 @@ namespace QLTS.BLL
             _ID = 0;
             _TENPHONG = "";
             _DIADIEM = null;
+            _NHANVIEN = null;
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizPHONG(int ID, string TENPHONG, bizDIADIEM DIADIEM, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizPHONG(int ID, string TENPHONG, bizDIADIEM DIADIEM, bizNHANVIEN NHANVIEN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _TENPHONG = TENPHONG;
             _DIADIEM = DIADIEM;
+            _NHANVIEN = NHANVIEN;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

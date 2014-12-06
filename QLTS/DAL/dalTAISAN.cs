@@ -29,7 +29,157 @@ namespace QLTS.DAL
                 while (rdr.Read())
                 {
                     bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Int32.Parse(rdr["LOAITAISAN_ID"].ToString()));
-                    bizTAISAN s = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+                    bool TAISANKHONGGIOIHAN = false;
+                    if (rdr["TAISANKHONGGIOIHAN"].ToString().Equals("True"))
+                    {
+                        TAISANKHONGGIOIHAN = true;
+                    }
+                    bizTAISAN s = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, TAISANKHONGGIOIHAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+                    result.Add(s);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return result;
+        }
+
+        public static List<bizTAISAN> getallTaiSanKhongGioiHan()
+        {
+            List<bizTAISAN> result = new List<bizTAISAN>();
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand("select * from TAISAN where TAISANKHONGGIOIHAN = 1", conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Int32.Parse(rdr["LOAITAISAN_ID"].ToString()));
+                    bool TAISANKHONGGIOIHAN = false;
+                    if (rdr["TAISANKHONGGIOIHAN"].ToString().Equals("True"))
+                    {
+                        TAISANKHONGGIOIHAN = true;
+                    }
+                    bizTAISAN s = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, TAISANKHONGGIOIHAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+                    result.Add(s);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return result;
+        }
+
+        public static List<bizTAISAN> getallTaiSanCoGioiHan()
+        {
+            List<bizTAISAN> result = new List<bizTAISAN>();
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand("select * from TAISAN where TAISANKHONGGIOIHAN = 0", conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Int32.Parse(rdr["LOAITAISAN_ID"].ToString()));
+                    bool TAISANKHONGGIOIHAN = false;
+                    if (rdr["TAISANKHONGGIOIHAN"].ToString().Equals("True"))
+                    {
+                        TAISANKHONGGIOIHAN = true;
+                    }
+                    bizTAISAN s = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, TAISANKHONGGIOIHAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+                    result.Add(s);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return result;
+        }
+
+        public static List<bizTAISAN> getallTaiSanCoTheThemVaoPhong()
+        {
+            List<bizTAISAN> result = new List<bizTAISAN>();
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                // tài sản có thể thêm vào phòng là tài sản "số lượng không giới hạn" hoặc những tài sản "số lượng có giới hạn chưa được thêm vào phòng"
+                SqlCommand cmd = new SqlCommand("SELECT * FROM TAISAN t WHERE TAISANKHONGGIOIHAN = 1 or NOT EXISTS (SELECT * FROM CTTAISAN WHERE CTTAISAN.TAISAN_ID = t.ID)", conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Int32.Parse(rdr["LOAITAISAN_ID"].ToString()));
+                    bool TAISANKHONGGIOIHAN = false;
+                    if (rdr["TAISANKHONGGIOIHAN"].ToString().Equals("True"))
+                    {
+                        TAISANKHONGGIOIHAN = true;
+                    }
+                    bizTAISAN s = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, TAISANKHONGGIOIHAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
                     result.Add(s);
                 }
             }
@@ -106,7 +256,12 @@ namespace QLTS.DAL
                 rdr = cmd.ExecuteReader();
                 rdr.Read();
                 bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Int32.Parse(rdr["LOAITAISAN_ID"].ToString()));
-                result = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+                bool TAISANKHONGGIOIHAN = false;
+                if (rdr["TAISANKHONGGIOIHAN"].ToString().Equals("True"))
+                {
+                    TAISANKHONGGIOIHAN = true;
+                }
+                result = new bizTAISAN(Int32.Parse(rdr["ID"].ToString()), rdr["TENTAISAN"].ToString(), DateTime.Parse(rdr["NGAYMUA"].ToString()), LOAITAISAN, TAISANKHONGGIOIHAN, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
             }
             catch
             {
@@ -137,7 +292,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into TAISAN(TENTAISAN,NGAYMUA,LOAITAISAN_ID,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}','{1}','{2}',N'{3}','{4}','{5}','{6}')", TAISAN.TENTAISAN, ((DateTime)TAISAN.NGAYMUA).ToString("M/d/yyyy HH:mm:ss"), TAISAN.LOAITAISAN.ID, TAISAN.SUBID, TAISAN.MOTA, ((DateTime)TAISAN.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)TAISAN.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into TAISAN(TENTAISAN,NGAYMUA,LOAITAISAN_ID,TAISANKHONGGIOIHAN,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}','{1}','{2}',N'{3}','{4}','{5}','{6}','{6}')", TAISAN.TENTAISAN, ((DateTime)TAISAN.NGAYMUA).ToString("M/d/yyyy H:mm:ss"), TAISAN.LOAITAISAN.ID, TAISAN.TAISANKHONGGIOIHAN, TAISAN.SUBID, TAISAN.MOTA, ((DateTime)TAISAN.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)TAISAN.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -166,7 +321,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update TAISAN set TENTAISAN=N'{0}', NGAYMUA=N'{1}',LOAITAISAN_ID='{2}', SUBID=N'{3}', MOTA=N'{4}', NGAYSUA='{5}' where ID={6}", TAISAN.TENTAISAN, ((DateTime)TAISAN.NGAYMUA).ToString("M/d/yyyy HH:mm:ss"),TAISAN.LOAITAISAN.ID, TAISAN.SUBID, TAISAN.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), TAISAN.ID);
+                String s = String.Format("update TAISAN set TENTAISAN=N'{0}', NGAYMUA=N'{1}',LOAITAISAN_ID='{2}',TAISANKHONGGIOIHAN='{3}', SUBID=N'{4}', MOTA=N'{5}', NGAYSUA='{6}' where ID={7}", TAISAN.TENTAISAN, ((DateTime)TAISAN.NGAYMUA).ToString("M/d/yyyy H:mm:ss"), TAISAN.LOAITAISAN.ID, TAISAN.TAISANKHONGGIOIHAN, TAISAN.SUBID, TAISAN.MOTA, DateTime.Now.ToString("M/d/yyyy H:mm:ss"), TAISAN.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

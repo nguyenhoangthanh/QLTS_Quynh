@@ -56,11 +56,11 @@ namespace QLTS.BLL
             set { _SOLUONGSV = value; }
         }
 
-        private bizGIANGVIEN _GIANGVIEN;
-        public bizGIANGVIEN GIANGVIEN
+        private int _NGUOIMUON_ID;
+        public int NGUOIMUON_ID
         {
-            get { return _GIANGVIEN; }
-            set { _GIANGVIEN = value; }
+            get { return _NGUOIMUON_ID; }
+            set { _NGUOIMUON_ID = value; }
         }
 
         private bizQUANTRIVIEN _QUANTRIVIEN;
@@ -68,6 +68,20 @@ namespace QLTS.BLL
         {
             get { return _QUANTRIVIEN; }
             set { _QUANTRIVIEN = value; }
+        }
+
+        private string _TINHTRANG;
+        public string TINHTRANG
+        {
+            get { return _TINHTRANG; }
+            set { _TINHTRANG = value; }
+        }
+
+        private bool _GIANGVIENMUON;
+        public bool GIANGVIENMUON
+        {
+            get { return _GIANGVIENMUON; }
+            set { _GIANGVIENMUON = value; }
         }
 
         private string _SUBID;
@@ -107,15 +121,17 @@ namespace QLTS.BLL
             _LYDOMUON = "";
             _GHICHU = "";
             _SOLUONGSV = 0;
-            _GIANGVIEN = null;
+            _NGUOIMUON_ID = 0;
             _QUANTRIVIEN = null;
+            _TINHTRANG = "";
+            _GIANGVIENMUON = true;
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizPHIEUMUONPHONG(int ID, string KHOA, DateTime NGAYMUON, DateTime NGAYTRA, string LYDOMUON, string GHICHU, int SOLUONGSV, bizGIANGVIEN GIANGVIEN, bizQUANTRIVIEN QUANTRIVIEN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizPHIEUMUONPHONG(int ID, string KHOA, DateTime NGAYMUON, DateTime NGAYTRA, string LYDOMUON, string GHICHU, int SOLUONGSV, int NGUOIMUON_ID, bizQUANTRIVIEN QUANTRIVIEN, string TINHTRANG, bool GIANGVIENMUON, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _KHOA = KHOA;
@@ -124,8 +140,10 @@ namespace QLTS.BLL
             _LYDOMUON = LYDOMUON;
             _GHICHU = GHICHU;
             _SOLUONGSV = SOLUONGSV;
-            _GIANGVIEN = GIANGVIEN;
+            _NGUOIMUON_ID = NGUOIMUON_ID;
             _QUANTRIVIEN = QUANTRIVIEN;
+            _TINHTRANG = TINHTRANG;
+            _GIANGVIENMUON = GIANGVIENMUON;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

@@ -28,7 +28,22 @@ namespace QLTS_WindowsForms
         {
             try
             {
-                listTAISAN = dalTAISAN.getall();
+                if (radioButtonTatCa.Checked == true)
+                {
+                    listTAISAN = dalTAISAN.getall();
+                }
+                else if (radioButtonTaiSanCoGioiHan.Checked == true)
+                {
+                    listTAISAN = dalTAISAN.getallTaiSanCoGioiHan();
+                }
+                else if (radioButtonTaiSanKhongGioiHan.Checked == true)
+                {
+                    listTAISAN = dalTAISAN.getallTaiSanKhongGioiHan();
+                }
+                else if (radioButtonTaiSanCoTheThemVaoPhong.Checked == true)
+                {
+                    listTAISAN = dalTAISAN.getallTaiSanCoTheThemVaoPhong();
+                }
                 var ListTAISANCustom = listTAISAN.Select(item => new
                 {
                     ID = item.ID,
@@ -36,6 +51,7 @@ namespace QLTS_WindowsForms
                     TENTAISAN = item.TENTAISAN,
                     NGAYMUA = item.NGAYMUA,
                     TENLOAI = item.LOAITAISAN.TENLOAI,
+                    TAISANKHONGGIOIHAN = item.TAISANKHONGGIOIHAN,
                     MOTA = item.MOTA,
                     NGAYTAO = item.NGAYTAO,
                     NGAYSUA = item.NGAYSUA
@@ -57,11 +73,20 @@ namespace QLTS_WindowsForms
             }
             catch { }
         }
-
+        public void ResetInput()
+        {
+            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+            textBoxMa.ReadOnly = textBoxTen.ReadOnly = textBoxMoTa.ReadOnly = false;
+            textBoxMa.Enabled = textBoxTen.Enabled = textBoxMoTa.Enabled = true;
+            checkBoxTaiSanKhongGioiHan.Checked = false;
+            dateTimePicker.ResetText();
+            comboBox.ResetText();
+        }
         private void buttonThem_Click(object sender, EventArgs e)
         {
             try
             {
+                ResetInput();
                 buttonOK.Text = "Thêm";
                 panel.Visible = true;
                 TinhTrang = "THEM";
@@ -78,6 +103,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                ResetInput();
                 panel.Visible = false;
                 buttonThem.Enabled = buttonSua.Enabled = true;
                 if (MessageBox.Show("Bạn muốn xoá?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -109,6 +135,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                ResetInput();
                 buttonThem.Enabled = true;
                 buttonOK.Text = "Cập nhật";
                 panel.Visible = true;
@@ -124,6 +151,10 @@ namespace QLTS_WindowsForms
                 comboBox.DisplayMember = "TENLOAI";
                 comboBox.ValueMember = "ID";
                 comboBox.SelectedValue = TAISAN.LOAITAISAN.ID;
+                if (TAISAN.TAISANKHONGGIOIHAN == true)
+                {
+                    checkBoxTaiSanKhongGioiHan.Checked = true;
+                }
                 textBoxMoTa.Text = TAISAN.MOTA;
             }
             catch { }
@@ -145,12 +176,11 @@ namespace QLTS_WindowsForms
                             TAISAN.NGAYMUA = dateTimePicker.Value;
                             bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Convert.ToInt32(comboBox.SelectedValue.ToString()));
                             TAISAN.LOAITAISAN = LOAITAISAN;
+                            TAISAN.TAISANKHONGGIOIHAN = checkBoxTaiSanKhongGioiHan.Checked == true;
                             TAISAN.MOTA = textBoxMoTa.Text;
                             if (dalTAISAN.them(TAISAN))
                             {
-                                MessageBox.Show("Thêm thành công");
-                                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                                dateTimePicker.ResetText();                                
+                                MessageBox.Show("Thêm thành công");                        
                                 LoadData();
 								buttonHuyBo.PerformClick();
                             }
@@ -179,12 +209,11 @@ namespace QLTS_WindowsForms
                         TAISAN.NGAYMUA = dateTimePicker.Value;
                         bizLOAITAISAN LOAITAISAN = dalLOAITAISAN.getbyid(Convert.ToInt32(comboBox.SelectedValue.ToString()));
                         TAISAN.LOAITAISAN = LOAITAISAN;
+                        TAISAN.TAISANKHONGGIOIHAN = checkBoxTaiSanKhongGioiHan.Checked == true;
                         TAISAN.MOTA = textBoxMoTa.Text;
                         if (dalTAISAN.sua(TAISAN))
                         {
-                            MessageBox.Show("Cập nhật thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                            dateTimePicker.ResetText();                            
+                            MessageBox.Show("Cập nhật thành công");                
                             LoadData();
 							buttonHuyBo.PerformClick();
                         }
@@ -207,8 +236,7 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                dateTimePicker.ResetText();                
+                ResetInput();
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;
@@ -231,6 +259,26 @@ namespace QLTS_WindowsForms
                 buttonSua.Enabled = true;
             }
             catch { }
+        }
+
+        private void radioButtonTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void radioButtonTaiSanKhongGioiHan_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void radioButtonTaiSanCoGioiHan_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void radioButtonTaiSanCoTheThemVaoPhong_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

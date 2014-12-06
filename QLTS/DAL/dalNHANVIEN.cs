@@ -135,7 +135,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into NHANVIEN(HOTEN,SODIENTHOAI,GIOITINH,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}','{6}')", NHANVIEN.HOTEN, NHANVIEN.SODIENTHOAI, NHANVIEN.GIOITINH, NHANVIEN.SUBID, NHANVIEN.MOTA, ((DateTime)NHANVIEN.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)NHANVIEN.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into NHANVIEN(HOTEN,SODIENTHOAI,GIOITINH,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}','{5}','{6}')", NHANVIEN.HOTEN, NHANVIEN.SODIENTHOAI, NHANVIEN.GIOITINH, NHANVIEN.SUBID, NHANVIEN.MOTA, ((DateTime)NHANVIEN.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)NHANVIEN.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -164,7 +164,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update NHANVIEN set HOTEN=N'{0}', SODIENTHOAI=N'{1}',GIOITINH=N'{2}', SUBID=N'{3}', MOTA=N'{4}', NGAYSUA='{5}' where ID={6}", NHANVIEN.HOTEN, NHANVIEN.SODIENTHOAI, NHANVIEN.GIOITINH, NHANVIEN.SUBID, NHANVIEN.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), NHANVIEN.ID);
+                String s = String.Format("update NHANVIEN set HOTEN=N'{0}', SODIENTHOAI=N'{1}',GIOITINH=N'{2}', SUBID=N'{3}', MOTA=N'{4}', NGAYSUA='{5}' where ID={6}", NHANVIEN.HOTEN, NHANVIEN.SODIENTHOAI, NHANVIEN.GIOITINH, NHANVIEN.SUBID, NHANVIEN.MOTA, DateTime.Now.ToString("M/d/yyyy H:mm:ss"), NHANVIEN.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

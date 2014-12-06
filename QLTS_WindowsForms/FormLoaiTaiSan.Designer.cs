@@ -68,7 +68,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(395, 266);
+            this.dataGridView.Size = new System.Drawing.Size(677, 514);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
@@ -126,7 +126,7 @@
             // 
             // buttonThem
             // 
-            this.buttonThem.Location = new System.Drawing.Point(413, 35);
+            this.buttonThem.Location = new System.Drawing.Point(700, 35);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(75, 23);
             this.buttonThem.TabIndex = 0;
@@ -138,7 +138,7 @@
             // buttonXoa
             // 
             this.buttonXoa.Enabled = false;
-            this.buttonXoa.Location = new System.Drawing.Point(494, 35);
+            this.buttonXoa.Location = new System.Drawing.Point(781, 35);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(75, 23);
             this.buttonXoa.TabIndex = 1;
@@ -150,7 +150,7 @@
             // buttonSua
             // 
             this.buttonSua.Enabled = false;
-            this.buttonSua.Location = new System.Drawing.Point(575, 35);
+            this.buttonSua.Location = new System.Drawing.Point(862, 35);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(75, 23);
             this.buttonSua.TabIndex = 2;
@@ -169,7 +169,7 @@
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.textBoxMa);
             this.panel.Controls.Add(this.label2);
-            this.panel.Location = new System.Drawing.Point(413, 64);
+            this.panel.Location = new System.Drawing.Point(700, 64);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(301, 237);
             this.panel.TabIndex = 3;
@@ -253,7 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 313);
+            this.ClientSize = new System.Drawing.Size(1008, 561);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.buttonSua);
             this.Controls.Add(this.buttonXoa);

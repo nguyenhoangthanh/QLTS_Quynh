@@ -28,11 +28,11 @@ namespace QLTS.BLL
             set { _EMAIL = value; }
         }
 
-        private string _USENAME;
-        public string USENAME
+        private string _USERNAME;
+        public string USERNAME
         {
-            get { return _USENAME; }
-            set { _USENAME = value; }
+            get { return _USERNAME; }
+            set { _USERNAME = value; }
         }
 
         private string _PASSWORD;
@@ -75,12 +75,12 @@ namespace QLTS.BLL
             
         }
 
-        public bizQUANTRIVIEN(int ID, string TENQTVIEN, string EMAIL, string USENAME, string PASSWORD, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizQUANTRIVIEN(int ID, string TENQTVIEN, string EMAIL, string USERNAME, string PASSWORD, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _TENQTVIEN = TENQTVIEN;
             _EMAIL = EMAIL;
-            _USENAME = USENAME;
+            _USERNAME = USERNAME;
             _PASSWORD = PASSWORD;
             _MOTA = MOTA;
             _SUBID = SUBID;

@@ -1,0 +1,17 @@
+﻿Yêu cầu và tiến độ
+1. Xem tài sản và đăng kí sử dụng phòng: website (ASP.NET + SQL server)
+	+ Xem tài sản phòng học (theo phòng, theo loại)
+	+ Đăng kí sử dụng phòng online (có lưu vết và thông báo kết quả)
+2. Quản lý tài sản và sử dụng phòng học: desktop application (C# + SQL Server)
+	+ Quản lý tài sản trong phòng học (tài sản có phân loại nhưng không cần quản lý)
+	+ Quản lý & xử lý đăng kí sử dụng phòng [ĐÃ HOÀN THÀNH]
+	+ Quản lý sự thay đổi tài sản trong phòng (thêm, chuyển, thanh lý)
+	+ Thống kê tài sản của phòng theo ngày [ĐÃ HOÀN THÀNH]
+	+ Báo cáo lịch sử sử dụng phòng trong khoảng thời gian
+
+--> Yêu cầu mô tả thuộc tính tài sản trong phòng
+--> Yêu cầu mô tả quá trình đăng kí sử dụng, xử lý yêu cầu và lưu vết
+
+
+P/s: giờ em nạp database mới nhất vào sau đó, thêm xoá sửa theo đúng quy trình, thêm 1 số dữ liệu mẫu vào nhé. Dữ liệu có thể tham khảo tại trang web http://tb.dsesgu.edu.vn . Anh sẽ cố gắng làm những phần còn lại. Em yên tâm nhé.
++ Phần Form chính, em thêm icon vào cho giống win 8 nhé, tìm google "metro icon black and white" nhé

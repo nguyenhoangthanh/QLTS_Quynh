@@ -35,6 +35,13 @@ namespace QLTS.BLL
             set { _LOAITAISAN = value; }
         }
 
+        private bool _TAISANKHONGGIOIHAN;
+        public bool TAISANKHONGGIOIHAN
+        {
+            get { return _TAISANKHONGGIOIHAN; }
+            set { _TAISANKHONGGIOIHAN = value; }
+        }
+
         private string _SUBID;
         public string SUBID
         {
@@ -69,18 +76,20 @@ namespace QLTS.BLL
             _TENTAISAN = "";
             _NGAYMUA = null;
             _LOAITAISAN = null;
+            _TAISANKHONGGIOIHAN = true;
             _SUBID = "";
             _MOTA = "";
             _NGAYTAO = DateTime.Now;
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizTAISAN(int ID, string TENTAISAN, DateTime NGAYMUA, bizLOAITAISAN LOAITAISAN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizTAISAN(int ID, string TENTAISAN, DateTime NGAYMUA, bizLOAITAISAN LOAITAISAN, bool TAISANKHONGGIOIHAN, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _TENTAISAN = TENTAISAN;
             _NGAYMUA = NGAYMUA;
             _LOAITAISAN = LOAITAISAN;
+            _TAISANKHONGGIOIHAN = TAISANKHONGGIOIHAN;
             _SUBID = SUBID;
             _MOTA = MOTA;
             _NGAYTAO = NGAYTAO;

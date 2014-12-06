@@ -137,7 +137,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into KHU(TEN,COSO_ID,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}','{1}',N'{2}',N'{3}',N'{4}','{5}')", KHU.TEN, KHU.COSO.ID, KHU.SUBID, KHU.MOTA, ((DateTime)KHU.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)KHU.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into KHU(TEN,COSO_ID,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}','{1}',N'{2}',N'{3}',N'{4}','{5}')", KHU.TEN, KHU.COSO.ID, KHU.SUBID, KHU.MOTA, ((DateTime)KHU.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)KHU.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -166,7 +166,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update KHU set TEN=N'{0}', COSO_ID='{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where ID={5}", KHU.TEN, KHU.COSO.ID, KHU.SUBID, KHU.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), KHU.ID);
+                String s = String.Format("update KHU set TEN=N'{0}', COSO_ID='{1}', SUBID=N'{2}', MOTA=N'{3}', NGAYSUA='{4}' where ID={5}", KHU.TEN, KHU.COSO.ID, KHU.SUBID, KHU.MOTA, DateTime.Now.ToString("M/d/yyyy H:mm:ss"), KHU.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

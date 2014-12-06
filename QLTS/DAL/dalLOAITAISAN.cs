@@ -135,7 +135,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into LOAITAISAN(TENLOAI,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}')", LOAITAISAN.TENLOAI, LOAITAISAN.SUBID, LOAITAISAN.MOTA, ((DateTime)LOAITAISAN.NGAYTAO).ToString("M/d/yyyy HH:mm:ss"), ((DateTime)LOAITAISAN.NGAYSUA).ToString("M/d/yyyy HH:mm:ss"));
+                String s = String.Format(@"insert into LOAITAISAN(TENLOAI,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}','{4}')", LOAITAISAN.TENLOAI, LOAITAISAN.SUBID, LOAITAISAN.MOTA, ((DateTime)LOAITAISAN.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)LOAITAISAN.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -164,7 +164,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update LOAITAISAN set TENLOAI=N'{0}', SUBID=N'{1}', MOTA=N'{2}', NGAYSUA='{3}' where ID={4}", LOAITAISAN.TENLOAI, LOAITAISAN.SUBID, LOAITAISAN.MOTA, DateTime.Now.ToString("M/d/yyyy HH:mm:ss"), LOAITAISAN.ID);
+                String s = String.Format("update LOAITAISAN set TENLOAI=N'{0}', SUBID=N'{1}', MOTA=N'{2}', NGAYSUA='{3}' where ID={4}", LOAITAISAN.TENLOAI, LOAITAISAN.SUBID, LOAITAISAN.MOTA, DateTime.Now.ToString("M/d/yyyy H:mm:ss"), LOAITAISAN.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

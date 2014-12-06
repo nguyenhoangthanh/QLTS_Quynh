@@ -56,11 +56,19 @@ namespace QLTS_WindowsForms
             }
             catch { }
         }
+        public void ResetInput()
+        {
+            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
+            textBoxMa.ReadOnly = textBoxTen.ReadOnly = textBoxMoTa.ReadOnly = false;
+            textBoxMa.Enabled = textBoxTen.Enabled = textBoxMoTa.Enabled = true;
+            comboBox.ResetText();
+        }
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
             try
             {
+                ResetInput();
                 buttonOK.Text = "Thêm";
                 panel.Visible = true;
                 TinhTrang = "THEM";
@@ -108,6 +116,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                ResetInput();
                 buttonThem.Enabled = true;
                 buttonOK.Text = "Cập nhật";
                 panel.Visible = true;
@@ -144,8 +153,6 @@ namespace QLTS_WindowsForms
                         if (dalKHU.them(KHU))
                         {
                             MessageBox.Show("Thêm thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                            comboBox.SelectedIndex = 0;
                             LoadData();
                             buttonHuyBo.PerformClick();
                         }
@@ -171,8 +178,6 @@ namespace QLTS_WindowsForms
                         if (dalKHU.sua(KHU))
                         {
                             MessageBox.Show("Cập nhật thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                            comboBox.SelectedIndex = 0;
                             LoadData();
                             buttonHuyBo.PerformClick();
                         }
@@ -195,8 +200,7 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                textBoxMa.Text = textBoxTen.Text = textBoxMoTa.Text = "";
-                comboBox.SelectedIndex = 0;
+                ResetInput();
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;

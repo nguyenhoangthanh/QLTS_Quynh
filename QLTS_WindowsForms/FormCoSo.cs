@@ -45,10 +45,18 @@ namespace QLTS_WindowsForms
             catch { }
         }
 
+        public void ResetInput()
+        {
+            textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+            textBoxMa.ReadOnly = textBoxTen.ReadOnly = textBoxDiaChi.ReadOnly = textBoxMoTa.ReadOnly = false;
+            textBoxMa.Enabled = textBoxTen.Enabled = textBoxDiaChi.Enabled = textBoxMoTa.Enabled = true;
+        }
+
         private void buttonThem_Click(object sender, EventArgs e)
         {
             try
             {
+                ResetInput();
                 buttonOK.Text = "Thêm";
                 panel.Visible = true;
                 TinhTrang = "THEM";
@@ -97,6 +105,7 @@ namespace QLTS_WindowsForms
         {
             try
             {
+                ResetInput();
                 buttonThem.Enabled = true;
                 buttonOK.Text = "Cập nhật";
                 panel.Visible = true;
@@ -128,7 +137,6 @@ namespace QLTS_WindowsForms
                         if (dalCOSO.them(COSO))
                         {
                             MessageBox.Show("Thêm thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
                             LoadData();
                             buttonHuyBo.PerformClick();
                         }
@@ -154,7 +162,6 @@ namespace QLTS_WindowsForms
                         if (dalCOSO.sua(COSO))
                         {
                             MessageBox.Show("Cập nhật thành công");
-                            textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
                             LoadData();
                             buttonHuyBo.PerformClick();
                         }
@@ -177,7 +184,7 @@ namespace QLTS_WindowsForms
             try
             {
                 panel.Visible = false;
-                textBoxMa.Text = textBoxTen.Text = textBoxDiaChi.Text = textBoxMoTa.Text = "";
+                ResetInput();
                 if (TinhTrang.Equals("THEM"))
                 {
                     buttonThem.Enabled = true;

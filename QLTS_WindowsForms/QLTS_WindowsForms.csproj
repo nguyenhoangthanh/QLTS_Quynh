@@ -50,6 +50,54 @@
     <Compile Include="FormChinh.Designer.cs">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormQuanTriVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQuanTriVien.Designer.cs">
+      <DependentUpon>FormQuanTriVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien.Designer.cs">
+      <DependentUpon>FormGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDuyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDuyet.Designer.cs">
+      <DependentUpon>FormDuyet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuDungPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuDungPhong.Designer.cs">
+      <DependentUpon>FormSuDungPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTaiSanThuocPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaiSanThuocPhong.Designer.cs">
+      <DependentUpon>FormTaiSanThuocPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemTaiSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemTaiSan.Designer.cs">
+      <DependentUpon>FormThemTaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongKe.Designer.cs">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhong.Designer.cs">
+      <DependentUpon>FormPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +151,30 @@
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormQuanTriVien.resx">
+      <DependentUpon>FormQuanTriVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien.resx">
+      <DependentUpon>FormGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDuyet.resx">
+      <DependentUpon>FormDuyet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuDungPhong.resx">
+      <DependentUpon>FormSuDungPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaiSanThuocPhong.resx">
+      <DependentUpon>FormTaiSanThuocPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemTaiSan.resx">
+      <DependentUpon>FormThemTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongKe.resx">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhong.resx">
+      <DependentUpon>FormPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTang.resx">
       <DependentUpon>FormTang.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,9 +207,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -151,6 +225,9 @@
       <Project>{d54c8ede-06b1-4a77-9cda-1ac857e758a5}</Project>
       <Name>QLTS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

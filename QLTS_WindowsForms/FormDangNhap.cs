@@ -36,13 +36,14 @@ namespace QLTS_WindowsForms
                 else
                 {
                     QUANTRIVIEN = dalQUANTRIVIEN.getbyusername(textBoxTaiKhoan.Text);
-                    if (QUANTRIVIEN.USENAME.Equals(""))
+                    if (QUANTRIVIEN.USERNAME.Equals(""))
                     {
                         MessageBox.Show("Sai tài khoản hoặc mật khẩu");
                         textBoxTaiKhoan.Focus();
                     }
                     else
                     {
+                        Properties.Settings.Default.IDQUANTRIVIEN = QUANTRIVIEN.ID;
                         FormChinh frm = new FormChinh();                        
                         this.Hide();
                         frm.ShowDialog();

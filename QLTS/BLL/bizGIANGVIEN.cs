@@ -21,6 +21,27 @@ namespace QLTS.BLL
             set { _TENGV = value; }
         }
 
+        private string _EMAIL;
+        public string EMAIL
+        {
+            get { return _EMAIL; }
+            set { _EMAIL = value; }
+        }
+
+        private string _USERNAME;
+        public string USERNAME
+        {
+            get { return _USERNAME; }
+            set { _USERNAME = value; }
+        }
+
+        private string _PASSWORD;
+        public string PASSWORD
+        {
+            get { return _PASSWORD; }
+            set { _PASSWORD = value; }
+        }
+
         private DateTime? _NGAYSINH;
         public DateTime? NGAYSINH
         {
@@ -67,6 +88,9 @@ namespace QLTS.BLL
         {
             _ID = 0;
             _TENGV = "";
+            _EMAIL = "";
+            _USERNAME = "";
+            _PASSWORD = "";
             _NGAYSINH = null;
             _GIOITINH = "";
             _SUBID = "";
@@ -75,10 +99,13 @@ namespace QLTS.BLL
             _NGAYSUA = DateTime.Now;
         }
 
-        public bizGIANGVIEN(int ID, string TENGV, DateTime NGAYSINH, string GIOITINH,string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
+        public bizGIANGVIEN(int ID, string TENGV, string EMAIL, string USERNAME, string PASSWORD, DateTime NGAYSINH, string GIOITINH, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)
         {
             _ID = ID;
             _TENGV = TENGV;
+            _EMAIL = EMAIL;
+            _USERNAME = USERNAME;
+            _PASSWORD = PASSWORD;
             _NGAYSINH = NGAYSINH;
             _GIOITINH = GIOITINH;
             _SUBID = SUBID;
