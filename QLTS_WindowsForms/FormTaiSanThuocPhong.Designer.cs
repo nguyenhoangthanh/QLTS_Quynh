@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENCOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel = new System.Windows.Forms.Panel();
+            this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonSua = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.buttonThanhLy = new System.Windows.Forms.Button();
@@ -44,7 +39,13 @@
             this.listBoxPhong = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonXoa = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -53,13 +54,16 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.SUBID,
-            this.TENCOSO,
-            this.DIACHI,
-            this.NGAY,
+            this.TEN,
+            this.SOLUONG,
+            this.TINHTRANG,
+            this.NGAYNHAP,
             this.MOTA});
             this.dataGridView.Location = new System.Drawing.Point(238, 64);
             this.dataGridView.Name = "dataGridView";
@@ -68,48 +72,6 @@
             this.dataGridView.Size = new System.Drawing.Size(758, 485);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // SUBID
-            // 
-            this.SUBID.DataPropertyName = "SUBID";
-            this.SUBID.HeaderText = "Mã tài sản";
-            this.SUBID.Name = "SUBID";
-            this.SUBID.ReadOnly = true;
-            // 
-            // TENCOSO
-            // 
-            this.TENCOSO.DataPropertyName = "TENCOSO";
-            this.TENCOSO.HeaderText = "Tên tài sản";
-            this.TENCOSO.Name = "TENCOSO";
-            this.TENCOSO.ReadOnly = true;
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.DataPropertyName = "DIACHI";
-            this.DIACHI.HeaderText = "Số lượng";
-            this.DIACHI.Name = "DIACHI";
-            this.DIACHI.ReadOnly = true;
-            // 
-            // NGAY
-            // 
-            this.NGAY.HeaderText = "Ngày nhập";
-            this.NGAY.Name = "NGAY";
-            this.NGAY.ReadOnly = true;
-            // 
-            // MOTA
-            // 
-            this.MOTA.DataPropertyName = "MOTA";
-            this.MOTA.HeaderText = "Mô tả";
-            this.MOTA.Name = "MOTA";
-            this.MOTA.ReadOnly = true;
             // 
             // panel
             // 
@@ -123,6 +85,16 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(984, 35);
             this.panel.TabIndex = 3;
+            // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Location = new System.Drawing.Point(663, 5);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.Size = new System.Drawing.Size(93, 23);
+            this.buttonXoa.TabIndex = 3;
+            this.buttonXoa.Text = "Loại bỏ tài sản";
+            this.buttonXoa.UseVisualStyleBackColor = true;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // buttonSua
             // 
@@ -152,6 +124,7 @@
             this.buttonThanhLy.TabIndex = 3;
             this.buttonThanhLy.Text = "Thanh lý";
             this.buttonThanhLy.UseVisualStyleBackColor = true;
+            this.buttonThanhLy.Click += new System.EventHandler(this.buttonThanhLy_Click);
             // 
             // buttonChuyenTinhTrang
             // 
@@ -161,6 +134,7 @@
             this.buttonChuyenTinhTrang.TabIndex = 3;
             this.buttonChuyenTinhTrang.Text = "Chuyển tình trạng tài sản";
             this.buttonChuyenTinhTrang.UseVisualStyleBackColor = true;
+            this.buttonChuyenTinhTrang.Click += new System.EventHandler(this.buttonChuyenTinhTrang_Click);
             // 
             // buttonChuyenTaiSan
             // 
@@ -170,6 +144,7 @@
             this.buttonChuyenTaiSan.TabIndex = 3;
             this.buttonChuyenTaiSan.Text = "Chuyển tài sản giữa các phòng";
             this.buttonChuyenTaiSan.UseVisualStyleBackColor = true;
+            this.buttonChuyenTaiSan.Click += new System.EventHandler(this.buttonChuyenTaiSan_Click);
             // 
             // listBoxPhong
             // 
@@ -198,15 +173,55 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Danh sách tài sản";
             // 
-            // buttonXoa
+            // ID
             // 
-            this.buttonXoa.Location = new System.Drawing.Point(663, 5);
-            this.buttonXoa.Name = "buttonXoa";
-            this.buttonXoa.Size = new System.Drawing.Size(93, 23);
-            this.buttonXoa.TabIndex = 3;
-            this.buttonXoa.Text = "Loại bỏ tài sản";
-            this.buttonXoa.UseVisualStyleBackColor = true;
-            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // SUBID
+            // 
+            this.SUBID.DataPropertyName = "SUBID";
+            this.SUBID.HeaderText = "Mã tài sản";
+            this.SUBID.Name = "SUBID";
+            this.SUBID.ReadOnly = true;
+            // 
+            // TEN
+            // 
+            this.TEN.DataPropertyName = "TEN";
+            this.TEN.HeaderText = "Tên tài sản";
+            this.TEN.Name = "TEN";
+            this.TEN.ReadOnly = true;
+            // 
+            // SOLUONG
+            // 
+            this.SOLUONG.DataPropertyName = "SOLUONG";
+            this.SOLUONG.HeaderText = "Số lượng";
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.ReadOnly = true;
+            // 
+            // TINHTRANG
+            // 
+            this.TINHTRANG.DataPropertyName = "TINHTRANG";
+            this.TINHTRANG.HeaderText = "Tình trạng";
+            this.TINHTRANG.Name = "TINHTRANG";
+            this.TINHTRANG.ReadOnly = true;
+            // 
+            // NGAYNHAP
+            // 
+            this.NGAYNHAP.DataPropertyName = "NGAYNHAP";
+            this.NGAYNHAP.HeaderText = "Ngày nhập";
+            this.NGAYNHAP.Name = "NGAYNHAP";
+            this.NGAYNHAP.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "Mô tả";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
             // 
             // FormTaiSanThuocPhong
             // 
@@ -239,16 +254,17 @@
         private System.Windows.Forms.ListBox listBoxPhong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENCOSO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIACHI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGAY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.Button buttonThanhLy;
         private System.Windows.Forms.Button buttonChuyenTinhTrang;
         private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.Button buttonSua;
         private System.Windows.Forms.Button buttonXoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TEN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TINHTRANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYNHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
     }
 }

@@ -48,14 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\bizTINHTRANG.cs" />
-    <Compile Include="BLL\bizCAIDAT.cs" />
     <Compile Include="BLL\bizTANG.cs" />
     <Compile Include="BLL\bizPHONG.cs" />
     <Compile Include="BLL\bizLOGTAISAN.cs" />
     <Compile Include="BLL\bizGIANGVIEN.cs" />
-    <Compile Include="BLL\bizGROUP.cs" />
     <Compile Include="BLL\bizDIADIEM.cs" />
-    <Compile Include="BLL\bizLOGHETHONG.cs" />
     <Compile Include="BLL\bizLOAITAISAN.cs" />
     <Compile Include="BLL\bizCTTAISAN.cs" />
     <Compile Include="BLL\bizPHIEUMUONPHONG.cs" />
@@ -64,15 +61,12 @@
     <Compile Include="BLL\bizCOSO.cs" />
     <Compile Include="BLL\bizKHU.cs" />
     <Compile Include="BLL\bizQUANTRIVIEN.cs" />
-    <Compile Include="DAL\dalCAIDAT.cs" />
     <Compile Include="DAL\dalCTTAISAN.cs" />
     <Compile Include="DAL\dalDIADIEM.cs" />
     <Compile Include="DAL\dalGIANGVIEN.cs" />
-    <Compile Include="DAL\dalGROUP.cs" />
     <Compile Include="DAL\dalLOAITAISAN.cs" />
     <Compile Include="DAL\dalCOSO.cs" />
     <Compile Include="DAL\dalKHU.cs" />
-    <Compile Include="DAL\dalLOGHETHONG.cs" />
     <Compile Include="DAL\dalLOGTAISAN.cs" />
     <Compile Include="DAL\dalNHANVIEN.cs" />
     <Compile Include="DAL\dalPHIEUMUONPHONG.cs" />

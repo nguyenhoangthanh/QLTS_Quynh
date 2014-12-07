@@ -101,5 +101,11 @@ namespace QLTS_WindowsForms
             FormTaiSanThuocPhong frm = new FormTaiSanThuocPhong();
             frm.ShowDialog();
         }
+
+        private void buttonLOGTAISAN_Click(object sender, EventArgs e)
+        {
+            FormLogPhong frm = new FormLogPhong();
+            frm.ShowDialog();
+        }
     }
 }

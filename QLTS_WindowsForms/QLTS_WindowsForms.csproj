@@ -86,6 +86,12 @@
     <Compile Include="FormQuanLyTaiSanThuocPhong.Designer.cs">
       <DependentUpon>FormQuanLyTaiSanThuocPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogPhong.Designer.cs">
+      <DependentUpon>FormLogPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuanLyTaiSanThuocPhong.resx">
       <DependentUpon>FormQuanLyTaiSanThuocPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogPhong.resx">
+      <DependentUpon>FormLogPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThongKe.resx">
       <DependentUpon>FormThongKe.cs</DependentUpon>

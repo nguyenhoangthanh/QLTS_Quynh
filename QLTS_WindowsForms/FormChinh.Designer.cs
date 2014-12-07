@@ -36,7 +36,7 @@
             this.buttonTAISAN = new System.Windows.Forms.Button();
             this.buttonLOAITAISAN = new System.Windows.Forms.Button();
             this.buttonQUANTRIVIEN = new System.Windows.Forms.Button();
-            this.buttonLOGTAISAN = new System.Windows.Forms.Button();
+            this.buttonLOGPHONG = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonTHONGKE = new System.Windows.Forms.Button();
             this.buttonTINHTRANG = new System.Windows.Forms.Button();
@@ -177,20 +177,21 @@
             this.buttonQUANTRIVIEN.UseVisualStyleBackColor = false;
             this.buttonQUANTRIVIEN.Click += new System.EventHandler(this.buttonQuanTriVien_Click);
             // 
-            // buttonLOGTAISAN
+            // buttonLOGPHONG
             // 
-            this.buttonLOGTAISAN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(61)))), ((int)(((byte)(189)))));
-            this.buttonLOGTAISAN.FlatAppearance.BorderSize = 0;
-            this.buttonLOGTAISAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLOGTAISAN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonLOGTAISAN.ForeColor = System.Drawing.Color.White;
-            this.buttonLOGTAISAN.Location = new System.Drawing.Point(717, 348);
-            this.buttonLOGTAISAN.Name = "buttonLOGTAISAN";
-            this.buttonLOGTAISAN.Size = new System.Drawing.Size(122, 125);
-            this.buttonLOGTAISAN.TabIndex = 60;
-            this.buttonLOGTAISAN.Text = "Log tài sản";
-            this.buttonLOGTAISAN.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.buttonLOGTAISAN.UseVisualStyleBackColor = false;
+            this.buttonLOGPHONG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(61)))), ((int)(((byte)(189)))));
+            this.buttonLOGPHONG.FlatAppearance.BorderSize = 0;
+            this.buttonLOGPHONG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLOGPHONG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonLOGPHONG.ForeColor = System.Drawing.Color.White;
+            this.buttonLOGPHONG.Location = new System.Drawing.Point(717, 348);
+            this.buttonLOGPHONG.Name = "buttonLOGPHONG";
+            this.buttonLOGPHONG.Size = new System.Drawing.Size(122, 125);
+            this.buttonLOGPHONG.TabIndex = 60;
+            this.buttonLOGPHONG.Text = "Log phòng";
+            this.buttonLOGPHONG.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.buttonLOGPHONG.UseVisualStyleBackColor = false;
+            this.buttonLOGPHONG.Click += new System.EventHandler(this.buttonLOGTAISAN_Click);
             // 
             // label2
             // 
@@ -330,7 +331,7 @@
             this.Controls.Add(this.buttonQUANLYDANGKYSUDUNGPHONG);
             this.Controls.Add(this.buttonTINHTRANG);
             this.Controls.Add(this.buttonTHONGKE);
-            this.Controls.Add(this.buttonLOGTAISAN);
+            this.Controls.Add(this.buttonLOGPHONG);
             this.Controls.Add(this.buttonGIANGVIEN);
             this.Controls.Add(this.buttonQUANTRIVIEN);
             this.Controls.Add(this.buttonLOAITAISAN);
@@ -361,7 +362,7 @@
         private System.Windows.Forms.Button buttonTAISAN;
         private System.Windows.Forms.Button buttonLOAITAISAN;
         private System.Windows.Forms.Button buttonQUANTRIVIEN;
-        private System.Windows.Forms.Button buttonLOGTAISAN;
+        private System.Windows.Forms.Button buttonLOGPHONG;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonTHONGKE;
         private System.Windows.Forms.Button buttonTINHTRANG;

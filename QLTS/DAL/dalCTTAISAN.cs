@@ -178,7 +178,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format("update CTTAISAN set NGAY=N'{0}', SOLUONG=N'{1}', PHONG_ID=N'{2}', TAISAN_ID=N'{3}', TINHTRANG_ID=N'{4}', SUBID=N'{5}', MOTA=N'{6}', NGAYSUA='{7}' where ID={8}", ((DateTime)CTTAISAN.NGAY).ToString("M/d/yyyy H:mm:ss"), CTTAISAN.SOLUONG, CTTAISAN.PHONG.ID, CTTAISAN.TAISAN.ID, CTTAISAN.TINHTRANG.ID, CTTAISAN.SUBID, CTTAISAN.MOTA, ((DateTime)CTTAISAN.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)CTTAISAN.NGAYSUA).ToString("M/d/yyyy H:mm:ss"), CTTAISAN.ID);
+                String s = String.Format("update CTTAISAN set NGAY=N'{0}', SOLUONG=N'{1}', PHONG_ID=N'{2}', TAISAN_ID=N'{3}', TINHTRANG_ID=N'{4}', SUBID=N'{5}', MOTA=N'{6}', NGAYSUA='{7}' where ID={8}", ((DateTime)CTTAISAN.NGAY).ToString("M/d/yyyy H:mm:ss"), CTTAISAN.SOLUONG, CTTAISAN.PHONG.ID, CTTAISAN.TAISAN.ID, CTTAISAN.TINHTRANG.ID, CTTAISAN.SUBID, CTTAISAN.MOTA, ((DateTime)CTTAISAN.NGAYSUA).ToString("M/d/yyyy H:mm:ss"), CTTAISAN.ID);
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

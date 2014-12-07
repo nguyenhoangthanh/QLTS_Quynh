@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QLTS_WindowsForms
 {
-    public partial class FormThongKe : Form
+    public partial class FormLogPhong : Form
     {
-        public FormThongKe()
+        public FormLogPhong()
         {
             InitializeComponent();
             DanhSachPhong();
@@ -40,25 +40,17 @@ namespace QLTS_WindowsForms
                 {
                     int IDPHONG = Convert.ToInt32(comboBoxPhong.SelectedValue);
                     bizPHONG PHONG = dalPHONG.getbyid(IDPHONG);
-                    List<bizCTTAISAN> ListCTTAISAN = dalCTTAISAN.thongke(TuNgay, DenNgay, PHONG);
-                    var ListTaiSan = ListCTTAISAN.Select(item => new
-                    {
-                        ID = item.ID,
-                        SUBID = item.TAISAN.SUBID,
-                        TEN = item.TAISAN.TENTAISAN,
-                        SOLUONG = item.SOLUONG,
-                        TINHTRANG = item.TINHTRANG.VALUE,
-                        NGAYNHAP = item.NGAY,
-                        MOTA = item.MOTA
-                    }).ToList();
-                    if (ListTaiSan != null && ListTaiSan.Count > 0)
+                    List<bizLOGTAISAN> ListLOGTAISAN = dalLOGTAISAN.thongke(TuNgay, DenNgay, PHONG);
+                    if (ListLOGTAISAN != null && ListLOGTAISAN.Count > 0)
                     {
                         dataGridView.AutoGenerateColumns = false;
-                        dataGridView.DataSource = ListTaiSan;
+                        dataGridView.DataSource = ListLOGTAISAN;
                     }
                     else
                     {
                         MessageBox.Show("Không có dữ liệu nào đúng theo điều kiện. Vui lòng thử lại");
+                        dataGridView.AutoGenerateColumns = false;
+                        dataGridView.DataSource = null;
                     }
                     
                 }

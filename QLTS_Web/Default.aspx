@@ -3,14 +3,7 @@
     <title>Quản lý tài sản</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Nguyễn Thị Quỳnh
-    <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False">
-        <Columns>
-            <asp:BoundField DataField="MACOSO" HeaderText="ID" Visible="False" />
-            <asp:BoundField DataField="SUBID" HeaderText="Mã cơ sở" />
-            <asp:BoundField DataField="TENCOSO" HeaderText="Tên cơ sở" />
-            <asp:BoundField DataField="DIACHI" HeaderText="Địa chỉ" />
-        </Columns>
-    </asp:GridView>
-&nbsp;
+    <a href="XemTaiSanTheoLoai.aspx">Xem tài sản theo loại</a>
+    <a href="XemTaiSanTheoPhong.aspx">Xem tài sản theo phòng</a>
+    <a href="DangKySuDungPhong.aspx">Đăng ký sử dụng phòng</a>
 </asp:Content>

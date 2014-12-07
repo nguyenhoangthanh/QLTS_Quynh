@@ -17,6 +17,7 @@ namespace QLTS_WindowsForms
         public FormDangNhap()
         {
             InitializeComponent();
+            textBoxTaiKhoan.Focus();
         }
 
         private void buttonDangNhap_Click(object sender, EventArgs e)
@@ -56,6 +57,25 @@ namespace QLTS_WindowsForms
                 }
             }
             catch { }
+        }
+
+        private void textBoxTaiKhoan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 10 || e.KeyValue == 13)
+            {
+                if (!textBoxMatKhau.Text.Equals(""))
+                    buttonDangNhap.PerformClick();
+                else
+                    textBoxMatKhau.Focus();
+            }
+        }
+
+        private void textBoxMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 10 || e.KeyValue == 13)
+            {
+                buttonDangNhap.PerformClick();
+            }
         }
     }
 }

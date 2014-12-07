@@ -1,13 +1,25 @@
 ﻿Yêu cầu và tiến độ
+[==========
+- Để làm đúng và đầy đủ yêu cầu, cần phải hiểu rõ nghiệp vụ. Nhưng có vài cái a không hiểu nên làm đại theo ý mình. Nếu e không hỏi thầy về nghiệp vụ, sai là em chịu nhé.
+1. Tài sản có phân loại nhưng không cần quản lý ?
+- Phân loại tài sản theo từng loại riêng biệt nhưng không cần CRUD Loại tài sản ?
+2. Quản lý sự thay đổi tài sản trong phòng (thêm, chuyển, thanh lý)
+- Thêm: thêm tài sản đã có vào phòng ?
+- Chuyển: chuyển tài sản từ phòng này sang phòng khác. chuyển tình trạng của 1 tài sản ?
+- Thanh lý: tạo phòng "Kho" và tình trạng "Thanh lý" trước khi thanh lý ?
+3. Báo cáo lịch sử sử dụng phòng trong khoảng thời gian
+- Sự thay đổi các tài sản trong mỗi phòng theo khoảng thời gian cụ thể ?
+===========]
+
 1. Xem tài sản và đăng kí sử dụng phòng: website (ASP.NET + SQL server)
 	1.1 Xem tài sản phòng học (theo phòng, theo loại)
 	1.2 Đăng kí sử dụng phòng online (có lưu vết và thông báo kết quả)
-2. Quản lý tài sản và sử dụng phòng học: desktop application (C# + SQL Server)
+2. Quản lý tài sản và sử dụng phòng học: desktop application (C# + SQL Server)[ĐÃ HOÀN THÀNH]
 	2.1 Quản lý tài sản trong phòng học (tài sản có phân loại nhưng không cần quản lý) [ĐÃ HOÀN THÀNH] => box tài sản thuộc phòng, cái này chỉ hiển thị danh sách tài sản theo phòng.
 	2.2 Quản lý & xử lý đăng kí sử dụng phòng [ĐÃ HOÀN THÀNH] => box đăng ký sử dụng phòng
-	2.3 Quản lý sự thay đổi tài sản trong phòng (thêm, chuyển, thanh lý) [ĐANG LÀM] => phần này quan trọng nhất để lấy điểm, box tài sản thuộc phòng, các chức năng chính của quản lý tài sản.
+	2.3 Quản lý sự thay đổi tài sản trong phòng (thêm, chuyển, thanh lý) [ĐÃ HOÀN THÀNH] => phần này quan trọng nhất để lấy điểm, box tài sản thuộc phòng, các chức năng chính của quản lý tài sản.
 	2.4 Thống kê tài sản của phòng theo ngày [ĐÃ HOÀN THÀNH] => box thống kê
-	2.5 Báo cáo lịch sử sử dụng phòng trong khoảng thời gian [CHƯA LÀM] => box log tài sản (có thể bỏ qua phần này vì, phần này rất phức tạp, anh thì làm được rồi, nhưng phần này là phần khó nhất để ăn điểm 10, thầy sẽ hỏi rất nhiều, có thể e sẽ bị lộ). Em nghĩ kỹ nhé :)...
+	2.5 Báo cáo lịch sử sử dụng phòng trong khoảng thời gian [ĐÃ HOÀN THÀNH] => box log tài sản (có thể bỏ qua phần này vì, phần này rất phức tạp, anh thì làm được rồi, nhưng phần này là phần khó nhất để ăn điểm 10, thầy sẽ hỏi rất nhiều, có thể e sẽ bị lộ). Em nghĩ kỹ nhé :)...
 
 3.Những phần nhỏ đã hoàn thành [2.1 với 2.3 cùng 1 phần | những phần nhỏ đã làm hết giờ đang làm phần lớn] Đọc kỹ những phần sau và ghi nhớ nhé, nhớ kiểm tra lại trong code để biết chỗ nào, thầy có hỏi mà trả lời. Tốt nhất là khi thầy bấm thêm xoá sửa, em phải nói ra trước luôn.
 VD: thầy bấm xoá cơ sở, em nói nếu cơ sở chứa phòng hay khu thì ko xoá đc, phải xoá khu or phòng trước ...
@@ -47,16 +59,12 @@ VD: thầy bấm xoá cơ sở, em nói nếu cơ sở chứa phòng hay khu th�
 	- Xoá sẽ kiểm tra tài sản đang sử dụng tình trạng này.
 	3.12 CRUD giảng viên
 	- Thêm sẽ kiểm tra có trùng tài khoản.
-	3.13 Log tài sản [chưa làm]
-	
-	
-	Cái web em làm đến đâu rồi, có cần anh làm luôn không. Anh không thấy em commit gì cả. Có gì thì cứ nói anh để anh biết nhé.
+	3.13 Log tài sản	
 	
 	G O O D L U C K :)
 	
 --> Yêu cầu mô tả thuộc tính tài sản trong phòng
 --> Yêu cầu mô tả quá trình đăng kí sử dụng, xử lý yêu cầu và lưu vết
-
 
 P/s: giờ em nạp database mới nhất vào sau đó, thêm xoá sửa theo đúng quy trình, thêm 1 số dữ liệu mẫu vào nhé. Dữ liệu có thể tham khảo tại trang web http://tb.dsesgu.edu.vn . Anh sẽ cố gắng làm những phần còn lại. Em yên tâm nhé.
 + Phần Form chính, em thêm icon vào cho giống win 8 nhé, tìm google "metro icon black and white" nhé
