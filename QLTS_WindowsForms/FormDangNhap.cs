@@ -36,19 +36,23 @@ namespace QLTS_WindowsForms
                 else
                 {
                     QUANTRIVIEN = dalQUANTRIVIEN.getbyusername(textBoxTaiKhoan.Text);
-                    if (QUANTRIVIEN.USERNAME.Equals(""))
+                    if (QUANTRIVIEN == null)
                     {
-                        MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                        MessageBox.Show("Tài khoản không tồn tại.");
                         textBoxTaiKhoan.Focus();
+                        return;
                     }
-                    else
+                    if (QUANTRIVIEN.PASSWORD != textBoxMatKhau.Text)
                     {
-                        Properties.Settings.Default.IDQUANTRIVIEN = QUANTRIVIEN.ID;
-                        FormChinh frm = new FormChinh();                        
-                        this.Hide();
-                        frm.ShowDialog();
-                        this.Close();
+                        MessageBox.Show("Mật khẩu không chính xác.");
+                        textBoxMatKhau.Focus();
+                        return;
                     }
+                    Properties.Settings.Default.IDQUANTRIVIEN = QUANTRIVIEN.ID;
+                    FormChinh frm = new FormChinh();
+                    this.Hide();
+                    frm.ShowDialog();
+                    this.Close();
                 }
             }
             catch { }
