@@ -37,6 +37,7 @@ VD: thầy bấm xoá cơ sở, em nói nếu cơ sở chứa phòng hay khu th�
 	3.6 CRUD Tài sản
 	- Xoá sẽ kiểm tra tài sản có chứa trong phòng.
 	3.7 CRUD Nhân viên
+	- Xoá sẽ kiểm tra nhân viên này đang quản lý phòng hay ko.
 	3.8 CRUD Quản trị viên
 	- Thêm sẽ kiểm tra có trùng tài khoản.
 	- Sửa nếu sửa họ tên quản trị viên đăng nhập thì form chính sẽ thay đổi theo.
