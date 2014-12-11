@@ -34,7 +34,11 @@ namespace QLTS.DAL
                         QUANTRIVIEN = dalQUANTRIVIEN.getbyid(Int32.Parse(rdr["QUANTRIVIEN_ID"].ToString()));
                     }
                     catch { }
-                    bool GIANGVIENMUON = rdr["GIANGVIENMUON"] == "1";
+                    bool GIANGVIENMUON = false;
+                    if (rdr["GIANGVIENMUON"].ToString().Equals("True"))
+                    {
+                        GIANGVIENMUON = true;
+                    }
                     bizPHIEUMUONPHONG s = new bizPHIEUMUONPHONG(Int32.Parse(rdr["ID"].ToString()), rdr["KHOA"].ToString(), DateTime.Parse(rdr["NGAYMUON"].ToString()), DateTime.Parse(rdr["NGAYTRA"].ToString()), rdr["LYDOMUON"].ToString(), rdr["GHICHU"].ToString(), Int32.Parse(rdr["SOLUONGSV"].ToString()), Int32.Parse(rdr["NGUOIMUON_ID"].ToString()), QUANTRIVIEN, rdr["TINHTRANG"].ToString(), GIANGVIENMUON, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
                     result.Add(s);
                 }
@@ -81,7 +85,11 @@ namespace QLTS.DAL
                     QUANTRIVIEN = dalQUANTRIVIEN.getbyid(Int32.Parse(rdr["QUANTRIVIEN_ID"].ToString()));
                 }
                 catch { }
-                bool GIANGVIENMUON = rdr["GIANGVIENMUON"] == "1";
+                bool GIANGVIENMUON = false;
+                if (rdr["GIANGVIENMUON"].ToString().Equals("True"))
+                {
+                    GIANGVIENMUON = true;
+                }
                 result = new bizPHIEUMUONPHONG(Int32.Parse(rdr["ID"].ToString()), rdr["KHOA"].ToString(), DateTime.Parse(rdr["NGAYMUON"].ToString()), DateTime.Parse(rdr["NGAYTRA"].ToString()), rdr["LYDOMUON"].ToString(), rdr["GHICHU"].ToString(), Int32.Parse(rdr["SOLUONGSV"].ToString()), Int32.Parse(rdr["NGUOIMUON_ID"].ToString()), QUANTRIVIEN, rdr["TINHTRANG"].ToString(), GIANGVIENMUON, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
             }
             catch
@@ -112,7 +120,7 @@ namespace QLTS.DAL
                 // 2. Open the connection
                 conn.Open();
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into PHIEUMUONPHONG(KHOA,NGAYMUON,NGAYTRA,LYDOMUON,GHICHU,SOLUONGSV,NGUOIMUON_ID,QUANTRIVIEN_ID,TINHTRANG,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',null,N'{7}',N'{8}','{9}','{10}','{11}')", PHIEUMUONPHONG.KHOA, ((DateTime)PHIEUMUONPHONG.NGAYMUON).ToString("M/d/yyyy H:mm:ss"), ((DateTime)PHIEUMUONPHONG.NGAYTRA).ToString("M/d/yyyy H:mm:ss"), PHIEUMUONPHONG.LYDOMUON, PHIEUMUONPHONG.GHICHU, PHIEUMUONPHONG.SOLUONGSV, PHIEUMUONPHONG.NGUOIMUON_ID, PHIEUMUONPHONG.TINHTRANG, PHIEUMUONPHONG.SUBID, PHIEUMUONPHONG.MOTA, ((DateTime)PHIEUMUONPHONG.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)PHIEUMUONPHONG.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
+                String s = String.Format(@"insert into PHIEUMUONPHONG(KHOA,NGAYMUON,NGAYTRA,LYDOMUON,GHICHU,SOLUONGSV,NGUOIMUON_ID,QUANTRIVIEN_ID,TINHTRANG,GIANGVIENMUON,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',null,N'{7}','{8}',N'{9}','{10}','{11}','{12}')", PHIEUMUONPHONG.KHOA, ((DateTime)PHIEUMUONPHONG.NGAYMUON).ToString("M/d/yyyy H:mm:ss"), ((DateTime)PHIEUMUONPHONG.NGAYTRA).ToString("M/d/yyyy H:mm:ss"), PHIEUMUONPHONG.LYDOMUON, PHIEUMUONPHONG.GHICHU, PHIEUMUONPHONG.SOLUONGSV, PHIEUMUONPHONG.NGUOIMUON_ID, PHIEUMUONPHONG.TINHTRANG, PHIEUMUONPHONG.GIANGVIENMUON, PHIEUMUONPHONG.SUBID, PHIEUMUONPHONG.MOTA, ((DateTime)PHIEUMUONPHONG.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)PHIEUMUONPHONG.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }

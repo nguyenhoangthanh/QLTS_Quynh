@@ -57,28 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DangKySuDungPhong.aspx" />
-    <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
-    <Content Include="XemTaiSanTheoLoai.aspx" />
-    <Content Include="XemTaiSanTheoPhong.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DangKySuDungPhong.aspx.cs">
-      <DependentUpon>DangKySuDungPhong.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DangKySuDungPhong.aspx.designer.cs">
-      <DependentUpon>DangKySuDungPhong.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DangNhap.aspx.cs">
-      <DependentUpon>DangNhap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DangNhap.aspx.designer.cs">
-      <DependentUpon>DangNhap.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,30 +69,8 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="XemTaiSanTheoLoai.aspx.cs">
-      <DependentUpon>XemTaiSanTheoLoai.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="XemTaiSanTheoLoai.aspx.designer.cs">
-      <DependentUpon>XemTaiSanTheoLoai.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="XemTaiSanTheoPhong.aspx.cs">
-      <DependentUpon>XemTaiSanTheoPhong.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="XemTaiSanTheoPhong.aspx.designer.cs">
-      <DependentUpon>XemTaiSanTheoPhong.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
