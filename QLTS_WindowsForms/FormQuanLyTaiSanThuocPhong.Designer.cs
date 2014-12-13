@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.labelThongBao = new System.Windows.Forms.Label();
             this.dateTimePickerNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.comboBoxTinhTrang = new System.Windows.Forms.ComboBox();
             this.comboBoxPhong = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelThongBao = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,18 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "...";
             // 
+            // labelThongBao
+            // 
+            this.labelThongBao.AutoSize = true;
+            this.labelThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelThongBao.ForeColor = System.Drawing.Color.Red;
+            this.labelThongBao.Location = new System.Drawing.Point(1, 19);
+            this.labelThongBao.Name = "labelThongBao";
+            this.labelThongBao.Size = new System.Drawing.Size(280, 13);
+            this.labelThongBao.TabIndex = 41;
+            this.labelThongBao.Text = "Ghi chú: Tạo phòng \"Kho\" và tình trạng \"Thanh lý\" trước.";
+            this.labelThongBao.Visible = false;
+            // 
             // dateTimePickerNgayNhap
             // 
             this.dateTimePickerNgayNhap.CustomFormat = "dd/MM/yyyy";
@@ -95,7 +107,6 @@
             this.comboBoxPhong.Name = "comboBoxPhong";
             this.comboBoxPhong.Size = new System.Drawing.Size(183, 21);
             this.comboBoxPhong.TabIndex = 5;
-            this.comboBoxPhong.SelectedIndexChanged += new System.EventHandler(this.comboBoxTaiSan_SelectedIndexChanged);
             // 
             // comboBoxTaiSan
             // 
@@ -196,18 +207,6 @@
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài sản";
-            // 
-            // labelThongBao
-            // 
-            this.labelThongBao.AutoSize = true;
-            this.labelThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelThongBao.ForeColor = System.Drawing.Color.Red;
-            this.labelThongBao.Location = new System.Drawing.Point(1, 19);
-            this.labelThongBao.Name = "labelThongBao";
-            this.labelThongBao.Size = new System.Drawing.Size(280, 13);
-            this.labelThongBao.TabIndex = 41;
-            this.labelThongBao.Text = "Ghi chú: Tạo phòng \"Kho\" và tình trạng \"Thanh lý\" trước.";
-            this.labelThongBao.Visible = false;
             // 
             // FormQuanLyTaiSanThuocPhong
             // 
