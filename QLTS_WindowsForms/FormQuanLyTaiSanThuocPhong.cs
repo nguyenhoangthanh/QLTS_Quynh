@@ -15,8 +15,9 @@ namespace QLTS_WindowsForms
     {
         bizPHONG PHONG;
         bizPHONG PHONGCU;
-        bizTINHTRANG TINHTRANGCU;
         bizCTTAISAN CTTAISAN;
+        bizTINHTRANG TINHTRANGTSCU;
+        int SOLUONGCU = -1;
         string TINHTRANG = "";
         bool CAPNHAT = false;
         public bool _CAPNHAT { get { return CAPNHAT; } }
@@ -28,11 +29,12 @@ namespace QLTS_WindowsForms
             {
                 InitializeComponent();
                 PHONG = _PHONG;
-                PHONGCU = _PHONG;
                 CTTAISAN = _CTTAISAN;
                 if (CTTAISAN != null)
                 {
-                    TINHTRANGCU = CTTAISAN.TINHTRANG;
+                    SOLUONGCU = CTTAISAN.SOLUONG;
+                    PHONGCU = CTTAISAN.PHONG;
+                    TINHTRANGTSCU = CTTAISAN.TINHTRANG;
                 }
                 TINHTRANG = _TINHTRANG;
                 LoadData();
@@ -119,7 +121,6 @@ namespace QLTS_WindowsForms
                         comboBoxTaiSan.SelectedValue = CTTAISAN.TAISAN.ID;
                         comboBoxTaiSan.Enabled = false;
                         textBoxSoLuong.Text = CTTAISAN.SOLUONG.ToString();
-                        textBoxSoLuong.ReadOnly = true;
                         ListTINHTRANG = new List<bizTINHTRANG>();
                         ListTINHTRANG.Add(CTTAISAN.TINHTRANG);
                         comboBoxTinhTrang.DataSource = ListTINHTRANG;
@@ -349,29 +350,104 @@ namespace QLTS_WindowsForms
                         }
                         break;
                     case "CHUYENTAISAN":
+                        int SOLUONGMOI;
                         try
                         {
-                            CTTAISAN.PHONG = dalPHONG.getbyid(Int32.Parse(comboBoxPhong.SelectedValue.ToString()));
+                            SOLUONGMOI = Int32.Parse(textBoxSoLuong.Text);
                         }
                         catch
                         {
-                            MessageBox.Show("Thêm phòng trước");
+                            MessageBox.Show("Số lượng không đúng");
+                            textBoxSoLuong.Focus();
                             return;
                         }
-
-                        if (dalCTTAISAN.sua(CTTAISAN))
+                        if (SOLUONGMOI > SOLUONGCU)
                         {
-                            bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
-                            LOGTAISAN.PHONG = CTTAISAN.PHONG;
-                            LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] từ phòng [{2}] sang phòng [{3}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, PHONGCU.TENPHONG, CTTAISAN.PHONG.TENPHONG);
-                            dalLOGTAISAN.them(LOGTAISAN);
-                            MessageBox.Show("Cập nhật chuyển phòng thành công");
-                            CAPNHAT = true;
-                            this.Close();
+                            MessageBox.Show("Số lượng chuyển phải nhỏ hơn hoặc bằng số lượng cũ");
+                            textBoxSoLuong.Focus();
+                            return;
+                        }
+                        if (SOLUONGMOI == SOLUONGCU)
+                        {
+                            try
+                            {
+                                CTTAISAN.PHONG = dalPHONG.getbyid(Int32.Parse(comboBoxPhong.SelectedValue.ToString()));
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Thêm phòng trước");
+                                return;
+                            }
+                            if (Object.Equals(PHONGCU.ID, CTTAISAN.PHONG.ID))
+                            {
+                                MessageBox.Show("Vui lòng chọn phòng mới");
+                                return;
+                            }
+                            if (dalCTTAISAN.sua(CTTAISAN))
+                            {
+                                bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
+                                LOGTAISAN.PHONG = CTTAISAN.PHONG;
+                                LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] với số lượng [{2}] từ phòng [{3}] sang phòng [{4}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, CTTAISAN.SOLUONG, PHONGCU.TENPHONG, CTTAISAN.PHONG.TENPHONG);
+                                dalLOGTAISAN.them(LOGTAISAN);
+                                MessageBox.Show("Cập nhật chuyển phòng thành công");
+                                CAPNHAT = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Có lỗi trong khi cập nhật chuyển phòng!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Có lỗi trong khi cập nhật chuyển phòng!");
+                            bizPHONG PHONGMOI;
+                            try
+                            {
+                                PHONGMOI = dalPHONG.getbyid(Int32.Parse(comboBoxPhong.SelectedValue.ToString()));
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Thêm phòng trước");
+                                return;
+                            }
+                            if (Object.Equals(PHONGCU, PHONGMOI))
+                            {
+                                MessageBox.Show("Vui lòng chọn phòng mới");
+                                return;
+                            }
+                            int SOLUONGCONLAI = SOLUONGCU - SOLUONGMOI;
+                            //them tai san phong moi
+                            bizCTTAISAN CTTAISANMOI = new bizCTTAISAN();
+                            CTTAISANMOI.NGAY = CTTAISAN.NGAY;
+                            CTTAISANMOI.SOLUONG = SOLUONGMOI;
+                            CTTAISANMOI.PHONG = PHONGMOI;
+                            CTTAISANMOI.TAISAN = CTTAISAN.TAISAN;
+                            CTTAISANMOI.TINHTRANG = CTTAISAN.TINHTRANG;
+                            CTTAISANMOI.SUBID = CTTAISAN.SUBID;
+                            CTTAISANMOI.MOTA = CTTAISAN.MOTA;
+                            if (dalCTTAISAN.them(CTTAISANMOI))
+                            {
+                                //sửa số lượng tài sản cũ
+                                CTTAISAN.SOLUONG = SOLUONGCONLAI;
+                                if (dalCTTAISAN.sua(CTTAISAN))
+                                {
+                                    bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
+                                    LOGTAISAN.PHONG = CTTAISAN.PHONG;
+                                    LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] với số lượng [{2}] từ phòng [{3}] sang phòng [{4}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, CTTAISAN.SOLUONG, CTTAISAN.PHONG.TENPHONG, PHONGMOI.TENPHONG);
+                                    dalLOGTAISAN.them(LOGTAISAN);
+                                    MessageBox.Show("Cập nhật chuyển phòng thành công");
+                                    CAPNHAT = true;
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Có lỗi trong khi cập nhật chuyển phòng!");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Có lỗi trong khi cập nhật chuyển phòng!");
+                            }
                         }
                         break;
                     case "CHUYENTINHTRANG":
@@ -389,7 +465,7 @@ namespace QLTS_WindowsForms
                         {
                             bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
                             LOGTAISAN.PHONG = CTTAISAN.PHONG;
-                            LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] từ tình trạng [{2}] sang tình trạng [{3}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, TINHTRANGCU.VALUE, CTTAISAN.TINHTRANG.VALUE);
+                            LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] từ tình trạng [{2}] sang tình trạng [{3}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, TINHTRANGTSCU.VALUE, CTTAISAN.TINHTRANG.VALUE);
                             dalLOGTAISAN.them(LOGTAISAN);
                             MessageBox.Show("Cập nhật chuyển tình trạng tài sản thành công");
                             CAPNHAT = true;
