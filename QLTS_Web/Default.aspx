@@ -115,7 +115,7 @@
                     <td colspan="2">Danh sách tài sản của loại tài sản <b id="tenloaitaisan" runat="server"></b></td>
                 </tr>
                 <tr style="text-align: left; width: 600px;">
-                    <td>
+                    <td style="vertical-align: top;">
                         <asp:ListBox ID="ListBoxLoaiTaiSan" runat="server" Width="200px" Height="300px" AutoPostBack="true" OnSelectedIndexChanged="ListBoxLoaiTaiSan_SelectedIndexChanged"></asp:ListBox>
                     </td>
                     <td colspan="2" style="vertical-align: top; width: 600px;">

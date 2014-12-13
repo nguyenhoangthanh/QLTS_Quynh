@@ -48,7 +48,7 @@ namespace QLTS_WindowsForms
                     comboBoxTinhTrang.SelectedValue = PHIEUMUONPHONG.TINHTRANG;
                 }
 
-                textBoxDuocDuyetBoi.Text = PHIEUMUONPHONG.QUANTRIVIEN == null ? PHIEUMUONPHONG.QUANTRIVIEN.TENQTVIEN : "Chưa có người duyệt";
+                textBoxDuocDuyetBoi.Text = PHIEUMUONPHONG.QUANTRIVIEN != null ? PHIEUMUONPHONG.QUANTRIVIEN.TENQTVIEN : "Chưa có người duyệt";
                 textBoxGhiChu.Text = PHIEUMUONPHONG.GHICHU ?? "";
             }
             catch { }
@@ -71,6 +71,7 @@ namespace QLTS_WindowsForms
                 if (checkBoxGuiMail.Checked == true)
                 {
                     string receive_email = PHIEUMUONPHONG.GIANGVIENMUON == true ? dalGIANGVIEN.getbyid(PHIEUMUONPHONG.NGUOIMUON_ID).EMAIL : dalQUANTRIVIEN.getbyid(PHIEUMUONPHONG.NGUOIMUON_ID).EMAIL;
+                    string tennguoimuon = PHIEUMUONPHONG.GIANGVIENMUON == true ? dalGIANGVIEN.getbyid(PHIEUMUONPHONG.NGUOIMUON_ID).TENGV : dalQUANTRIVIEN.getbyid(PHIEUMUONPHONG.NGUOIMUON_ID).TENQTVIEN;
                     string receive_title = "Thông báo về việc mượn phòng của bạn ngày " + PHIEUMUONPHONG.NGAYTAO.ToString("dd/M/yyyy");
                     string tinhtrang = "";
                     switch (PHIEUMUONPHONG.TINHTRANG)
@@ -85,7 +86,7 @@ namespace QLTS_WindowsForms
                             tinhtrang = "đã bị huỷ bỏ";
                             break;
                     }
-                    string receive_html = string.Format("<p>Chào {0}</p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt</p><p>{2}</p><p>Họ tên người duyệt:</p><p>{3}</p><p>Email người duyệt:</p><p>{4}</p><p>Đăng nhập website để xem thông tin.</p><p>Mọi thắc mắc liên hệ email người duyệt.</p>", tinhtrang, PHIEUMUONPHONG.GHICHU, PHIEUMUONPHONG.QUANTRIVIEN.TENQTVIEN, PHIEUMUONPHONG.QUANTRIVIEN.EMAIL);
+                    string receive_html = string.Format("<p>Chào {0}</p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt</p><p>{2}</p><p>Họ tên người duyệt:</p><p>{3}</p><p>Email người duyệt:</p><p>{4}</p><p>Đăng nhập website để xem thông tin.</p><p>Mọi thắc mắc liên hệ email người duyệt.</p>", tennguoimuon, tinhtrang, PHIEUMUONPHONG.GHICHU, PHIEUMUONPHONG.QUANTRIVIEN.TENQTVIEN, PHIEUMUONPHONG.QUANTRIVIEN.EMAIL);
                     helpper.sendMail(receive_email, receive_title, receive_html);
                 }
                 if (dalPHIEUMUONPHONG.duyet(PHIEUMUONPHONG) == true)

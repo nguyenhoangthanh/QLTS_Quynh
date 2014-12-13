@@ -256,6 +256,39 @@
   <ItemGroup>
     <None Include="Resources\bargraph_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quantrivien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhanvien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giangvien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dangkisdphong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dangkisudungphong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-4-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\City.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tables-128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

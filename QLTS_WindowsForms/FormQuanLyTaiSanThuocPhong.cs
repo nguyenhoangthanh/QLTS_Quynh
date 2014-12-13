@@ -391,7 +391,7 @@ namespace QLTS_WindowsForms
                             LOGTAISAN.PHONG = CTTAISAN.PHONG;
                             LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã chuyển tài sản [{1}] từ tình trạng [{2}] sang tình trạng [{3}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, TINHTRANGCU.VALUE, CTTAISAN.TINHTRANG.VALUE);
                             dalLOGTAISAN.them(LOGTAISAN);
-                            MessageBox.Show("Cập nhật chuyển tài sản vào phòng thành công");
+                            MessageBox.Show("Cập nhật chuyển tình trạng tài sản thành công");
                             CAPNHAT = true;
                             this.Close();
                         }

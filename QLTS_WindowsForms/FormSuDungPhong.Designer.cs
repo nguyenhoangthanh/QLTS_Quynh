@@ -266,7 +266,7 @@
             // dateTimePickerNgayMuon
             // 
             this.dateTimePickerNgayMuon.CustomFormat = "dd/M/yyyy";
-            this.dateTimePickerNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayMuon.Location = new System.Drawing.Point(122, 27);
             this.dateTimePickerNgayMuon.Name = "dateTimePickerNgayMuon";
             this.dateTimePickerNgayMuon.Size = new System.Drawing.Size(176, 20);

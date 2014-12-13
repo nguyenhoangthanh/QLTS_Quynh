@@ -10,10 +10,10 @@ namespace QLTS
         public static string cnstring = @"Server=.\SQLEXPRESS;Initial Catalog=QLTS_Quynh; Integrated Security=True;Database=QLTS_Quynh;";
 
         //Cấu hình gửi mail
-        public static string smtp_host = "dsesgu.edu.vn";
-        public static int smtp_port = 25;
-        public static bool smtp_usessl = false;
-        public static string sender_email = "test@dsesgu.edu.vn";
-        public static string sender_password = "1thanh";
+        public static string smtp_host = "smtp.gmail.com";
+        public static int smtp_port = 465;
+        public static bool smtp_usessl = true;
+        public static string sender_email = "nguyenthiquynh.1112@gmail.com";
+        public static string sender_password = "chuotyeugao";
     }
 }
