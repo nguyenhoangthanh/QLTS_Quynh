@@ -87,11 +87,13 @@ namespace QLTS_WindowsForms
                     case "SUA":
                         this.Text = groupBox.Text = "Cập nhật chuyển tài sản vào phòng";
                         buttonOK.Text = "Cập nhật";
-                        ListPHONG = dalPHONG.getall();
+                        ListPHONG = new List<bizPHONG>();
+                        ListPHONG.Add(PHONG);
                         comboBoxPhong.DataSource = ListPHONG;
                         comboBoxPhong.DisplayMember = "TENPHONG";
                         comboBoxPhong.ValueMember = "ID";
                         comboBoxPhong.SelectedValue = PHONG.ID;
+                        comboBoxPhong.Enabled = false;
                         ListTAISAN = dalTAISAN.getallTaiSanCoTheThemVaoPhong();
                         ListTAISAN.Add(CTTAISAN.TAISAN);
                         comboBoxTaiSan.DataSource = ListTAISAN;
@@ -289,16 +291,6 @@ namespace QLTS_WindowsForms
                         }
                         break;
                     case "SUA":
-                        try
-                        {
-                            CTTAISAN.PHONG = dalPHONG.getbyid(Int32.Parse(comboBoxPhong.SelectedValue.ToString()));
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Thêm phòng trước");
-                            return;
-                        }
-
                         try
                         {
                             CTTAISAN.TAISAN = dalTAISAN.getbyid(Int32.Parse(comboBoxTaiSan.SelectedValue.ToString()));
