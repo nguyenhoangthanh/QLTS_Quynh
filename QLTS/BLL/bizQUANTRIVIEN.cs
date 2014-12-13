@@ -72,7 +72,15 @@ namespace QLTS.BLL
 
         public bizQUANTRIVIEN()
         {
-            
+            _ID = 0;
+            _TENQTVIEN = "";
+            _EMAIL = "";
+            _USERNAME = "";
+            _PASSWORD = "";
+            _MOTA = "";
+            _SUBID = "";
+            _NGAYTAO = DateTime.Now;
+            _NGAYSUA = DateTime.Now;
         }
 
         public bizQUANTRIVIEN(int ID, string TENQTVIEN, string EMAIL, string USERNAME, string PASSWORD, string SUBID, string MOTA, DateTime NGAYTAO, DateTime NGAYSUA)

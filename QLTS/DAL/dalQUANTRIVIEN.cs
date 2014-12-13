@@ -173,7 +173,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                String s = String.Format(@"insert into QUANTRIVIEN(TENQTVIEN,EMAIL,USERNAME,PASSWORD,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}','{7}','{8}')", quantrivien.TENQTVIEN, quantrivien.EMAIL, quantrivien.USERNAME, quantrivien.PASSWORD, quantrivien.SUBID, quantrivien.MOTA, ((DateTime)quantrivien.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)quantrivien.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
+                String s = String.Format(@"insert into QUANTRIVIEN(TENQTVIEN,EMAIL,USERNAME,PASSWORD,SUBID,MOTA,NGAYTAO,NGAYSUA) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}','{6}','{7}')", quantrivien.TENQTVIEN, quantrivien.EMAIL, quantrivien.USERNAME, quantrivien.PASSWORD, quantrivien.SUBID, quantrivien.MOTA, ((DateTime)quantrivien.NGAYTAO).ToString("M/d/yyyy H:mm:ss"), ((DateTime)quantrivien.NGAYSUA).ToString("M/d/yyyy H:mm:ss"));
                 SqlCommand cmd = new SqlCommand(s, conn);
                 cmd.ExecuteNonQuery();
             }
