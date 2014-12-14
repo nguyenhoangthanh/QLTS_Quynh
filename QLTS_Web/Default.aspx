@@ -16,7 +16,7 @@
         <table border="0" style="width: 800px; vertical-align: central; text-align: center; margin: auto;">
             <tr>
                 <td colspan="2" style="text-align: left; color: blue; font-size: xx-large">Quản lý tài sản</td>
-                <td style="text-align: right"><b id="HoTen" runat="server"></b></td>
+                <td style="text-align: right"><b id="HoTen" runat="server"></b> <asp:LinkButton ID="LinkButtonLogout" runat="server" OnClick="LinkButtonLogout_Click" Visible="false">[Thoát]</asp:LinkButton></td>
             </tr>
             <tr>
                 <td>
@@ -140,7 +140,7 @@
                     <td colspan="2">Danh sách tài sản của phòng <b id="tenphong" runat="server"></b></td>
                 </tr>
                 <tr style="text-align: left; width: 600px;">
-                    <td>
+                    <td style="vertical-align: top;">
                         <asp:ListBox ID="ListBoxPhong" runat="server" Width="240px" Height="300px" OnSelectedIndexChanged="ListBoxPhong_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
                     </td>
                     <td colspan="2" style="vertical-align: top; width: 600px;">

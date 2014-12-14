@@ -21,6 +21,11 @@ namespace QLTS_Web
                     {
                         bizGIANGVIEN GIANGVIEN = (bizGIANGVIEN)Session["GIANGVIEN"];
                         HoTen.InnerText = GIANGVIEN.TENGV == null || GIANGVIEN.TENGV == "" ? "Chào Giảng viên" : "Chào " + GIANGVIEN.TENGV;
+                        LinkButtonLogout.Visible = true;
+                    }
+                    else
+                    {
+                        LinkButtonLogout.Visible = false;
                     }
                 }
             }
@@ -38,11 +43,13 @@ namespace QLTS_Web
                 {
                     TableDangNhap.Visible = true;
                     TableDangKySuDungPhong.Visible = PanelTaiSanTheoPhong.Visible = PanelTaiSanTheoLoaiTaiSan.Visible = false;
+                    LinkButtonLogout.Visible = false;
                 }
                 else
                 {
                     TableDangKySuDungPhong.Visible = true;
                     TableDangNhap.Visible = PanelTaiSanTheoPhong.Visible = PanelTaiSanTheoLoaiTaiSan.Visible = false;
+                    LinkButtonLogout.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -175,6 +182,7 @@ namespace QLTS_Web
                 Session["GIANGVIEN"] = GIANGVIEN;
                 HoTen.InnerText = GIANGVIEN.TENGV == null || GIANGVIEN.TENGV == "" ? "Chào Giảng viên" : "Chào " + GIANGVIEN.TENGV;
                 TableDangKySuDungPhong.Visible = true;
+                LinkButtonLogout.Visible = true;
             }
             catch (Exception ex)
             {
@@ -360,6 +368,19 @@ namespace QLTS_Web
                     GridViewTaiSanTheoPhong.DataSource = LISTTAISAN;
                     GridViewTaiSanTheoPhong.DataBind();
                 }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(string.Format("<script>alert('Lỗi: {0}');</script>", ex.Message));
+            }
+        }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session.Abandon();
+                Response.Redirect("Default.aspx");
             }
             catch (Exception ex)
             {
