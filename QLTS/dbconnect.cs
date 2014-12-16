@@ -11,7 +11,7 @@ namespace QLTS
 
         //Cấu hình gửi mail
         public static string smtp_host = "smtp.gmail.com";
-        public static int smtp_port = 465;
+        public static int smtp_port = 25;
         public static bool smtp_usessl = true;
         public static string sender_email = "nguyenthiquynh.1112@gmail.com";
         public static string sender_password = "chuotyeugao";

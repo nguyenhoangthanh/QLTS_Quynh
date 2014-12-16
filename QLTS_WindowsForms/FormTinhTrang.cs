@@ -113,15 +113,15 @@ namespace QLTS_WindowsForms
                 {
                     if (!textBoxTen.Text.Trim().Equals(""))
                     {
-                        bizTINHTRANG biz = dalTINHTRANG.getbyvalue(textBoxTen.Text.Trim());
+                        TINHTRANG = new bizTINHTRANG();
+                        TINHTRANG.VALUE = textBoxTen.Text;
+                        TINHTRANG.KEY = helpper.KEY(TINHTRANG.VALUE);
+                        bizTINHTRANG biz = dalTINHTRANG.getbykey(TINHTRANG.KEY);
                         if (biz != null)
                         {
                             MessageBox.Show("Trạng thái đã tồn tại");
                             return;
                         }
-                        TINHTRANG = new bizTINHTRANG();
-                        TINHTRANG.VALUE = textBoxTen.Text;
-                        TINHTRANG.KEY = helpper.KEY(TINHTRANG.VALUE);
                         TINHTRANG.MOTA = textBoxMoTa.Text;
                         if (dalTINHTRANG.them(TINHTRANG))
                         {

@@ -125,7 +125,7 @@ namespace QLTS.DAL
             return result;
         }
 
-        public static bizTINHTRANG getbyvalue(string VALUE)
+        public static bizTINHTRANG getbykey(string KEY)
         {
             bizTINHTRANG result = new bizTINHTRANG();
             SqlConnection conn = new SqlConnection(dbconnect.cnstring);
@@ -137,7 +137,7 @@ namespace QLTS.DAL
                 conn.Open();
 
                 // 3. Pass the connection to a command object
-                SqlCommand cmd = new SqlCommand(string.Format("select * from TINHTRANG where VALUE=N'{0}'", VALUE), conn);
+                SqlCommand cmd = new SqlCommand(string.Format("select * from TINHTRANG where [KEY]=N'{0}'", KEY), conn);
 
                 // get query results
                 rdr = cmd.ExecuteReader();

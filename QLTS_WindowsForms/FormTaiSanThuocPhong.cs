@@ -21,7 +21,7 @@ namespace QLTS_WindowsForms
             InitializeComponent();
             DanhSachPhong();
         }
-        private void DanhSachPhong(bizPHONG PHONG = null)
+        private void DanhSachPhong(bizPHONG PHONG = null, bizCTTAISAN _CTTAISAN = null)
         {
             try
             {
@@ -34,9 +34,7 @@ namespace QLTS_WindowsForms
 
                 listBoxPhong.DataSource = ListPhongCustom.ToList();
                 listBoxPhong.DisplayMember = "TENPHONG";
-                listBoxPhong.ValueMember = "ID";                
-
-                List<bizCTTAISAN> ListCTTAISAN = new List<bizCTTAISAN>();
+                listBoxPhong.ValueMember = "ID";
                 if (PHONG == null)
                 {
                     IDPHONG = ListPhong.FirstOrDefault().ID;
@@ -45,8 +43,17 @@ namespace QLTS_WindowsForms
                 {
                     IDPHONG = PHONG.ID;
                 }
-                ListCTTAISAN = dalCTTAISAN.TaiSan(IDPHONG);
-
+                LoadDanhSachTaiSanCuaPhong(IDPHONG, _CTTAISAN);
+            }
+            catch { }
+        }
+        public void LoadDanhSachTaiSanCuaPhong(int IDPHONG, bizCTTAISAN _CTTAISAN = null)
+        {
+            try
+            {
+                listBoxPhong.SelectedValue = IDPHONG;
+                listBoxPhong.Focus();
+                List<bizCTTAISAN> ListCTTAISAN = dalCTTAISAN.TaiSan(IDPHONG);
                 var ListTAISAN = ListCTTAISAN.Select(item => new
                 {
                     ID = item.ID,
@@ -66,10 +73,20 @@ namespace QLTS_WindowsForms
                 }
                 else
                 {
-                    IDCTTAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    if (_CTTAISAN != null)
+                    {
+                        int index = (from r in dataGridView.Rows.Cast<DataGridViewRow>()
+                                     where Int32.Parse(r.Cells["ID"].Value.ToString()) == _CTTAISAN.ID
+                                     select r.Index).First();
+                        dataGridView.CurrentCell = dataGridView.Rows[index].Cells[1];
+                        IDCTTAISAN = _CTTAISAN.ID;
+                    }
+                    else
+                    {
+                        IDCTTAISAN = Int32.Parse(dataGridView.Rows[0].Cells["ID"].Value.ToString());
+                    }
                     EnableButton();
                 }
-
             }
             catch { }
         }
@@ -118,7 +135,7 @@ namespace QLTS_WindowsForms
 
         public void EnableButton(bool Allow = true)
         {
-            buttonChuyenTaiSan.Enabled = buttonChuyenTinhTrang.Enabled = buttonSua.Enabled = buttonXoa.Enabled = buttonThanhLy.Enabled = Allow;
+            buttonChuyenTaiSan.Enabled = buttonChuyenTinhTrang.Enabled = buttonSua.Enabled = buttonXoa.Enabled = Allow;
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
@@ -147,7 +164,7 @@ namespace QLTS_WindowsForms
             frm.ShowDialog();
             if (frm._CAPNHAT == true)
             {
-                DanhSachPhong(frm._PHONG);
+                DanhSachPhong(frm._PHONG, frm._CTTAISAN);
                 CTTAISAN = frm._CTTAISAN;
             }
         }
@@ -158,7 +175,7 @@ namespace QLTS_WindowsForms
             frm.ShowDialog();
             if (frm._CAPNHAT == true)
             {
-                DanhSachPhong(frm._PHONG);
+                DanhSachPhong(frm._PHONG, frm._CTTAISAN);
                 CTTAISAN = frm._CTTAISAN;
             }
         }
@@ -169,7 +186,7 @@ namespace QLTS_WindowsForms
             frm.ShowDialog();
             if (frm._CAPNHAT == true)
             {
-                DanhSachPhong(frm._PHONG);
+                DanhSachPhong(frm._PHONG, frm._CTTAISAN);
                 CTTAISAN = frm._CTTAISAN;
             }
         }
@@ -187,7 +204,7 @@ namespace QLTS_WindowsForms
                         LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã loại bỏ tài sản [{1}] ra khỏi phòng [{2}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, CTTAISAN.TAISAN.TENTAISAN, CTTAISAN.PHONG.TENPHONG);
                         dalLOGTAISAN.them(LOGTAISAN);
                         MessageBox.Show("Loại bỏ tài sản ra khỏi phòng thành công");
-                        DanhSachPhong();
+                        DanhSachPhong(CTTAISAN.PHONG);
                     }
                     else
                     {

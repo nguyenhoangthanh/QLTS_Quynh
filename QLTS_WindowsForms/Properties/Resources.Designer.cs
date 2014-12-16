@@ -63,6 +63,16 @@ namespace QLTS_WindowsForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alert_icon {
+            get {
+                object obj = ResourceManager.GetObject("alert-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bargraph_32px {
             get {
                 object obj = ResourceManager.GetObject("bargraph_32px", resourceCulture);

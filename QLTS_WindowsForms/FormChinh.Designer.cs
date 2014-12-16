@@ -81,10 +81,10 @@
             // 
             this.labelQuanTriVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.labelQuanTriVien.ForeColor = System.Drawing.Color.White;
-            this.labelQuanTriVien.Location = new System.Drawing.Point(675, 27);
+            this.labelQuanTriVien.Location = new System.Drawing.Point(316, 27);
             this.labelQuanTriVien.Name = "labelQuanTriVien";
             this.labelQuanTriVien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelQuanTriVien.Size = new System.Drawing.Size(249, 37);
+            this.labelQuanTriVien.Size = new System.Drawing.Size(608, 37);
             this.labelQuanTriVien.TabIndex = 1;
             this.labelQuanTriVien.Text = "Nguyễn Thị Quỳnh";
             // 
@@ -151,7 +151,7 @@
             this.buttonTINHTRANG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTINHTRANG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonTINHTRANG.ForeColor = System.Drawing.Color.White;
-            this.buttonTINHTRANG.Image = global::QLTS_WindowsForms.Properties.Resources.images;
+            this.buttonTINHTRANG.Image = global::QLTS_WindowsForms.Properties.Resources.alert_icon;
             this.buttonTINHTRANG.Location = new System.Drawing.Point(461, 348);
             this.buttonTINHTRANG.Name = "buttonTINHTRANG";
             this.buttonTINHTRANG.Size = new System.Drawing.Size(122, 125);
@@ -231,7 +231,7 @@
             // 
             // buttonLOAITAISAN
             // 
-            this.buttonLOAITAISAN.BackColor = System.Drawing.Color.Yellow;
+            this.buttonLOAITAISAN.BackColor = System.Drawing.Color.Olive;
             this.buttonLOAITAISAN.FlatAppearance.BorderSize = 0;
             this.buttonLOAITAISAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLOAITAISAN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -316,7 +316,7 @@
             // 
             // buttonCOSO
             // 
-            this.buttonCOSO.BackColor = System.Drawing.Color.SkyBlue;
+            this.buttonCOSO.BackColor = System.Drawing.Color.DarkCyan;
             this.buttonCOSO.FlatAppearance.BorderSize = 0;
             this.buttonCOSO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCOSO.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));

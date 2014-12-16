@@ -226,5 +226,43 @@ namespace QLTS.DAL
 
             return true;
         }
+
+        public static bizCTTAISAN KiemTra(bizPHONG PHONG, bizTAISAN TAISAN, bizTINHTRANG TINHTRANG)
+        {
+            bizCTTAISAN result = new bizCTTAISAN();
+            SqlConnection conn = new SqlConnection(dbconnect.cnstring);
+            SqlDataReader rdr = null;
+
+            try
+            {
+                // 2. Open the connection
+                conn.Open();
+
+                // 3. Pass the connection to a command object
+                SqlCommand cmd = new SqlCommand(string.Format("SELECT * FROM CTTAISAN WHERE PHONG_ID={0} AND TAISAN_ID={1} AND TINHTRANG_ID={2}", PHONG.ID, TAISAN.ID, TINHTRANG.ID), conn);
+
+                // get query results
+                rdr = cmd.ExecuteReader();
+                rdr.Read();
+                result = new bizCTTAISAN(Int32.Parse(rdr["ID"].ToString()), DateTime.Parse(rdr["NGAY"].ToString()), Int32.Parse(rdr["SOLUONG"].ToString()), PHONG, TAISAN, TINHTRANG, rdr["SUBID"].ToString(), rdr["MOTA"].ToString(), DateTime.Parse(rdr["NGAYTAO"].ToString()), DateTime.Parse(rdr["NGAYSUA"].ToString()));
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return result;
+        }
     }
 }
