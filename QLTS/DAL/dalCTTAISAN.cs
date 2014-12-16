@@ -227,7 +227,7 @@ namespace QLTS.DAL
             return true;
         }
 
-        public static bizCTTAISAN KiemTra(bizPHONG PHONG, bizTAISAN TAISAN, bizTINHTRANG TINHTRANG)
+        public static bizCTTAISAN KiemTra(bizPHONG PHONG, bizTAISAN TAISAN, bizTINHTRANG TINHTRANG, int IDCTTAISAN = -1)
         {
             bizCTTAISAN result = new bizCTTAISAN();
             SqlConnection conn = new SqlConnection(dbconnect.cnstring);
@@ -241,6 +241,10 @@ namespace QLTS.DAL
                 // 3. Pass the connection to a command object
                 SqlCommand cmd = new SqlCommand(string.Format("SELECT * FROM CTTAISAN WHERE PHONG_ID={0} AND TAISAN_ID={1} AND TINHTRANG_ID={2}", PHONG.ID, TAISAN.ID, TINHTRANG.ID), conn);
 
+                if (IDCTTAISAN > 0)
+                {
+                    cmd = new SqlCommand(string.Format("SELECT * FROM CTTAISAN WHERE PHONG_ID={0} AND TAISAN_ID={1} AND TINHTRANG_ID={2} AND ID<>{3}", PHONG.ID, TAISAN.ID, TINHTRANG.ID, IDCTTAISAN), conn);
+                }
                 // get query results
                 rdr = cmd.ExecuteReader();
                 rdr.Read();

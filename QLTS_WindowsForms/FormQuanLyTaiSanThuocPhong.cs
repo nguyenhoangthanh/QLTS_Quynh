@@ -354,7 +354,7 @@ namespace QLTS_WindowsForms
 
                         CTTAISAN.MOTA = textBoxMoTa.Text;
 
-                        CTTAISAN_TEMP = dalCTTAISAN.KiemTra(CTTAISAN.PHONG, TAISANMOI, TINHTRANGMOI);
+                        CTTAISAN_TEMP = dalCTTAISAN.KiemTra(CTTAISAN.PHONG, TAISANMOI, TINHTRANGMOI, CTTAISAN.ID);
                         if (SOLUONGMOI == SOLUONGCU)
                         {
                             if (CTTAISAN_TEMP == null)
@@ -401,32 +401,18 @@ namespace QLTS_WindowsForms
                             int SOLUONGCONLAI = SOLUONGCU - SOLUONGMOI;
                             if (CTTAISAN_TEMP == null)
                             {
-                                bizCTTAISAN CTTAISANMOI = new bizCTTAISAN();
-                                CTTAISANMOI.NGAY = CTTAISAN.NGAY;
-                                CTTAISANMOI.SOLUONG = SOLUONGMOI;
-                                CTTAISANMOI.PHONG = CTTAISAN.PHONG;
-                                CTTAISANMOI.TAISAN = TAISANMOI;
-                                CTTAISANMOI.TINHTRANG = TINHTRANGMOI;
-                                CTTAISANMOI.SUBID = CTTAISAN.SUBID;
-                                CTTAISANMOI.MOTA = CTTAISAN.MOTA;
-                                if (dalCTTAISAN.them(CTTAISANMOI))
+                                CTTAISAN.SOLUONG = SOLUONGMOI;
+                                CTTAISAN.TAISAN = TAISANMOI;
+                                CTTAISAN.TINHTRANG = TINHTRANGMOI;
+                                if (dalCTTAISAN.sua(CTTAISAN))
                                 {
-                                    CTTAISAN.SOLUONG = SOLUONGCONLAI;
-                                    if (dalCTTAISAN.sua(CTTAISAN))
-                                    {
-                                        bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
-                                        LOGTAISAN.PHONG = CTTAISAN_TEMP.PHONG;
-                                        LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã cập nhật tài sản [{1}] của phòng [{2}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, TAISANCU.TENTAISAN, PHONGCU.TENPHONG);
-                                        dalLOGTAISAN.them(LOGTAISAN);
-                                        dalCTTAISAN.xoa(CTTAISAN);
-                                        MessageBox.Show("Cập nhật tài sản thành công");
-                                        CAPNHAT = true;
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Có lỗi trong khi cập nhật tài sản!");
-                                    }
+                                    bizLOGTAISAN LOGTAISAN = new bizLOGTAISAN();
+                                    LOGTAISAN.PHONG = CTTAISAN.PHONG;
+                                    LOGTAISAN.MOTA = String.Format("Quản trị viên [{0}] đã cập nhật tài sản [{1}] của phòng [{2}]", dalQUANTRIVIEN.getbyid(Properties.Settings.Default.IDQUANTRIVIEN).TENQTVIEN, TAISANCU.TENTAISAN, PHONGCU.TENPHONG);
+                                    dalLOGTAISAN.them(LOGTAISAN);
+                                    MessageBox.Show("Cập nhật tài sản thành công");
+                                    CAPNHAT = true;
+                                    this.Close();
                                 }
                                 else
                                 {
